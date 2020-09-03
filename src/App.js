@@ -1,8 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import routers from "./routers";
 import "./sass/layout.scss";
+import "./sass/header.scss"
+import Header from "./components/Partials/Header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import routers from "./routers";
+import Footer from "./components/Partials/Footer";
 const App = () => {
   const showContentMenus = (routers) => {
     let result = null;
@@ -25,23 +28,13 @@ const App = () => {
   return (
     <Router>
       <div className='App'>
-      <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
-          </li>
-        </ul>
+        <Header />
         <Switch>{showContentMenus(routers)}</Switch>
+
+        <Footer />
       </div>
     </Router>
+
   );
 };
 

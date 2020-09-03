@@ -38,3 +38,6 @@ You will also see any lint errors in the console.
     
 ### Redux-saga
     - yarn add redux-saga
+
+### React icons
+    - yarn add react-icons

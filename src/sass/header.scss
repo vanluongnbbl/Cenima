@@ -1,0 +1,123 @@
+@import "variables";
+
+.header {
+    background-color: $colorBlack;
+    position: relative;
+    padding: 15px 30px;
+
+    &__link,
+    label {
+        color: $colorWhite;
+    }
+    &__link:hover {
+        opacity: 0.8;
+    }
+
+    &__login-register {
+        position: absolute;
+        top: 26px;
+        right: 30px;
+
+        .item {
+            margin-right: 10px;
+            border: 1px solid #e1e1e1;
+            padding: 7px 15px;
+            border-radius: 5px;
+        }
+
+        .item:hover {
+            background-color: #3737a7;
+        }
+    }
+
+    .wrap-search {
+        display: flex;
+        align-items: center;
+
+        form {
+            margin-left: 100px;
+
+            #search {
+                padding: 8px 15px;
+                width: 300px;
+                border: none;
+                border-radius: 5px;
+                outline: none;
+                margin-right: 8px;
+            }
+
+            label {
+                border: 1px solid #e1e1e1;
+                position: relative;
+                top: 2px;
+                padding: 4px 15px;
+                border-radius: 5px;
+                background-color: orange;
+                cursor: pointer;
+            }
+
+            label:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .logo-cenima {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .logout {
+        display: none;
+    }
+}
+
+.footer {
+    background-color: $colorBlack;
+    color: $colorWhite;
+    padding: 40px 0px 20px;
+
+    a {
+        color: $colorWhite;
+    }
+
+    a:hover {
+        color: whitesmoke;
+        opacity: 0.8;
+    }
+
+    &__main {
+        padding-bottom: 20px;
+        .para {
+            text-justify: auto;
+        }
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: #89c441;
+    }
+
+    &__item {
+        margin-bottom: 5px;
+    }
+
+    &__social {
+        display: flex;
+        &__item {
+            margin-right: 10px;
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid #e1e1e1;
+        padding-top: 20px;
+        text-align: center;
+    }
+}

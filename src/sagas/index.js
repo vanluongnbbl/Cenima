@@ -26,10 +26,10 @@ function* loginUserSaga({ payload }) {
   const { userObj } = payload;
   yield put(showLoading());
   const resp = yield call(postLogin, userObj);
-  const { config, data, status } = resp;
+  const { data, status } = resp;
   if (status === STATUS_CODE.SUCCESS) {
     Cookie.set("accessToken", data.accessToken);
-    yield put(userLoginSuccess(config.data));
+    yield put(userLoginSuccess(userObj));
   } else {
     yield put(userLoginFailed(data));
   }
@@ -41,10 +41,10 @@ function* registerUserSaga({ payload }) {
   const { userObj } = payload;
   yield put(showLoading());
   const resp = yield call(postRegister, userObj);
-  const { config, data, status } = resp;
+  const { data, status } = resp;
   if (status === STATUS_CODE.CREATED) {
     Cookie.set("accessToken", data.accessToken);
-    yield put(userRegisterSuccess(config.data));
+    yield put(userRegisterSuccess(userObj));
   } else {
     yield put(userRegisterFailed(data));
   }

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import * as authActions from "../../actions/auth";
 import { useDispatch } from "react-redux";
+import "../../sass/register.scss";
 
-const Register = () => {
+const Register = (props) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -46,14 +47,15 @@ const Register = () => {
         gender,
       })
     );
+    props.history.push("/");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="register" onSubmit={handleSubmit}>
       <label htmlFor='name'>Name</label>
       <input
         name='name'
-        placeholder='Email'
+        placeholder='Name'
         type='text'
         id='name'
         value={name}
@@ -117,7 +119,7 @@ const Register = () => {
       <br />
 
       <label htmlFor="Male">Gender</label>
-      <label htmlFor="Male">
+      <label htmlFor="Male" className="gender">
       <input
         name='gender'
         type='radio'
@@ -128,7 +130,7 @@ const Register = () => {
       /> Male
       </label>
       <br />
-      <label htmlFor="Female">
+      <label htmlFor="Female" className="gender">
       <input
         name='gender'
         type='radio'

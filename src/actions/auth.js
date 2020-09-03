@@ -6,21 +6,20 @@ export const userLogin = (userObj) => {
     type: authActions.LOGIN_USER,
     payload: {
       userObj,
-    }
-  };
-};
-
-export const userLoginSuccess = userObj => {
-
-  return {
-    type: authActions.LOGIN_USER_SUCCESS,
-    payload: {
-      userObj,
     },
   };
 };
 
-export const userLoginFailed = error => {
+export const userLoginSuccess = (data) => {
+  return {
+    type: authActions.LOGIN_USER_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+
+export const userLoginFailed = (error) => {
   return {
     type: authActions.LOGIN_USER_FAILED,
     payload: {
@@ -34,20 +33,20 @@ export const userRegister = (userObj) => {
     type: authActions.REGISTER_USER,
     payload: {
       userObj,
-    }
-  };
-};
-
-export const userRegisterSuccess = userObj => {
-  return {
-    type: authActions.REGISTER_USER_SUCCESS,
-    payload: {
-      userObj,
     },
   };
 };
 
-export const userRegisterFailed = error => {
+export const userRegisterSuccess = (data) => {
+  return {
+    type: authActions.REGISTER_USER_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+
+export const userRegisterFailed = (error) => {
   return {
     type: authActions.REGISTER_USER_FAILED,
     payload: {
@@ -69,5 +68,5 @@ export const userLogout = () => {
 export const userLogoutSuccess = () => {
   return {
     type: authActions.LOGOUT_USER_SUCCESS,
-  }
-}
+  };
+};

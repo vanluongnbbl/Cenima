@@ -41,3 +41,6 @@ You will also see any lint errors in the console.
 
 ### React icons
     - yarn add react-icons
+
+### React-toastify
+    - yarn add react-toastify

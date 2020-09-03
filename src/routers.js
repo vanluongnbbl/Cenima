@@ -18,35 +18,35 @@ const routers = [
   {
     path: "/login",
     exact: false,
-    main: ({ location }) => <Login location={location} />,
+    main: ({ location, history }) => <Login location={location} history={history} />,
   },
   {
     path: "/register",
     exact: false,
-    main: ({ location }) => <Register location={location} />,
+    main: ({ location, history }) => <Register location={location} history={history} />,
   },
   {
     path: "/logout",
     exact: false,
-    main: ({ location }) => <Logout location={location} />,
+    main: ({ location, history }) => <Logout location={location} history={history} />,
   }
   ,
   {
     path: "/movies",
     exact: false,
-    main: ({ location }) => <Movies location={location} />,
+    main: ({ location, history }) => <Movies location={location} history={history} />,
   }
   ,
   {
     path: "/theaters",
     exact: false,
-    main: ({ location }) => <Theaters location={location} />,
+    main: ({ location, history }) => <Theaters location={location} history={history} />,
   }
   ,
   {
     path: "/membership",
     exact: false,
-    main: ({ location }) => <Membership location={location} />,
+    main: ({ location, history }) => <Membership location={location} history={history} />,
   },
   {
     path: "",

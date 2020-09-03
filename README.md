@@ -12,8 +12,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### Node sass
-    - yarn add node sass
+### Node-sass
+    - yarn add node-sass
 
 ### Axios
     - yarn add axios
@@ -32,3 +32,9 @@ You will also see any lint errors in the console.
 
 ### Redux-Devtools-Extension
     - yarn add redux-devtools-extension
+
+### Js-cookie
+    - yarn add js-cookie
+    
+### Redux-saga
+    - yarn add redux-saga

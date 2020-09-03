@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "email": "admin@admin",
+      "password": "$2a$10$WWWnGW13.EyM1lOqel4bTuwZBb43.GBSCLA556SkQaeXUIRPcwOqW",
+      "name": "React JS",
+      "phone": "0972093127",
+      "region": "hanoi",
+      "birth": "1998-11-27",
+      "gender": "Male",
+      "id": 1
+    }
+  ]
+}

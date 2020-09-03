@@ -10,6 +10,18 @@ function Header() {
             <div className="wrap-search">
                 <Link className="header__link logo-cenima" to="/">Cenima</Link>
 
+                <div className="menu">
+                    <div className="menu__item">
+                        <Link to="/movies">Movies</Link>
+                    </div>
+                    <div className="menu__item">
+                        <Link to="/theaters">Theaters</Link>
+                    </div>
+                    <div className="menu__item">
+                        <Link to="/membership">Membership</Link>
+                    </div>
+                </div>
+
                 <form>
                     <input tpye="search" id="search" name="search" placeholder="Search movies, theaters, ..." />
                     <label htmlFor="search" >Search</label>

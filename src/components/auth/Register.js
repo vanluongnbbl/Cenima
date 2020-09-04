@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as authActions from "../../actions/auth";
 import { useDispatch } from "react-redux";
-import "../../sass/register.scss";
+import '../../sass/register.scss'
 
 const Register = (props) => {
   const [name, setName] = useState("");
@@ -120,24 +120,24 @@ const Register = (props) => {
 
       <label htmlFor="Male">Gender</label>
       <label htmlFor="Male" className="gender">
-      <input
-        name='gender'
-        type='radio'
-        value='Male'
-        id="Male"
-        checked={gender === "Male"}
-        onChange={handleChange}
-      /> Male
+        <input
+          name='gender'
+          type='radio'
+          value='Male'
+          id="Male"
+          checked={gender === "Male"}
+          onChange={handleChange}
+        /> Male
       </label>
       <br />
       <label htmlFor="Female" className="gender">
-      <input
-        name='gender'
-        type='radio'
-        value='Female'
-        id="Female"
-        onChange={handleChange}
-      /> Female
+        <input
+          name='gender'
+          type='radio'
+          value='Female'
+          id="Female"
+          onChange={handleChange}
+        /> Female
       </label>
       <br />
 

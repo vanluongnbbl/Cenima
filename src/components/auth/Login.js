@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as authActions from "../../actions/auth";
-import "../../sass/login.scss";
+import '../../sass/login.scss'
 
 const Login = (props) => {
   const [email, setEmail] = useState("");

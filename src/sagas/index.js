@@ -25,13 +25,15 @@ import Cookie from "js-cookie";
 function* loginUserSaga({ payload }) {
   const { userObj } = payload;
   yield put(showLoading());
-  const resp = yield call(postLogin, userObj);
-  const { data, status } = resp;
-  if (status === STATUS_CODE.SUCCESS) {
-    Cookie.set("accessToken", data.accessToken);
-    yield put(userLoginSuccess(userObj));
-  } else {
-    yield put(userLoginFailed(data));
+  try {
+    const resp = yield call(postLogin, userObj);
+    const { data, status } = resp;
+    if (status === STATUS_CODE.SUCCESS) {
+      Cookie.set("accessToken", data.accessToken);
+      yield put(userLoginSuccess(userObj));
+    }
+  } catch (error) {
+    yield put(userLoginFailed(error));
   }
   yield delay(1000);
   yield put(hideLoading());
@@ -40,13 +42,15 @@ function* loginUserSaga({ payload }) {
 function* registerUserSaga({ payload }) {
   const { userObj } = payload;
   yield put(showLoading());
-  const resp = yield call(postRegister, userObj);
-  const { data, status } = resp;
-  if (status === STATUS_CODE.CREATED) {
-    Cookie.set("accessToken", data.accessToken);
-    yield put(userRegisterSuccess(userObj));
-  } else {
-    yield put(userRegisterFailed(data));
+  try {
+    const resp = yield call(postRegister, userObj);
+    const { data, status } = resp;
+    if (status === STATUS_CODE.CREATED) {
+      Cookie.set("accessToken", data.accessToken);
+      yield put(userRegisterSuccess(userObj));
+    }
+  } catch (error) {
+    yield put(userRegisterFailed(error));
   }
   yield delay(1000);
   yield put(hideLoading());

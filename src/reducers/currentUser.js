@@ -21,8 +21,7 @@ export default function reducer(state = initialState, action) {
       return { ...state };
     }
     case authActions.REGISTER_USER: {
-      const { userObj } = action.payload;
-      return { ...state, currentUser: userObj };
+      return { ...state };
     }
     case authActions.REGISTER_USER_SUCCESS: {
       const { data } = action.payload;

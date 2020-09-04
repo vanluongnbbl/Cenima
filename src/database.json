@@ -20,5 +20,27 @@
       "gender": "Female",
       "id": 2
     }
+  ],
+  "sliderbars": [
+    {
+      "id": 1,
+      "hinhAnh": "https://www.upsieutoc.com/images/2020/09/05/baner1.jpg",
+    },
+    {
+      "id": 2,
+      "hinhAnh": "https://www.upsieutoc.com/images/2020/09/05/baner2.jpg",
+    },
+    {
+      "id": 3,
+      "hinhAnh": "https://www.upsieutoc.com/images/2020/09/05/baner3.jpg",
+    },
+    {
+      "id": 4,
+      "hinhAnh": "https://www.upsieutoc.com/images/2020/09/05/baner4.jpg",
+    },
+    {
+      "id": 5,
+      "hinhAnh": "https://www.upsieutoc.com/images/2020/09/05/baner5.jpg",
+    }
   ]
 }

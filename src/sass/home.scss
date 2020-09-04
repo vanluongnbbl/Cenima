@@ -1,0 +1,73 @@
+@import "mixins";
+
+.home {
+  .slideshow-container {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    .prev, .next {
+      @include customPosition(absolute, 50%, auto, 10, auto, auto, true);
+      @include customFont(30px, "RobotoBold");
+      cursor: pointer;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    .mySlides {
+      .bar {
+        height: 542px;
+        width: 100%;
+      }
+    }
+    .slideBarNone {
+      display: none;
+    }
+    .slideBarBlock {
+      display: block;
+    }
+  }
+  
+  .wrapperDot {
+    @include customPosition(relative, -20px, auto, 20, auto, auto, false);
+    text-align: center;
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .active, .dot:hover {
+      background-color: $colorGreen;
+    }
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+  }  
+}

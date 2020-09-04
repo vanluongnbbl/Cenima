@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import routers from "./routers";
 import Footer from "./components/Partials/Footer";
+import Loading from "./commons/loading";
 const App = () => {
   const showContentMenus = (routers) => {
     let result = null;
@@ -32,8 +33,8 @@ const App = () => {
       <div className='App'>
         <Header />
         <ToastContainer />
+        <Loading />
         <Switch>{showContentMenus(routers)}</Switch>
-
         <Footer />
       </div>
     </Router>

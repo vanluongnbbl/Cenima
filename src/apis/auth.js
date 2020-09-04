@@ -13,3 +13,8 @@ export const postLogin = (userObj) => {
 export const postRegister = userObj => {
   return axiosService.post(`${API_ENDPOINT}/${url}/register`, userObj);
 };
+
+// http://localhost:3000/sliderbars METHOD: GET
+export const getSliderBar = userObj => {
+  return axiosService.get(`${API_ENDPOINT}/sliderbars`);
+};

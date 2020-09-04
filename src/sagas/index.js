@@ -5,10 +5,12 @@ import {
   userRegisterSuccess,
   userRegisterFailed,
 } from "../actions/auth";
+import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
 import { hideLoading, showLoading } from "../actions/ui";
-import { postLogin, postRegister } from "../apis/auth";
+import { postLogin, postRegister, getSliderBar } from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
+import * as sliderBarActions from "../constants/sliderbars";
 import Cookie from "js-cookie";
 
 /**
@@ -56,9 +58,25 @@ function* registerUserSaga({ payload }) {
   yield put(hideLoading());
 }
 
+function* sliderBarSaga () {
+  yield put(showLoading());
+  try {
+    const resp = yield call(getSliderBar);
+    const { data, status } = resp;
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(sliderBarSuccess(data));
+    }
+  } catch (error) {
+    yield put(sliderBarFailed(error));
+  }
+  yield delay(1000);
+  yield put(hideLoading());
+}
+
 function* rootSaga() {
   yield takeLatest(authTypes.LOGIN_USER, loginUserSaga);
   yield takeLatest(authTypes.REGISTER_USER, registerUserSaga);
+  yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
 }
 
 export default rootSaga;

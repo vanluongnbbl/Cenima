@@ -6,11 +6,13 @@ import {
   userRegisterFailed,
 } from "../actions/auth";
 import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
+import { moviesSuccess, moviesFailed } from "../actions/movies";
 import { hideLoading, showLoading } from "../actions/ui";
-import { postLogin, postRegister, getSliderBar } from "../apis/auth";
+import { postLogin, postRegister, getSliderBar, getMovie } from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
+import * as movieActions from "../constants/movies";
 import Cookie from "js-cookie";
 
 /**
@@ -73,10 +75,26 @@ function* sliderBarSaga () {
   yield put(hideLoading());
 }
 
+function* movieSaga () {
+  yield put(showLoading());
+  try {
+    const resp = yield call(getMovie);
+    const { data, status } = resp;
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(moviesSuccess(data));
+    }
+  } catch (error) {
+    yield put(moviesFailed(error));
+  }
+  yield delay(1000);
+  yield put(hideLoading());
+}
+
 function* rootSaga() {
   yield takeLatest(authTypes.LOGIN_USER, loginUserSaga);
   yield takeLatest(authTypes.REGISTER_USER, registerUserSaga);
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
+  yield takeLatest(movieActions.MOVIE, movieSaga);
 }
 
 export default rootSaga;

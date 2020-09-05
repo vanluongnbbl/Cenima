@@ -15,6 +15,11 @@ export const postRegister = userObj => {
 };
 
 // http://localhost:3000/sliderbars METHOD: GET
-export const getSliderBar = userObj => {
+export const getSliderBar = () => {
   return axiosService.get(`${API_ENDPOINT}/sliderbars`);
+};
+
+// http://localhost:3000/movies METHOD: GET
+export const getMovie = () => {
+  return axiosService.get(`${API_ENDPOINT}/movies`);
 };

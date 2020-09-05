@@ -3,6 +3,8 @@ import { toastError, toastSuccess } from "../commons/toast";
 
 const initialState = {
   currentUser: null,
+  accounts: null,
+  account: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -35,7 +37,21 @@ export default function reducer(state = initialState, action) {
     }
     case authActions.LOGOUT_USER_SUCCESS: {
       toastSuccess("Logout success.");
-      return { ...state, currentUser: null };
+      return { ...state, currentUser: null, account: null };
+    }
+    case authActions.ACCOUNT: {
+      return { ...state };
+    }
+    case authActions.ACCOUNT_SUCCESS: {
+      const { data } = action.payload;
+      return { ...state, accounts: data };
+    }
+    case authActions.ACCOUNT_FAILED: {
+      return { ...state };
+    }
+    case authActions.ACCOUNT_INFORMATION: {
+      const { data } = action.payload;
+      return { ...state, account: data };
     }
     default:
       return state;

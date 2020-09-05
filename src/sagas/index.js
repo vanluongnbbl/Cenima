@@ -4,18 +4,21 @@ import {
   userLoginFailed,
   userRegisterSuccess,
   userRegisterFailed,
+  accountSuccess,
+  accountFailed
 } from "../actions/auth";
 import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
 import { moviesSuccess, moviesFailed } from "../actions/movies";
 import { promotionSuccess, promotionFailed } from "../actions/promotion"
 import { hideLoading, showLoading } from "../actions/ui";
-import { postLogin, postRegister, getSliderBar, getMovie, getPromotion } from "../apis/auth";
+import { postLogin, postRegister, getSliderBar, getMovie, getPromotion, getAccount } from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
 import * as movieActions from "../constants/movies";
 import * as promotionAction from '../constants/promotion'
 import Cookie from "js-cookie";
+import md5 from "md5";
 
 /**
  * B1: Thuc thi action 
@@ -47,6 +50,8 @@ function* loginUserSaga({ payload }) {
 
 function* registerUserSaga({ payload }) {
   const { userObj } = payload;
+  userObj.avatar = `http://gravatar.com/avatar/${md5(userObj.email)}?d=identicon`;
+  userObj.ngayTao = Date.now();
   yield put(showLoading());
   try {
     const resp = yield call(postRegister, userObj);
@@ -102,8 +107,18 @@ function* promotionSaga() {
   } catch (error) {
     yield put(promotionFailed(error));
   }
-  // yield delay(1000);
-  // yield put(hideLoading());
+}
+  
+function* accountSaga () {
+  try {
+    const resp = yield call(getAccount);
+    const { data, status } = resp;
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(accountSuccess(data));
+    }
+  } catch (error) {
+    yield put(accountFailed(error));
+  }
 }
 
 function* rootSaga() {
@@ -112,6 +127,7 @@ function* rootSaga() {
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
   yield takeLatest(movieActions.MOVIE, movieSaga);
   yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
+  yield takeLatest(authTypes.ACCOUNT, accountSaga);
 }
 
 export default rootSaga;

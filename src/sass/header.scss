@@ -35,9 +35,6 @@
     label {
         color: $colorWhite;
     }
-    &__link:hover {
-        opacity: 0.8;
-    }
 
     &__login-register {
         position: absolute;
@@ -55,7 +52,7 @@
         }
 
         .item:hover {
-            background-color: #3737a7;
+            background-color: $colorGreen;
         }
     }
 
@@ -95,7 +92,7 @@
     .logo-cenima {
         font-size: 2rem;
         font-weight: bold;
-        color: #89c441;
+        color: $colorGreen;
 
         img {
             height: 100%;

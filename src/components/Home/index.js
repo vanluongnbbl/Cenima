@@ -4,6 +4,7 @@ import * as movieActions from "../../actions/movies";
 import * as promotionAction from "../../actions/promotion";
 import * as sliderBarActions from "../../actions/sliderBars";
 import "../../sass/home.scss";
+import * as authActions from "../../actions/auth";
 
 const Home = () => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -12,6 +13,8 @@ const Home = () => {
   const promotionInfo = useSelector((state) => state.promotionReducer.promotions)
   const movies = useSelector((state) => state.movies.movies);
   const [movie, setMovie] = useState(movies);
+  const user = useSelector(state => state.currentUser.currentUser);
+  const accounts = useSelector(state => state.currentUser.accounts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +31,20 @@ const Home = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (movies) {
+      dispatch(authActions.account());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if(user && accounts) {
+      const result = [...accounts].filter(account => {
+        return account.email === user.email;
+      });
+      dispatch(authActions.accountInformation(result));
+    }
+  }, [user, accounts, dispatch]);
+
+  useEffect(() => {
+    if(movies) {
       const result = [...movies].filter((movie) => {
         if (tag === true) {
           return movie.trangThai === 1;

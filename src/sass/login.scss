@@ -1,7 +1,7 @@
 @import "mixins";
 
 form.login {
-  width: 70%;
+  width: 50%;
   margin:  50px auto;
   label {
     @include customFont(18px, "Roboto");

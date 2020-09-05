@@ -2,22 +2,26 @@
   "users": [
     {
       "email": "admin@admin",
-      "password": "$2a$10$WWWnGW13.EyM1lOqel4bTuwZBb43.GBSCLA556SkQaeXUIRPcwOqW",
-      "name": "React JS",
+      "password": "$2a$10$c4ArIcBpVrtqKa/21L4quOPh3lheRA6d.ZOcURGH7.xozH/czobv6",
+      "name": "admin",
       "phone": "0972093127",
-      "region": "hanoi",
+      "region": "Hà Nội",
       "birth": "1998-11-27",
       "gender": "Male",
+      "avatar": "http://gravatar.com/avatar/a3175a452c7a8fea80c62a198a40f6c9?d=identicon",
+      "ngayTao": 1599289521812,
       "id": 1
     },
     {
       "email": "ngothihuong@gmail.com",
-      "password": "$2a$10$ftf2u8AgD6cJ.WVH.ZZzXuIEV9nvIh6UYfkAYAHlThp0YlV0U0p8W",
+      "password": "$2a$10$uRDmWT1rZsHxbY6s66VdBOuztQNQvQOiG2Xn34zRwQ8.zB3WnigG2",
       "name": "Ngô Thị Hương",
       "phone": "0972093127",
-      "region": "Thái Bình",
+      "region": "Thái Bình ",
       "birth": "1998-05-29",
       "gender": "Female",
+      "avatar": "http://gravatar.com/avatar/1de9d8681a3a3311fe6e9f18500ecbfc?d=identicon",
+      "ngayTao": 1599293320832,
       "id": 2
     }
   ],

@@ -23,3 +23,8 @@ export const getSliderBar = () => {
 export const getMovie = () => {
   return axiosService.get(`${API_ENDPOINT}/movies`);
 };
+
+// http://localhost:3000/promotion METHOD: GET
+export const getPromotion = () => {
+  return axiosService.get(`${API_ENDPOINT}/promotion`)
+}

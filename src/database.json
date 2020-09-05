@@ -145,7 +145,8 @@
       "quocGia": "Mỹ",
       "moTa": "Được bao quanh bởi núi rừng bát ngát cùng những dòng suối chảy róc rách, Vương Quốc Xe Đạp là một thị trấn trong lành và rực rỡ màu sắc. Cuộc sống của những cư dân xe đạp ở đây vô cùng bình yên, cho đến một ngày động cơ xăng xuất hiện và mang đến mối đe doạ môi trường…. Chuyến phiêu lưu đáng yêu của những cô cậu xe đạp sẽ mang đến những giây phút  giải trí vui vẻ cho các bé và gia đình.",
       "id": 7
-    },{
+    },
+    {
       "tenPhim": "Định Mệnh Trong Mắt Anh - Fortuna's Eye",
       "soPhut": 110,
       "ngayKhoiChieu": 1562889600000,
@@ -297,6 +298,40 @@
       "quocGia": "Hồng Kông",
       "moTa": "Bộ phim live-action đầu tiên về thương hiệu cô bé tóc ngắn ưa phiêu lưu",
       "id": 24
+    }
+  ],
+  "promotion": [
+    {
+      "id": 1,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion1.jpg"
+    },
+    {
+      "id": 2,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion2.jpg"
+    },
+    {
+      "id": 3,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion3.jpg"
+    },
+    {
+      "id": 4,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion4.jpg"
+    },
+    {
+      "id": 5,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion5.jpg"
+    },
+    {
+      "id": 6,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion6.jpg"
+    },
+    {
+      "id": 7,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion7.jpg"
+    },
+    {
+      "id": 8,
+      "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion8.jpg"
     }
   ]
 }

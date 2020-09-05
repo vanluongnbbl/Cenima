@@ -7,12 +7,14 @@ import {
 } from "../actions/auth";
 import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
 import { moviesSuccess, moviesFailed } from "../actions/movies";
+import { promotionSuccess, promotionFailed } from "../actions/promotion"
 import { hideLoading, showLoading } from "../actions/ui";
-import { postLogin, postRegister, getSliderBar, getMovie } from "../apis/auth";
+import { postLogin, postRegister, getSliderBar, getMovie, getPromotion } from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
 import * as movieActions from "../constants/movies";
+import * as promotionAction from '../constants/promotion'
 import Cookie from "js-cookie";
 
 /**
@@ -60,7 +62,7 @@ function* registerUserSaga({ payload }) {
   yield put(hideLoading());
 }
 
-function* sliderBarSaga () {
+function* sliderBarSaga() {
   yield put(showLoading());
   try {
     const resp = yield call(getSliderBar);
@@ -75,7 +77,7 @@ function* sliderBarSaga () {
   yield put(hideLoading());
 }
 
-function* movieSaga () {
+function* movieSaga() {
   yield put(showLoading());
   try {
     const resp = yield call(getMovie);
@@ -90,11 +92,26 @@ function* movieSaga () {
   yield put(hideLoading());
 }
 
+function* promotionSaga() {
+  try {
+    const resp = yield call(getPromotion);
+    const { data, status } = resp;
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(promotionSuccess(data));
+    }
+  } catch (error) {
+    yield put(promotionFailed(error));
+  }
+  // yield delay(1000);
+  // yield put(hideLoading());
+}
+
 function* rootSaga() {
   yield takeLatest(authTypes.LOGIN_USER, loginUserSaga);
   yield takeLatest(authTypes.REGISTER_USER, registerUserSaga);
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
   yield takeLatest(movieActions.MOVIE, movieSaga);
+  yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
 }
 
 export default rootSaga;

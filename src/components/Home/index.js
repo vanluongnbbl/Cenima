@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as sliderBarActions from "../../actions/sliderBars";
 import * as movieActions from "../../actions/movies";
+import * as promotionAction from "../../actions/promotion";
+import * as sliderBarActions from "../../actions/sliderBars";
 import "../../sass/home.scss";
 
 const Home = () => {
   const [slideIndex, setSlideIndex] = useState(1);
   const [tag, setTag] = useState(true);
   const sliderBar = useSelector((state) => state.sliderBar.sliderBar);
+  const promotionInfo = useSelector((state) => state.promotionReducer.promotions)
   const movies = useSelector((state) => state.movies.movies);
   const [movie, setMovie] = useState(movies);
   const dispatch = useDispatch();
@@ -20,8 +22,13 @@ const Home = () => {
     dispatch(movieActions.movies());
   }, [dispatch]);
 
+
   useEffect(() => {
-    if(movies) {
+    dispatch(promotionAction.promotionRequest())
+  }, [dispatch])
+
+  useEffect(() => {
+    if (movies) {
       const result = [...movies].filter((movie) => {
         if (tag === true) {
           return movie.trangThai === 1;
@@ -93,7 +100,7 @@ const Home = () => {
               className='movie__image'
             />
             <div className='movie__name'>{movie[i].tenPhim}</div>
-            <span className='movie__btn'>Booking</span>
+            <div className="wrap-movie__btn"><span className='movie__btn'>Booking</span></div>
           </div>
         );
       }
@@ -115,6 +122,7 @@ const Home = () => {
 
   return (
     <div className='home'>
+
       <div className='slideshow-container'>
         {showBar(sliderBar, slideIndex)}
 
@@ -159,6 +167,32 @@ const Home = () => {
         </div>
         <div className="movies__btn">View More</div>
       </div>
+
+      <div className="promotion ">
+        <div className="container">
+          <span className="movies__header__tag ">Promotion Information</span>
+
+          <div className="row">
+            {
+              promotionInfo && promotionInfo.map((item, i) =>
+                <div className="col-12 col-sm-6 col-lg-3" key={i}>
+                  <div className="promotion__item">
+                    <img className="promotion__img" src={item.promotion_image} alt="promotion information" />
+                    <div className="wrap-promotion__btn">
+                      <div className="promotion__btn">Detail</div>
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+
+
+
+
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };

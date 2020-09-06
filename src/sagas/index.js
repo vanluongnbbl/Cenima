@@ -133,7 +133,9 @@ function* editAccountSaga({ payload }) {
       yield put(editAccountSuccess(account));
     }
   } catch (error) {
-    yield put(editAccountFailed(error));
+    if(error === "data is not iterable") {
+      yield put(editAccountFailed(error));
+    }
   }
   yield delay(1000);
   yield put(hideLoading());

@@ -34,7 +34,7 @@ const App = () => {
     <Router>
       <div className='App'>
         <Header />
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
         <Loading />
         <Switch>{showContentMenus(routers)}</Switch>
         <Footer />

@@ -9,6 +9,7 @@ import Movies from "./components/Menu/Movies/Movies";
 import Theaters from "./components/Menu/Theaters/Theaters";
 import Membership from "./components/Menu/Membership/Membership";
 import Information from "./components/account/Information";
+import EditAccount from "./components/account/editAccount";
 
 const routers = [
   {
@@ -63,6 +64,13 @@ const routers = [
     exact: false,
     main: ({ location, history }) => (
       <Information location={location} history={history} />
+    ),
+  },
+  {
+    path: "/editAccount",
+    exact: false,
+    main: ({ location, history }) => (
+      <EditAccount location={location} history={history} />
     ),
   },
   {

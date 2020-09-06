@@ -28,7 +28,13 @@ export const getMovie = () => {
 export const getPromotion = () => {
   return axiosService.get(`${API_ENDPOINT}/promotion`)
 }
+
 // http://localhost:3000/users METHOD: GET
 export const getAccount = () => {
     return axiosService.get(`${API_ENDPOINT}/users`);
+};
+
+// http://localhost:3000/users:id METHOD: PUT
+export const putEditAccount = (data) => {
+  return axiosService.put(`${API_ENDPOINT}/users/${data.id}`, data);
 };

@@ -1,4 +1,5 @@
 import * as authActions from "../constants/auth";
+import * as editAccountActions from "../constants/account";
 import { toastError, toastSuccess } from "../commons/toast";
 
 const initialState = {
@@ -52,6 +53,19 @@ export default function reducer(state = initialState, action) {
     case authActions.ACCOUNT_INFORMATION: {
       const { data } = action.payload;
       return { ...state, account: data };
+    }
+    case editAccountActions.EDIT_ACCOUNT: {
+      return { ...state };
+    }
+    case editAccountActions.EDIT_ACCOUNT_SUCCESS: {
+      const { data } = action.payload;
+      toastSuccess("Edit account success.");
+      return { ...state, account: [...data] };
+    }
+    case editAccountActions.EDIT_ACCOUNT_FAILED: {
+      const { error } = action.payload;
+      toastError(error);
+      return { ...state };
     }
     default:
       return state;

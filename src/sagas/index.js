@@ -5,18 +5,20 @@ import {
   userRegisterSuccess,
   userRegisterFailed,
   accountSuccess,
-  accountFailed
+  accountFailed,
 } from "../actions/auth";
 import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
 import { moviesSuccess, moviesFailed } from "../actions/movies";
+import { editAccountSuccess, editAccountFailed } from "../actions/account";
 import { promotionSuccess, promotionFailed } from "../actions/promotion"
 import { hideLoading, showLoading } from "../actions/ui";
-import { postLogin, postRegister, getSliderBar, getMovie, getPromotion, getAccount } from "../apis/auth";
+import { postLogin, postRegister, getSliderBar, getMovie, getPromotion, getAccount, putEditAccount } from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
 import * as movieActions from "../constants/movies";
-import * as promotionAction from '../constants/promotion'
+import * as promotionAction from '../constants/promotion';
+import * as editAccountActions from "../constants/account";
 import Cookie from "js-cookie";
 import md5 from "md5";
 
@@ -121,6 +123,22 @@ function* accountSaga () {
   }
 }
 
+function* editAccountSaga({ payload }) {
+  const { account } = payload;
+  yield put(showLoading());
+  try {
+    const resp = yield call(putEditAccount, account);
+    const { status } = resp;
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(editAccountSuccess(account));
+    }
+  } catch (error) {
+    yield put(editAccountFailed(error));
+  }
+  yield delay(1000);
+  yield put(hideLoading());
+}
+
 function* rootSaga() {
   yield takeLatest(authTypes.LOGIN_USER, loginUserSaga);
   yield takeLatest(authTypes.REGISTER_USER, registerUserSaga);
@@ -128,6 +146,7 @@ function* rootSaga() {
   yield takeLatest(movieActions.MOVIE, movieSaga);
   yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
   yield takeLatest(authTypes.ACCOUNT, accountSaga);
+  yield takeLatest(editAccountActions.EDIT_ACCOUNT, editAccountSaga);
 }
 
 export default rootSaga;

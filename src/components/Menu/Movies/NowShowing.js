@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../../../sass/movies.scss";
 import { useSelector, useDispatch } from 'react-redux';
 import * as movieActions from "../../../actions/movies";
+import BookingForm from './BookingForm';
 
 function NowShowing() {
     const [currentPage, setCurrentPage] = useState(1)
@@ -75,7 +76,6 @@ function NowShowing() {
                         }
 
                     </div>
-                    {/* end row */}
                 </div>
 
                 <nav>
@@ -92,6 +92,7 @@ function NowShowing() {
 
             </div>
 
+            <BookingForm />
         </div>
     )
 }

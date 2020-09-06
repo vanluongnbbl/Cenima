@@ -21,7 +21,7 @@ function Header() {
 
         <div className='menu'>
           <div className='menu__item movies'>
-            <Link to='/nowshowing'>Movies</Link>
+            <a>Movies</a>
             <div className="dropdown">
               <div className="dropdown__item">
                 <Link to='/nowshowing'>Now Showing</Link>

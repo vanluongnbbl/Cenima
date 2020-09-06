@@ -5,7 +5,8 @@ import NotFound from "./components/NotFount";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Logout from "./components/auth/Logout";
-import Movies from "./components/Menu/Movies/Movies";
+import NowShowing from "./components/Menu/Movies/NowShowing";
+import ComingSoon from "./components/Menu/Movies/ComingSoon";
 import Theaters from "./components/Menu/Theaters/Theaters";
 import Membership from "./components/Menu/Membership/Membership";
 import Information from "./components/account/Information";
@@ -39,10 +40,17 @@ const routers = [
     ),
   },
   {
-    path: "/movies",
+    path: "/nowshowing",
     exact: false,
     main: ({ location, history }) => (
-      <Movies location={location} history={history} />
+      <NowShowing location={location} history={history} />
+    ),
+  },
+  {
+    path: "/comingsoon",
+    exact: false,
+    main: ({ location, history }) => (
+      <ComingSoon location={location} history={history} />
     ),
   },
   {

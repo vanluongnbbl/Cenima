@@ -20,8 +20,16 @@ function Header() {
         </Link>
 
         <div className='menu'>
-          <div className='menu__item'>
-            <Link to='/movies'>Movies</Link>
+          <div className='menu__item movies'>
+            <Link to='/nowshowing'>Movies</Link>
+            <div className="dropdown">
+              <div className="dropdown__item">
+                <Link to='/nowshowing'>Now Showing</Link>
+              </div>
+              <div className="dropdown__item">
+                <Link to='/comingsoon'>Coming Soon</Link>
+              </div>
+            </div>
           </div>
           <div className='menu__item'>
             <Link to='/theaters'>Theaters</Link>
@@ -48,19 +56,19 @@ function Header() {
             Profile
           </Link>
         ) : (
-          <Link className='header__link item' to='/register'>
-            Register
-          </Link>
-        )}
+            <Link className='header__link item' to='/register'>
+              Register
+            </Link>
+          )}
         {currentUser ? (
           <Link className='header__link item' to='/logout' >
             Logout
           </Link>
         ) : (
-          <Link className='header__link item' to='/login' >
-            Login
-          </Link>
-        )}
+            <Link className='header__link item' to='/login' >
+              Login
+            </Link>
+          )}
       </div>
 
       <Link className='header__link logout' to='/logout'>

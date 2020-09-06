@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Movies() {
+function ComingSoon() {
     return (
         <div>
-            <h1>Movies</h1>
+            Commingsoon
         </div>
     )
 }
 
-export default Movies
+export default ComingSoon

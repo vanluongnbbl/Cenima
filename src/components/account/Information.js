@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "../../sass/account.scss";
-
 const Information = (props) => {
   const account = useSelector((state) => state.currentUser.account);
 

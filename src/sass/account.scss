@@ -1,13 +1,14 @@
 @import "./mixins.scss";
 
 .wrapper_i {
-  background: url(https://library.kissclipart.com/20190221/gje/kissclipart-december-clipart-projection-screens-cinema-film-3c9e1ff48905b199.png) no-repeat;
+  background: url(https://library.kissclipart.com/20190221/gje/kissclipart-december-clipart-projection-screens-cinema-film-3c9e1ff48905b199.png)
+    no-repeat;
   background-size: cover;
   padding: 50px;
   .information {
     width: 50%;
     margin: 50px auto;
-    padding: 20px;  
+    padding: 20px;
     background: transparent;
     &__avatar {
       position: relative;
@@ -52,4 +53,8 @@
       }
     }
   }
+}
+
+.wrapper_i ~ .footer {
+  margin: 0;
 }

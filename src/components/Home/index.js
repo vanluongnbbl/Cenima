@@ -31,11 +31,11 @@ const Home = () => {
   }, [dispatch])
 
   useEffect(() => {
-      dispatch(authActions.account());
+    dispatch(authActions.account());
   }, [dispatch]);
 
   useEffect(() => {
-    if(user && accounts) {
+    if (user && accounts) {
       const result = [...accounts].filter(account => {
         return account.email === user.email;
       });
@@ -44,7 +44,7 @@ const Home = () => {
   }, [user, accounts, dispatch]);
 
   useEffect(() => {
-    if(movies) {
+    if (movies) {
       const result = [...movies].filter((movie) => {
         if (tag === true) {
           return movie.trangThai === 1;

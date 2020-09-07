@@ -11,6 +11,7 @@ import Theaters from "./components/Menu/Theaters/Theaters";
 import Membership from "./components/Menu/Membership/Membership";
 import Information from "./components/account/Information";
 import EditAccount from "./components/account/editAccount";
+import BookingSeats from "./components/booking/BookingSeats";
 
 const routers = [
   {
@@ -79,6 +80,13 @@ const routers = [
     exact: false,
     main: ({ location, history }) => (
       <EditAccount location={location} history={history} />
+    ),
+  },
+  {
+    path: "/bookingSeats",
+    exact: false,
+    main: ({ location, history }) => (
+      <BookingSeats location={location} history={history} />
     ),
   },
   {

@@ -364,28 +364,249 @@
           "LoaiGhe": "Thuong",
           "GiaVe": 75000,
           "DaDat": false
-        }
-      ],
-      "id": 1,
-      "branchId": 1
-    },
-    {
-      "numberSeat": [
-        {
-          "MaGhe": "A01",
-          "LoaiGhe": "Thuong",
-          "GiaVe": 75000,
-          "DaDat": true
         },
         {
-          "MaGhe": "A02",
-          "LoaiGhe": "Thuong",
+          "MaGhe": "A03",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A04",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A05",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A06",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A07",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A08",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A09",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A10",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A11",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A12",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A13",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A14",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A15",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A16",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A17",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A18",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A19",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A20",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A21",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A22",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A23",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A24",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A25",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A26",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A27",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A28",
+          "GiaVe": 75000,
+          "DaDat": false
+        },{
+          "MaGhe": "A29",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A30",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A31",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A32",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A33",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A34",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A35",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A36",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A37",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A38",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A39",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A40",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A41",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A42",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A43",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A44",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A45",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A46",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A47",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A48",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A49",
+          "GiaVe": 75000,
+          "DaDat": false
+        },
+        {
+          "MaGhe": "A50",
           "GiaVe": 75000,
           "DaDat": false
         }
       ],
-      "id": 2,
-      "branchId": 2
+      "id": 1,
+      "branchId": 1
     }
   ],
   "theaters": [

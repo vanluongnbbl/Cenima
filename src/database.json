@@ -349,5 +349,148 @@
       "id": 8,
       "promotion_image": "https://www.upsieutoc.com/images/2020/09/05/promotion8.jpg"
     }
+  ],
+  "seats": [
+    {
+      "numberSeat": [
+        {
+          "MaGhe": "A01",
+          "LoaiGhe": "Thuong",
+          "GiaVe": 75000,
+          "DaDat": true
+        },
+        {
+          "MaGhe": "A02",
+          "LoaiGhe": "Thuong",
+          "GiaVe": 75000,
+          "DaDat": false
+        }
+      ],
+      "id": 1,
+      "branchId": 1
+    },
+    {
+      "numberSeat": [
+        {
+          "MaGhe": "A01",
+          "LoaiGhe": "Thuong",
+          "GiaVe": 75000,
+          "DaDat": true
+        },
+        {
+          "MaGhe": "A02",
+          "LoaiGhe": "Thuong",
+          "GiaVe": 75000,
+          "DaDat": false
+        }
+      ],
+      "id": 2,
+      "branchId": 2
+    }
+  ],
+  "theaters": [
+    {
+      "id": 1,
+      "tenRap": "Lotte Cinema",
+      "maRap": "lotte",
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
+    },
+    {
+      "id": 2,
+      "tenRap": "BHD Star Cineplex",
+      "maRap": "bhd",
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
+    }
+  ],
+  "branchs": [
+    {
+      "id": 1,
+      "theaterId": 1,
+      "ten": "Lotte - Nam Sài Gòn",
+      "branchId": 1,
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-nam-sai-gon-15383867312967.jpg",
+      "diaChi": "Lotte Mart NSG, 469 Nguyễn Hữu Thọ, Q.7"
+    },
+    {
+      "id": 2,
+      "theaterId": 1,
+      "ten": "Lotte - Hòa Bình",
+      "branchId": 2,
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-cong-hoa-15383860949090.jpg",
+      "diaChi": "Lotte, 20 Ba Tháng 2, Tân Bình"
+    }
+  ],
+  "sessions": [
+    {
+      "movieId": 1,
+      "theaterId": 1,
+      "branchsId": 1,
+      "ngay": 1,
+      "dinhDangChieu": "2D",
+      "phongChieu": 4,
+      "suatChieu": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "18:00",
+        "08:00"
+      ],
+      "trangThai": true,
+      "id": 1
+    },
+    {
+      "movieId": 1,
+      "theaterId": 1,
+      "trangThai": true,
+      "branchsId": 2,
+      "ngay": 1,
+      "dinhDangChieu": "2D",
+      "phongChieu": 4,
+      "suatChieu": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "userId": 2,
+      "ngayDang": 1562777555509,
+      "soDiem": 8,
+      "noiDung": "Phim Hay quá",
+      "soLike": 4
+    },
+    {
+      "id": 2,
+      "movieId": 1,
+      "userId": 2,
+      "ngayDang": 1562777555509,
+      "soDiem": 7,
+      "noiDung": "Phim Hay quá 2",
+      "soLike": 5
+    }
+  ],
+  "comboFood": [
+    {
+      "id": 1,
+      "hinhAnh": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+      "tenCombo": "2 ly nước lớn, 1 bắp lớn",
+      "soLuong": 0,
+      "gia": 97000
+    },
+    {
+      "id": 2,
+      "hinhAnh": "https://cms.megagscinemas.vn//media/76070/share.png",
+      "tenCombo": "2 ly nước vừa, 1 bắp lớn",
+      "soLuong": 0,
+      "gia": 87000
+    }
   ]
 }

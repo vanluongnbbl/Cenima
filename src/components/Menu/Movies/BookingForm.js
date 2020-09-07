@@ -1,6 +1,27 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import * as bookingTimeAction from "../../../actions/bookingTime";
+import * as theaterAction from '../../../actions/theaterAction'
 function BookingForm() {
+    const sessions = useSelector(state => state.bookingTimeReducer.data)
+    const theaters = useSelector(state => state.theaterReducer.data)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(bookingTimeAction.bookingTimeRequest())
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(theaterAction.theaterRequest())
+    }, [dispatch])
+
+    const showSession = (session) => {
+        return (
+            session.suatChieu.map((suat, i) =>
+                <span className="booking-form__time__item" key={i}>{suat} PM</span>)
+        )
+    }
+
     return (
         <div className="booking-form">
             <div className="booking-form__inner">
@@ -23,42 +44,17 @@ function BookingForm() {
                     <span className="booking-form__type__item">2D Dubbing</span>
                 </div>
 
-                <div className="booking-form__time">
-                    <div className="booking-form__time__name">Vincom Royal</div>
-                    <div className="row">
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                    </div>
-                </div>
+                {
+                    sessions && sessions.map((session, i) =>
+                        <div className="booking-form__time" key={i}>
+                            <div className="booking-form__time__name">Vincom Royal</div>
+                            <div className="row">
+                                {showSession(session)}
 
+                            </div>
+                        </div>)
 
-                <div className="booking-form__time">
-                    <div className="booking-form__time__name">Skylake</div>
-                    <div className="row">
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                        <span className="booking-form__time__item">20:30 PM</span>
-                    </div>
-                </div>
+                }
 
 
             </div>

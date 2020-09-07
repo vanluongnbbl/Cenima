@@ -31,10 +31,25 @@ export const getPromotion = () => {
 
 // http://localhost:3000/users METHOD: GET
 export const getAccount = () => {
-    return axiosService.get(`${API_ENDPOINT}/users`);
+  return axiosService.get(`${API_ENDPOINT}/users`);
 };
 
 // http://localhost:3000/users:id METHOD: PUT
 export const putEditAccount = (data) => {
   return axiosService.put(`${API_ENDPOINT}/users/${data.id}`, data);
 };
+
+// http://localhost:3000/sessions METHOD: GET
+export const getBookingTime = () => {
+  return axiosService.get(`${API_ENDPOINT}/sessions`)
+}
+
+// http://localhost:3000/theaters METHOD: GET
+export const getTheaters = () => {
+  return axiosService.get(`${API_ENDPOINT}/theaters`)
+}
+
+// http://localhost:3000/branchs METHOD: GET
+export const getBranchs = () => {
+  return axiosService.get(`${API_ENDPOINT}/branchs`)
+}

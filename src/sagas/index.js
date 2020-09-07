@@ -11,13 +11,28 @@ import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
 import { moviesSuccess, moviesFailed } from "../actions/movies";
 import { editAccountSuccess, editAccountFailed } from "../actions/account";
 import { promotionSuccess, promotionFailed } from "../actions/promotion"
+import { theaterSuccess, theaterFailed } from '../actions/theaterAction'
+import { bookingTimeSuccess, bookingTimeFailed } from "../actions/bookingTime"
 import { hideLoading, showLoading } from "../actions/ui";
-import { postLogin, postRegister, getSliderBar, getMovie, getPromotion, getAccount, putEditAccount } from "../apis/auth";
+import {
+  postLogin,
+  postRegister,
+  getSliderBar,
+  getMovie,
+  getPromotion,
+  getAccount,
+  getBookingTime,
+  putEditAccount,
+  getTheaters
+}
+  from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
 import * as movieActions from "../constants/movies";
 import * as promotionAction from '../constants/promotion';
+import * as theaterAction from '../constants/theaters'
+import * as bookingTimeAction from '../constants/bookingTime'
 import * as editAccountActions from "../constants/account";
 import Cookie from "js-cookie";
 import md5 from "md5";
@@ -110,8 +125,32 @@ function* promotionSaga() {
     yield put(promotionFailed(error));
   }
 }
-  
-function* accountSaga () {
+
+function* theaterSaga() {
+  try {
+    const resp = yield call(getTheaters)
+    const { data, status } = resp
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(theaterSuccess(data))
+    }
+  } catch (error) {
+    yield put(theaterFailed(error))
+  }
+}
+
+function* bookingTimeSaga() {
+  try {
+    const resp = yield call(getBookingTime)
+    const { data, status } = resp
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(bookingTimeSuccess(data))
+    }
+  } catch (error) {
+    yield put(bookingTimeFailed(error))
+  }
+}
+
+function* accountSaga() {
   try {
     const resp = yield call(getAccount);
     const { data, status } = resp;
@@ -133,7 +172,7 @@ function* editAccountSaga({ payload }) {
       yield put(editAccountSuccess(account));
     }
   } catch (error) {
-    if(error === "data is not iterable") {
+    if (error === "data is not iterable") {
       yield put(editAccountFailed(error));
     }
   }
@@ -147,6 +186,8 @@ function* rootSaga() {
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
   yield takeLatest(movieActions.MOVIE, movieSaga);
   yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
+  yield takeLatest(bookingTimeAction.BOOKING_TIME_REQUEST, bookingTimeSaga)
+  yield takeLatest(theaterAction.THEATER_REQUEST, theaterSaga)
   yield takeLatest(authTypes.ACCOUNT, accountSaga);
   yield takeLatest(editAccountActions.EDIT_ACCOUNT, editAccountSaga);
 }

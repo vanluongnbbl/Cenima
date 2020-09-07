@@ -16,8 +16,6 @@ function NowShowing() {
     }, [dispatch])
 
 
-    console.log(movies && movies.length, "currentPage")
-
     const indexOfLastPost = currentPage * productPerPage
     const indexOfFirstPost = indexOfLastPost - productPerPage
     const currentPosts = movies && movies.slice(indexOfFirstPost, indexOfLastPost)

@@ -1,6 +1,6 @@
 @import "./mixins.scss";
 
-.bookingSeats {
+.bookingFood {
   margin: 50px 0;
   &__title {
     display: flex;
@@ -52,28 +52,61 @@
     width: 70%;
     margin: auto;
   }
-  &__seats {
-    width: 700px;
+  &__main {
+    width: 70%;
     margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
     border: 1px solid $colorBorder;
     border-radius: 10px;
-    justify-content: space-between;
     &__item {
-      margin: 9px;
-      border: 1px solid $colorGreen;
-      border-radius: 5px;
-      padding: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    &__item:hover {
-      background: $colorGreen;
-      transition: 0.3s;
-    }
-    .booked {
-      background: $colorRed;
-      border: 1px solid $colorRed;
-      cursor: default;
+      width: 50%;
+      display: flex;
+      padding: 40px 20px 20px 20px;
+      .image__food {
+        width: 40%;
+        border-radius: 5px;
+      }
+      .detail {
+        padding: 0 15px;
+        @include customFont(16px, "roboto");
+        &__header {
+          @include customFont(20px, "roboto");
+          font-weight: bold;
+          color: $colorRed;
+          margin: 0 0 15px 0;
+        }
+        &__content {
+          color: $colorGray;
+          margin: 5px 0;
+        }
+        &__price {
+          margin: 10px 0;
+          b {
+            color: $colorGreen;
+          }
+        }
+        &__counts {
+          &__crease {
+            padding: 3px 10px;
+            border-radius: 5px;
+            border: 1px solid $colorBorder;
+            cursor: pointer;
+            transition: 0.3s;
+          }
+          &__crease:hover {
+            background: $colorGreen;
+            transition: 0.3s;
+          }
+          &__count {
+            padding: 3px 10px;
+            border-radius: 5px;
+            border: 1px solid $colorBorder;
+            margin: 0 5px;
+            color: $colorRed;
+          }
+        }
+      }
     }
   }
   &__total {
@@ -84,14 +117,33 @@
     padding: 30px 0;
     width: 70%;
     margin: auto;
+    background: $colorGray;
+    color: $colorWhite;
     .total {
       margin-left: 20px;
-      b {
-        color: $colorGreen;
+      &__item {
+        margin-bottom: 10px;
+        b {
+          color: $colorGreen;
+        }
       }
+      &__item:nth-child(3) {
+        margin-bottom: 0;
+      }
+    }
+    .prev {
+      margin-left: 20px;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .prev:hover {
+      color: $colorGreen;
+      transition: 0.3s;
     }
     .next {
       margin-right: 20px;
+      margin-top: 25px;
       cursor: pointer;
       transition: 0.3s;
     }

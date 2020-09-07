@@ -12,6 +12,7 @@ import Membership from "./components/Menu/Membership/Membership";
 import Information from "./components/account/Information";
 import EditAccount from "./components/account/editAccount";
 import BookingSeats from "./components/booking/BookingSeats";
+import BookingFood from "./components/booking/BookingFood";
 
 const routers = [
   {
@@ -87,6 +88,13 @@ const routers = [
     exact: false,
     main: ({ location, history }) => (
       <BookingSeats location={location} history={history} />
+    ),
+  },
+  {
+    path: "/bookingFood",
+    exact: false,
+    main: ({ location, history }) => (
+      <BookingFood location={location} history={history} />
     ),
   },
   {

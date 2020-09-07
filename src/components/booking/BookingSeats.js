@@ -71,7 +71,7 @@ const BookingSeats = () => {
           <div className="bookingSeats__seats__item">A02</div>
         </div>
         <div className="bookingSeats__total">
-          <span className="total">Total Price: <b>30$</b></span>
+          <span className="total">Movie: <b>30$</b></span>
           <span className="next">Next &#10095;</span>
         </div>
       </div>

@@ -33,7 +33,22 @@
     "genre": "Thể Loại",
     "runningTime": "Thời lượng",
     "releaseDate": "Ngày Khởi Chiếu",
-    "minutes": "phút"
+    "minutes": "phút",
+    "bookingOnline": "Đặt Vé Online",
+    "remaining": "Ghế Trống",
+    "totalPayment": "Tổng Tiền",
+    "paymentMovie": "Vé Phim",
+    "paymentFood": "Đô Ăn",
+    "discount": "Khuyến Mại",
+    "choosePay": "Phương Thức Thanh Toán",
+    "cash": "Tiền Mặt",
+    "prev": "Trước",
+    "next": "Tiếp",
+    "payment": "Thanh Toán",
+    "screen": "Màn Hình",
+    "concession": "Bỏng & Nước",
+    "price": "Giá",
+    "total": "Tổng"
   },
   "auth": {
     "password": "Mật Khẩu",

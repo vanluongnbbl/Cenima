@@ -13,6 +13,7 @@ import Information from "./components/account/Information";
 import EditAccount from "./components/account/editAccount";
 import BookingSeats from "./components/booking/BookingSeats";
 import BookingFood from "./components/booking/BookingFood";
+import Payment from "./components/booking/Payment";
 
 const routers = [
   {
@@ -96,7 +97,14 @@ const routers = [
     main: ({ location, history }) => (
       <BookingFood location={location} history={history} />
     ),
+  },{
+    path: "/payment",
+    exact: false,
+    main: ({ location, history }) => (
+      <Payment location={location} history={history} />
+    ),
   },
+
   {
     path: "",
     exact: false,

@@ -13,6 +13,7 @@ import { editAccountSuccess, editAccountFailed } from "../actions/account";
 import { promotionSuccess, promotionFailed } from "../actions/promotion"
 import { theaterSuccess, theaterFailed } from '../actions/theaterAction'
 import { bookingTimeSuccess, bookingTimeFailed } from "../actions/bookingTime"
+import { branchSuccess, branchFailed } from '../actions/branchs'
 import { hideLoading, showLoading } from "../actions/ui";
 import {
   postLogin,
@@ -23,7 +24,8 @@ import {
   getAccount,
   getBookingTime,
   putEditAccount,
-  getTheaters
+  getTheaters,
+  getBranchs
 }
   from "../apis/auth";
 import { STATUS_CODE } from "../constants";
@@ -33,6 +35,7 @@ import * as movieActions from "../constants/movies";
 import * as promotionAction from '../constants/promotion';
 import * as theaterAction from '../constants/theaters'
 import * as bookingTimeAction from '../constants/bookingTime'
+import * as branchAction from '../constants/branchs'
 import * as editAccountActions from "../constants/account";
 import Cookie from "js-cookie";
 import md5 from "md5";
@@ -150,6 +153,18 @@ function* bookingTimeSaga() {
   }
 }
 
+function* branchSaga() {
+  try {
+    const resp = yield call(getBranchs)
+    const { data, status } = resp
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(branchSuccess(data))
+    }
+  } catch (error) {
+    yield put(bookingTimeFailed(error))
+  }
+}
+
 function* accountSaga() {
   try {
     const resp = yield call(getAccount);
@@ -187,6 +202,7 @@ function* rootSaga() {
   yield takeLatest(movieActions.MOVIE, movieSaga);
   yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
   yield takeLatest(bookingTimeAction.BOOKING_TIME_REQUEST, bookingTimeSaga)
+  yield takeLatest(branchAction.BRANCHS_REQUEST, branchSaga)
   yield takeLatest(theaterAction.THEATER_REQUEST, theaterSaga)
   yield takeLatest(authTypes.ACCOUNT, accountSaga);
   yield takeLatest(editAccountActions.EDIT_ACCOUNT, editAccountSaga);

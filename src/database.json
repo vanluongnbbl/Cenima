@@ -494,7 +494,8 @@
           "MaGhe": "A28",
           "GiaVe": 75000,
           "DaDat": false
-        },{
+        },
+        {
           "MaGhe": "A29",
           "GiaVe": 75000,
           "DaDat": false
@@ -613,21 +614,39 @@
     {
       "id": 1,
       "tenRap": "Lotte Cinema",
-      "maRap": "lotte",
+      "branchId": 1,
       "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
     },
     {
       "id": 2,
-      "tenRap": "BHD Star Cineplex",
-      "maRap": "bhd",
+      "tenRap": "Lotte Star Cineplex",
+      "branchId": 1,
       "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/09/f32670fd0eb083c9c4c804f0f3a252ed.png"
+    },
+    {
+      "id": 3,
+      "tenRap": "Lotte a Cinema",
+      "branchId": 2,
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/09/e520781386bd5436e94d6e15e193a005.png"
+    },
+    {
+      "tenRap": "Lotte CineStar",
+      "branchId": 2,
+      "hinhAnh": "https://i.imgur.com/0XnfUIg.png",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "tenRap": "Lotte - Đống Đa",
+      "branchId": 3,
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/09/9b240f96a233bb43203ee514a21a6004.png"
     }
   ],
   "branchs": [
     {
       "id": 1,
       "theaterId": 1,
-      "ten": "Lotte - Nam Sài Gòn",
+      "ten": "ho chi minh",
       "branchId": 1,
       "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-nam-sai-gon-15383867312967.jpg",
       "diaChi": "Lotte Mart NSG, 469 Nguyễn Hữu Thọ, Q.7"
@@ -635,10 +654,31 @@
     {
       "id": 2,
       "theaterId": 1,
-      "ten": "Lotte - Hòa Bình",
+      "ten": "ha noi",
       "branchId": 2,
       "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-cong-hoa-15383860949090.jpg",
-      "diaChi": "Lotte, 20 Ba Tháng 2, Tân Bình"
+      "diaChi": "Lotte, 20 Ba Tháng 2, Cầu Giấy"
+    },
+    {
+      "id": 3,
+      "theaterId": 1,
+      "ten": "da nang",
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-cong-hoa-15383860949090.jpg",
+      "diaChi": "Pico Plaza, 20 Cộng Hòa, Tân Bình"
+    },
+    {
+      "id": 4,
+      "theaterId": 1,
+      "ten": "nam dinh",
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-diamond-15383868339222.jpg",
+      "diaChi": "Diamond Plaza, 34 Lê Duẩn, Q.1"
+    },
+    {
+      "id": 5,
+      "theaterId": 1,
+      "ten": "nha trang",
+      "hinhAnh": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-cantavil-15383866510260.jpg",
+      "diaChi": "Cantavil Premier, Xa Lộ Hà Nội, Q.2"
     }
   ],
   "sessions": [
@@ -647,7 +687,7 @@
       "theaterId": 1,
       "branchsId": 1,
       "ngay": 1,
-      "dinhDangChieu": "2D",
+      "dinhDangChieu": "2D VIETSUB",
       "phongChieu": 4,
       "suatChieu": [
         "08:30",
@@ -661,11 +701,11 @@
     },
     {
       "movieId": 1,
-      "theaterId": 1,
+      "theaterId": 2,
       "trangThai": true,
       "branchsId": 2,
       "ngay": 1,
-      "dinhDangChieu": "2D",
+      "dinhDangChieu": "3D VIETSUB",
       "phongChieu": 4,
       "suatChieu": [
         "08:30",
@@ -676,6 +716,59 @@
         "21:40"
       ],
       "id": 2
+    },
+    {
+      "movieId": 1,
+      "theaterId": 3,
+      "trangThai": true,
+      "branchsId": 3,
+      "ngay": 1,
+      "dinhDangChieu": "2D VIETSUB",
+      "phongChieu": 3,
+      "suatChieu": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00"
+      ],
+      "id": 3
+    },
+    {
+      "movieId": 1,
+      "theaterId": 4,
+      "trangThai": true,
+      "branchsId": 4,
+      "ngay": 1,
+      "dinhDangChieu": "2D VIETSUB",
+      "phongChieu": 3,
+      "suatChieu": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 4
+    },
+    {
+      "id": 5,
+      "movieId": 1,
+      "theaterId": 5,
+      "trangThai": true,
+      "branchsId": 5,
+      "ngay": 1,
+      "dinhDangChieu": "3D VIETSUB",
+      "phongChieu": 3,
+      "suatChieu": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ]
     }
   ],
   "comments": [

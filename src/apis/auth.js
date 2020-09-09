@@ -53,3 +53,4 @@ export const getTheaters = () => {
 export const getBranchs = () => {
   return axiosService.get(`${API_ENDPOINT}/branchs`)
 }
+

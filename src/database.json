@@ -2,39 +2,27 @@
   "users": [
     {
       "email": "admin@admin",
-      "password": "$2a$10$c4ArIcBpVrtqKa/21L4quOPh3lheRA6d.ZOcURGH7.xozH/czobv6",
-      "name": "admin",
+      "password": "$2a$10$CaMuzBW.q1xeYjvmBY17eu62vbTyi2cntDSOA7ieYVbJdnA6q1oV6",
+      "name": " Phạm Việt Hưng",
       "phone": "0972093127",
       "region": "Hà Nội",
       "birth": "1998-11-27",
       "gender": "Male",
       "avatar": "http://gravatar.com/avatar/a3175a452c7a8fea80c62a198a40f6c9?d=identicon",
-      "ngayTao": 1599289521812,
-      "id": 1
-    },
-    {
-      "email": "ngothihuong@gmail.com",
-      "password": "$2a$10$PjGomvAyD.RFaBc9nyMkpug1vigvifk3E5XnwkgRldfW9eI6CX/Ke",
-      "name": "Ngô Thị Hương",
-      "phone": "0972093127",
-      "region": "Thái Bình",
-      "birth": "1998-05-29",
-      "gender": "Female",
-      "avatar": "http://gravatar.com/avatar/1de9d8681a3a3311fe6e9f18500ecbfc?d=identicon",
-      "ngayTao": 1599370572449,
-      "id": 2
+      "ngayTao": 1599624387081,
+      "id": 0
     },
     {
       "email": "hiep@gmail.com",
-      "password": "$2a$10$pwR3UpYrTdrzCdcIrsJYwuvX/kVqwcT5fTqOt/OPlZcsCaWSPe5ay",
-      "name": "",
-      "phone": "",
-      "region": "",
-      "birth": "",
+      "password": "$2a$10$xOjQcltKAzPI.ctdVsnHeulo42adF8YQZf6.Kqk/K5WJ2gKqOFImC",
+      "name": "Trần Văn Hiệp",
+      "phone": "0972093127",
+      "region": "Hà Nội",
+      "birth": "1998-11-27",
       "gender": "Male",
       "avatar": "http://gravatar.com/avatar/5175a6a393b63c32f25322a30a11b322?d=identicon",
-      "ngayTao": 1599371767702,
-      "id": 3
+      "ngayTao": 1599639805541,
+      "id": 1
     }
   ],
   "sliderbars": [
@@ -734,185 +722,8 @@
       "diaChi": "Pico Plaza, 20 Cộng Hòa, Tân Bình"
     }
   ],
-  "sessions": [
-    {
-      "movieId": 1,
-      "theaterId": 1,
-      "branchsId": 1,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 4,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "18:00",
-        "08:00"
-      ],
-      "trangThai": true,
-      "id": 1
-    },
-    {
-      "movieId": 1,
-      "theaterId": 2,
-      "trangThai": true,
-      "branchsId": 1,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 4,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ],
-      "id": 2
-    },
-    {
-      "movieId": 1,
-      "theaterId": 3,
-      "trangThai": true,
-      "branchsId": 1,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00"
-      ],
-      "id": 3
-    },
-    {
-      "movieId": 7,
-      "theaterId": 1,
-      "trangThai": true,
-      "branchsId": 4,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ],
-      "id": 4
-    },
-    {
-      "id": 5,
-      "movieId": 8,
-      "theaterId": 1,
-      "trangThai": true,
-      "branchsId": 5,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ]
-    },
-    {
-      "movieId": 2,
-      "theaterId": 1,
-      "branchsId": 6,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "21:40"
-      ],
-      "trangThai": true,
-      "id": 6
-    },
-    {
-      "id": 7,
-      "movieId": 3,
-      "theaterId": 1,
-      "trangThai": true,
-      "branchsId": 7,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ]
-    },
-    {
-      "id": 8,
-      "movieId": 4,
-      "theaterId": 1,
-      "trangThai": true,
-      "branchsId": 8,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ]
-    },
-    {
-      "id": 9,
-      "movieId": 4,
-      "theaterId": 2,
-      "trangThai": true,
-      "branchsId": 9,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ]
-    },
-    {
-      "id": 10,
-      "movieId": 2,
-      "theaterId": 2,
-      "trangThai": true,
-      "branchsId": 10,
-      "ngay": 1,
-      "dinhDangChieu": "2D",
-      "phongChieu": 3,
-      "suatChieu": [
-        "08:30",
-        "10:20",
-        "13:20",
-        "15:00",
-        "18:00",
-        "21:40"
-      ]
-    }
-  ],
+  "sessions": [],
+  "comments": [],
   "comboFood": [
     {
       "id": 1,

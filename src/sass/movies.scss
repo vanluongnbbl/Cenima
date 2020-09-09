@@ -1,6 +1,7 @@
 @import "mixins";
 
 .nowshowing {
+    margin-top: 100px;
     &__title {
         border-bottom: 3px solid #89c441;
         font-size: 24px;

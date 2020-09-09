@@ -54,3 +54,8 @@ export const getBranchs = () => {
   return axiosService.get(`${API_ENDPOINT}/branchs`)
 }
 
+// http://localhost:3000/users METHOD: DELETE
+export const deleteUser = (data) => {
+  return axiosService.delete(`${API_ENDPOINT}/users/${data.id}`)
+}
+

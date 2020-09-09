@@ -48,7 +48,11 @@
     "screen": "Màn Hình",
     "concession": "Bỏng & Nước",
     "price": "Giá",
-    "total": "Tổng"
+    "total": "Tổng",
+    "managementUsers": "Quản Lý Thành Viên",
+    "managementMovies": "Quản Lý Phim",
+    "managementRevenue": "Quản Lý Doanh Thu",
+    "managementTicket": "Quản lý Vé"
   },
   "auth": {
     "password": "Mật Khẩu",
@@ -66,6 +70,11 @@
     "newPhone": "Số Điện Thoại Mới",
     "newRegion": "Địa Chỉ Mới",
     "newDateOfBirth": "Ngày sinh mới",
-    "newGender": "Giới Tính mới"
+    "newGender": "Giới Tính mới",
+    "editUser": "Sửa",
+    "ngayTao": "Ngày Tạo",
+    "edit": "Sửa",
+    "delete": "Xoá",
+    "avatar": "Avatar"
   }
 }

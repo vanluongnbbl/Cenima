@@ -48,7 +48,11 @@
     "screen": "Screen",
     "concession": "Concession",
     "price": "Price",
-    "total": "Total"
+    "total": "Total",
+    "managementUsers": "Management Users",
+    "managementMovies": "Management Movies",
+    "managementRevenue": "Management Revenue",
+    "managementTicket": "Management Ticket"
   },
   "auth": {
     "password": "Password",
@@ -66,6 +70,11 @@
     "newPhone": "New Phone",
     "newRegion": "New Region",
     "newDateOfBirth": "New Date Of Birth",
-    "newGender": "New Gender"
+    "newGender": "New Gender",
+    "editUser": "Edit",
+    "ngayTao": "Register Date",
+    "edit": "Edit",
+    "delete": "Delete",
+    "avatar": "Avatar"
   }
 }

@@ -13,6 +13,7 @@ const EditAccount = (props) => {
   const [region, setRegion] = useState("");
   const [birth, setBirth] = useState("");
   const [gender, setGender] = useState("Male");
+  const [avatar, setAvatar] = useState("");
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
 
@@ -27,6 +28,7 @@ const EditAccount = (props) => {
       setRegion(account[0].region);
       setBirth(account[0].birth);
       setGender(account[0].gender);
+      setAvatar(account[0].avatar);
     }
   }, [account]);
 
@@ -38,6 +40,7 @@ const EditAccount = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(avatar);
     let templ = editAccount[0];
     templ.name = name;
     templ.phone = phone;
@@ -45,6 +48,7 @@ const EditAccount = (props) => {
     templ.birth = birth;
     templ.gender = gender;
     templ.password = password;
+    templ.avatar = avatar;
     dispatch(editAccountActions.editAccount(templ));
     props.history.push("/");
   };
@@ -63,6 +67,8 @@ const EditAccount = (props) => {
         return setGender(event.target.value);
       case "password":
         return setPassword(event.target.value);
+      case "avatar":
+        return setAvatar(event.target.value);
       default:
         return 0;
     }
@@ -71,8 +77,10 @@ const EditAccount = (props) => {
   const showEditAccount = () => {
     let result = [];
     result.push(
-      <form className="register" onSubmit={handleSubmit}>
+      <form className="register" onSubmit={handleSubmit} key={1}>
         {checkLogin}
+        <div className="note" style={{"color": "red"}}>{t("auth.requirementChangePassword")}</div>
+        <br />
         <label htmlFor="name">{t("auth.newName")}</label>
         <input
           name="name"
@@ -91,6 +99,16 @@ const EditAccount = (props) => {
           type="password"
           id="password"
           value={password}
+          onChange={handleChange}
+        />
+        <br />
+        <label htmlFor="avatar">{t("auth.avatar")}</label>
+        <input
+          name="avatar"
+          placeholder={t("auth.avatar")}
+          value={avatar}
+          type="text"
+          id="avatar"
           onChange={handleChange}
         />
         <br />

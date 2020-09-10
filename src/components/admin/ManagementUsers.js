@@ -37,7 +37,7 @@ const ManagementUsers = (props) => {
   const showAdminUser = () => {
     let result = [];
     result.push(
-      <div className="adminUsers">
+      <div className="adminUsers" key={1}>
         <table className="table">
           <tr>
             <th>#</th>

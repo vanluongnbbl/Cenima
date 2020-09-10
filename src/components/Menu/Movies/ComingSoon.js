@@ -48,8 +48,6 @@ function ComingSoon() {
     const result = [];
     if (currentPosts) {
       currentPosts.forEach((movie, i) => {
-        const date = new Date(movie.ngayKhoiChieu);
-
         return result.push(
           <div className="col-12 col-sm-6 col-lg-3" key={i}>
             <div className="movie">
@@ -74,7 +72,7 @@ function ComingSoon() {
               </div>
               <div className="movie__date movie__item">
                 <span className="key">{t("home.releaseDate")}: </span>
-                <span className="value">{date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()}</span>
+                <span className="value">{movie.ngayKhoiChieu}</span>
               </div>
             </div>
           </div>

@@ -31,22 +31,22 @@ const AddMovie = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     let templ = {};
-    templ.tenPhim = name;
-    templ.soPhut = minutes;
-    templ.theLoai = category;
-    status === "1" ? (templ.trangThai = 1) : (templ.trangThai = 0);
+    templ.name = name;
+    templ.minutes = minutes;
+    templ.category = category;
+    status === "1" ? (templ.status = 1) : (templ.status = 0);
     type === "1"
-      ? (templ.dinhDang = "2D")
+      ? (templ.type = "2D")
       : type === "2"
-      ? (templ.dinhDang = "3D")
-      : (templ.dinhDang = "2D/3D");
-    templ.quocGia = nation;
-    templ.moTa = description;
-    templ.dienVien = cast;
-    templ.doTuoi = age;
-    templ.daoDien = directors;
-    templ.ngayKhoiChieu = releaseDate;
-    templ.hinhAnh = image;
+      ? (templ.type = "3D")
+      : (templ.type = "2D/3D");
+    templ.nation = nation;
+    templ.description = description;
+    templ.cast = cast;
+    templ.age = age;
+    templ.directors = directors;
+    templ.releaseDate = releaseDate;
+    templ.image = image;
     dispatch(adminActions.addMovie(templ));
     props.passIsOpenModalAddMovie(false);
     props.passNameMovie(templ);
@@ -125,10 +125,10 @@ const AddMovie = (props) => {
             />
             <br />
 
-            <label htmlFor="releaseDate">{t("auth.ngayTao")}</label>
+            <label htmlFor="releaseDate">{t("auth.releaseDate")}</label>
             <input
               name="releaseDate"
-              placeholder={t("auth.ngayTao")}
+              placeholder={t("auth.releaseDate")}
               value={releaseDate}
               type="date"
               id="releaseDate"

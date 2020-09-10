@@ -49,7 +49,7 @@ const ManagementUsers = (props) => {
             <th>{t("auth.region")}</th>
             <th>{t("auth.birth")}</th>
             <th>{t("auth.gender")}</th>
-            <th>{t("auth.ngayTao")}</th>
+            <th>{t("auth.registerDate")}</th>
             <th>{t("auth.editUser")}</th>
           </tr>
           {showUsers()}
@@ -63,7 +63,7 @@ const ManagementUsers = (props) => {
     let result = [];
     listUsers &&
       listUsers.forEach((user, i) => {
-        const day = new Date(user.ngayTao);
+        const day = new Date(user.registerDate);
         if(user.email !== "admin@admin") {
           return result.push(
             <tr key={i}>

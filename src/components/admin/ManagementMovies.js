@@ -96,24 +96,24 @@ const ManagementMovies = (props) => {
             <td>{i + 1}</td>
             <td>{movie.id}</td>
             <td>
-              <img src={movie.hinhAnh} alt="avatar" className="avatar" />
+              <img src={movie.image} alt="avatar" className="avatar" />
             </td>
-            <td>{movie.tenPhim}</td>
-            <td>{movie.soPhut}</td>
-            <td>{movie.ngayKhoiChieu}</td>
-            <td>{movie.theLoai}</td>
+            <td>{movie.name}</td>
+            <td>{movie.minutes}</td>
+            <td>{movie.releaseDate}</td>
+            <td>{movie.category}</td>
             <td>
-              {movie.trangThai === 1
+              {movie.status === 1
                 ? t("home.nowShowing")
                 : t("home.comingSoon")}
             </td>
-            <td>{movie.doTuoi}</td>
-            <td>{movie.diemIMDB}</td>
-            <td>{movie.dinhDang}</td>
-            <td>{movie.daoDien}</td>
-            <td>{movie.dienVien}</td>
-            <td>{movie.quocGia}</td>
-            <td className="descriptions">{movie.moTa}</td>
+            <td>{movie.age}</td>
+            <td>{movie.pointIMDB}</td>
+            <td>{movie.type}</td>
+            <td>{movie.directors}</td>
+            <td>{movie.cate}</td>
+            <td>{movie.nation}</td>
+            <td className="descriptions">{movie.description}</td>
             <td>
               <span className="edit" onClick={() => handleModal(movie.id)}>
                 {t("auth.edit")}

@@ -31,22 +31,22 @@ const EditMovie = (props) => {
 
   useEffect(() => {
     if (props.movie) {
-      setName(props.movie.tenPhim);
-      setMinutes(props.movie.soPhut);
-      setReleaseDate(props.movie.ngayKhoiChieu);
-      setCategory(props.movie.theLoai);
-      props.movie.trangThai === 1 ? setStatus("1") : setStatus("0");
-      props.movie.dinhDang === "2D"
+      setName(props.movie.name);
+      setMinutes(props.movie.minutes);
+      setReleaseDate(props.movie.releaseDate);
+      setCategory(props.movie.category);
+      props.movie.status === 1 ? setStatus("1") : setStatus("0");
+      props.movie.type === "2D"
         ? setType("1")
-        : props.movie.dinhDang === "3D"
+        : props.movie.type === "3D"
         ? setType("2")
         : setType("3");
-      setDirectors(props.movie.daoDien);
-      setNation(props.movie.quocGia);
-      setDescription(props.movie.moTa);
-      setCast(props.movie.dienVien);
-      setAge(props.movie.doTuoi);
-      setImage(props.movie.hinhAnh);
+      setDirectors(props.movie.directors);
+      setNation(props.movie.nation);
+      setDescription(props.movie.description);
+      setCast(props.movie.cast);
+      setAge(props.movie.age);
+      setImage(props.movie.image);
     }
   }, [props.movie]);
 
@@ -57,22 +57,22 @@ const EditMovie = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     let templ = editMovie;
-    templ.tenPhim = name;
-    templ.soPhut = minutes;
-    templ.theLoai = category;
-    status === "1" ? (templ.trangThai = 1) : (templ.trangThai = 0);
+    templ.name = name;
+    templ.minutes = minutes;
+    templ.category = category;
+    status === "1" ? (templ.status = 1) : (templ.status = 0);
     type === "1"
-      ? (templ.dinhDang = "2D")
+      ? (templ.type = "2D")
       : type === "2"
-      ? (templ.dinhDang = "3D")
-      : (templ.dinhDang = "2D/3D");
-    templ.quocGia = nation;
-    templ.moTa = description;
-    templ.dienVien = cast;
-    templ.doTuoi = age;
-    templ.daoDien = directors;
-    templ.ngayKhoiChieu = releaseDate;
-    templ.hinhAnh = image;
+      ? (templ.type = "3D")
+      : (templ.type = "2D/3D");
+    templ.nation = nation;
+    templ.description = description;
+    templ.cast = cast;
+    templ.age = age;
+    templ.directors = directors;
+    templ.releaseDate = releaseDate;
+    templ.image = image;
     dispatch(adminActions.editMovie(templ));
     props.passIsOpen(0);
   };
@@ -101,7 +101,7 @@ const EditMovie = (props) => {
         return setAge(event.target.value);
       case "releaseDate":
         return setReleaseDate(event.target.value);
-        case "image":
+      case "image":
         return setImage(event.target.value);
       default:
         return 0;
@@ -150,10 +150,10 @@ const EditMovie = (props) => {
             />
             <br />
 
-            <label htmlFor="releaseDate">{t("auth.ngayTao")}</label>
+            <label htmlFor="releaseDate">{t("auth.releaseDate")}</label>
             <input
               name="releaseDate"
-              placeholder={t("auth.ngayTao")}
+              placeholder={t("auth.releaseDate")}
               value={releaseDate}
               type="date"
               id="releaseDate"

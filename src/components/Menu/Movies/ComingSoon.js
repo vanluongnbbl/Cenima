@@ -19,9 +19,9 @@ function ComingSoon() {
   useEffect(() => {
     if (movies !== null) {
       const result = [...movies].filter((movie) => {
-        if (movie.trangThai === 0) {
+        if (movie.status === 0) {
           return (
-            movie.trangThai === 0
+            movie.status === 0
           )
         }
       })
@@ -53,7 +53,7 @@ function ComingSoon() {
             <div className="movie">
               <div className="wrap-image">
                 <img
-                  src={movie.hinhAnh}
+                  src={movie.image}
                   alt="image__movie"
                   className="movie__image"
                 />
@@ -61,18 +61,18 @@ function ComingSoon() {
                   <button className="movie__btn">{t("home.booking")}</button>
                 </div>
               </div>
-              <div className="movie__name" title={movie.tenPhim}>{movie.tenPhim}</div>
+              <div className="movie__name" title={movie.name}>{movie.name}</div>
               <div className="movie__genre movie__item">
                 <span className="key">{t("home.genre")}: </span>
-                <span className="value">{movie.theLoai}</span>
+                <span className="value">{movie.types}</span>
               </div>
               <div className="movie__time movie__item">
                 <span className="key">{t("home.runningTime")}: </span>
-                <span className="value">{movie.soPhut} {t("home.minutes")}</span>
+                <span className="value">{movie.minutes} {t("home.minutes")}</span>
               </div>
               <div className="movie__date movie__item">
                 <span className="key">{t("home.releaseDate")}: </span>
-                <span className="value">{movie.ngayKhoiChieu}</span>
+                <span className="value">{movie.releaseDate}</span>
               </div>
             </div>
           </div>

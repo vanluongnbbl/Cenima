@@ -740,7 +740,7 @@
       "showtimes": {
         "nameTheater": "Lotte - Nam Sài Gòn",
         "screenings": "18:00",
-        "showDate": "2019-08-05T17:00:00.000Z",
+        "showDate": "2019-08-05",
         "cinemaRoom": 3,
         "seats": [
           "A11"
@@ -760,27 +760,28 @@
           "id": 1,
           "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
           "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "soLuong": 1,
-          "gia": 97000
+          "count": 1,
+          "price": 97000
         },
         {
           "id": 2,
-          "hinhAnh": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "tenCombo": "2 ly nước vừa, 1 bắp lớn",
-          "soLuong": 1,
-          "gia": 87000
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 1,
+          "price": 87000
         }
       ],
-      "total": 233100,
+      "total": 259000,
       "pay": "Thẻ tín dụng",
       "discount": 10,
       "showtimes": {
         "nameTheater": "Lotte - Nam Sài Gòn",
         "screenings": "15:00",
-        "showDate": "2019-08-05T17:00:00.000Z",
+        "showDate": "2019-08-05",
         "cinemaRoom": 3,
         "seats": [
-          "A11"
+          "A11",
+          "A12"
         ]
       },
       "timeSet": 1563640129601,

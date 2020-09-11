@@ -73,3 +73,13 @@ export const putEditMovie = (data) => {
 export const postAddMovie = (data) => {
   return axiosService.post(`${API_ENDPOINT}/movies/`, data)
 }
+
+// http://localhost:3100/tickets METHOD: GET
+export const getTicket = () => {
+  return axiosService.get(`${API_ENDPOINT}/tickets/`)
+}
+
+// http://localhost:3100/tickets METHOD: GET
+export const deleteTicket = (data) => {
+  return axiosService.delete(`${API_ENDPOINT}/tickets/${data.id}`)
+}

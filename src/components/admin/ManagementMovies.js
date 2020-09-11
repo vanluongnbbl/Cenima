@@ -16,6 +16,8 @@ const ManagementMovies = (props) => {
   const [isOpenModalAddMovie, setIsOpenModalAddMovie] = useState(false);
   const [movie, setMovie] = useState(null);
   const dispatch = useDispatch();
+  const [productPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const checkAdmin = () => {
     props.history.push("/");
@@ -27,10 +29,24 @@ const ManagementMovies = (props) => {
 
   const passNameMovie = (value) => {
     setMovie(value);
-  }
+  };
 
   const passIsOpenModalAddMovie = (value) => {
     setIsOpenModalAddMovie(value);
+  };
+
+  const indexOfLastPost = currentPage * productPerPage;
+  const indexOfFirstPost = indexOfLastPost - productPerPage;
+  const currentPosts =
+    movies && movies.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const totalMovies = movies && movies.length;
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalMovies / productPerPage); i++) {
+    pageNumbers.push(i);
   }
 
   useEffect(() => {
@@ -38,7 +54,8 @@ const ManagementMovies = (props) => {
       movies.splice(deleteMovie, 1);
       setListMovies([...movies]);
       setDeleteMovie(-1);
-    } if(movie) {
+    }
+    if (movie) {
       movies.unshift(movie);
       setListMovies([...movies]);
       setMovie(null);
@@ -53,14 +70,16 @@ const ManagementMovies = (props) => {
     let result = [];
     result.push(
       <div className="adminUsers adminMovies" key={1}>
-        <span onClick={() => setIsOpenModalAddMovie(true)} className="addMovie">{t("home.addMovie")}</span>
+        <span onClick={() => setIsOpenModalAddMovie(true)} className="addMovie">
+          {t("home.addMovie")}
+        </span>
         <div className={isOpenModalAddMovie ? "" : "none"}>
-              <AddMovie
-                passIsOpenModalAddMovie={passIsOpenModalAddMovie}
-                passNameMovie={passNameMovie}
-                isOpenModalAddMovie={isOpenModalAddMovie}
-              />
-            </div>
+          <AddMovie
+            passIsOpenModalAddMovie={passIsOpenModalAddMovie}
+            passNameMovie={passNameMovie}
+            isOpenModalAddMovie={isOpenModalAddMovie}
+          />
+        </div>
         <table className="table">
           <tr>
             <th>#</th>
@@ -82,6 +101,20 @@ const ManagementMovies = (props) => {
           </tr>
           {showMovie()}
         </table>
+        <nav>
+          <ul
+            className="pagination"
+            style={{ "justify-content": "flex-start", margin: "20px 0" }}
+          >
+            {pageNumbers.map((number) => (
+              <li key={number} className="page-item">
+                <a onClick={() => paginate(number)} className="page-link">
+                  {number}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     );
     return result;
@@ -89,8 +122,8 @@ const ManagementMovies = (props) => {
 
   const showMovie = () => {
     let result = [];
-    listMovies &&
-      listMovies.forEach((movie, i) => {
+    currentPosts &&
+      currentPosts.forEach((movie, i) => {
         return result.push(
           <tr key={i}>
             <td>{i + 1}</td>
@@ -103,9 +136,7 @@ const ManagementMovies = (props) => {
             <td>{movie.releaseDate}</td>
             <td>{movie.category}</td>
             <td>
-              {movie.status === 1
-                ? t("home.nowShowing")
-                : t("home.comingSoon")}
+              {movie.status === 1 ? t("home.nowShowing") : t("home.comingSoon")}
             </td>
             <td>{movie.age}</td>
             <td>{movie.pointIMDB}</td>

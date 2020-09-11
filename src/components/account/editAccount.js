@@ -53,27 +53,6 @@ const EditAccount = (props) => {
     props.history.push("/");
   };
 
-  const handleChange = (event) => {
-    switch (event.target.name) {
-      case "name":
-        return setName(event.target.value);
-      case "phone":
-        return setPhone(event.target.value);
-      case "region":
-        return setRegion(event.target.value);
-      case "birth":
-        return setBirth(event.target.value);
-      case "gender":
-        return setGender(event.target.value);
-      case "password":
-        return setPassword(event.target.value);
-      case "avatar":
-        return setAvatar(event.target.value);
-      default:
-        return 0;
-    }
-  };
-
   const showEditAccount = () => {
     let result = [];
     result.push(
@@ -88,7 +67,7 @@ const EditAccount = (props) => {
           type="text"
           id="name"
           value={name}
-          onChange={handleChange}
+          onChange={(event) => setName(event.target.value)}
         />
         <br />
 
@@ -99,7 +78,7 @@ const EditAccount = (props) => {
           type="password"
           id="password"
           value={password}
-          onChange={handleChange}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <br />
         <label htmlFor="avatar">{t("auth.avatar")}</label>
@@ -109,7 +88,7 @@ const EditAccount = (props) => {
           value={avatar}
           type="text"
           id="avatar"
-          onChange={handleChange}
+          onChange={(event) => setAvatar(event.target.value)}
         />
         <br />
 
@@ -120,7 +99,7 @@ const EditAccount = (props) => {
           value={phone}
           type="text"
           id="phone"
-          onChange={handleChange}
+          onChange={(event) => setPhone(event.target.value)}
         />
         <br />
 
@@ -131,7 +110,7 @@ const EditAccount = (props) => {
           value={region}
           type="text"
           id="region"
-          onChange={handleChange}
+          onChange={(event) => setRegion(event.target.value)}
         />
         <br />
 
@@ -142,7 +121,7 @@ const EditAccount = (props) => {
           value={birth}
           type="date"
           id="birth"
-          onChange={handleChange}
+          onChange={(event) => setBirth(event.target.value)}
         />
         <br />
 
@@ -154,7 +133,7 @@ const EditAccount = (props) => {
             value="Male"
             id="Male"
             checked={gender === "Male"}
-            onChange={handleChange}
+            onChange={(event) => setGender(event.target.value)}
           />{" "}
           {t("auth.male")}
         </label>
@@ -166,7 +145,7 @@ const EditAccount = (props) => {
             value="Female"
             id="Female"
             checked={gender === "Female"}
-            onChange={handleChange}
+            onChange={(event) => setGender(event.target.value)}
           />{" "}
           {t("auth.female")}
         </label>

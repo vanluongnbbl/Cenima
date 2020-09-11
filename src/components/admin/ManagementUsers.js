@@ -10,9 +10,11 @@ const ManagementUsers = (props) => {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
   const accounts = useSelector((state) => state.currentUser.accounts);
   const [listUsers, setListUsers] = useState(accounts);
-  const [deleteUser , setDeleteUser] = useState(-1);
+  const [deleteUser, setDeleteUser] = useState(-1);
   const [isOpenModal, setIsOpenModal] = useState(0);
   const dispatch = useDispatch();
+  const [productPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const checkAdmin = () => {
     props.history.push("/");
@@ -20,19 +22,33 @@ const ManagementUsers = (props) => {
 
   const passIsOpen = (value) => {
     setIsOpenModal(value);
+  };
+
+  const indexOfLastPost = currentPage * productPerPage;
+  const indexOfFirstPost = indexOfLastPost - productPerPage;
+  const currentPosts =
+    listUsers && listUsers.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const totalMovies = listUsers && listUsers.length;
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalMovies / productPerPage); i++) {
+    pageNumbers.push(i);
   }
 
   useEffect(() => {
-    if(deleteUser !== -1) {
+    if (deleteUser !== -1) {
       accounts.splice(deleteUser, 1);
       setListUsers([...accounts]);
       setDeleteUser(-1);
-    } else setListUsers(accounts);  
+    } else setListUsers(accounts);
   }, [accounts, deleteUser]);
-  
+
   const handleModal = (id) => {
     setIsOpenModal(id);
-  }
+  };
 
   const showAdminUser = () => {
     let result = [];
@@ -54,6 +70,18 @@ const ManagementUsers = (props) => {
           </tr>
           {showUsers()}
         </table>
+        <ul
+          className="pagination"
+          style={{ "justify-content": "flex-start", margin: "20px 0" }}
+        >
+          {pageNumbers.map((number) => (
+            <li key={number} className="page-item">
+              <a onClick={() => paginate(number)} className="page-link">
+                {number}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     );
     return result;
@@ -61,10 +89,10 @@ const ManagementUsers = (props) => {
 
   const showUsers = () => {
     let result = [];
-    listUsers &&
-      listUsers.forEach((user, i) => {
+    currentPosts &&
+      currentPosts.forEach((user, i) => {
         const day = new Date(user.registerDate);
-        if(user.email !== "admin@admin") {
+        if (user.email !== "admin@admin") {
           return result.push(
             <tr key={i}>
               <td>{i}</td>
@@ -82,11 +110,20 @@ const ManagementUsers = (props) => {
                 {day.getDate() + "/" + day.getMonth() + "/" + day.getFullYear()}
               </td>
               <td>
-                <span className="edit" onClick={() => handleModal(user.id)}>{t("auth.edit")}</span>&nbsp;
-                <span className="delete" onClick={() => handleDeleteUser(user)}>{t("auth.delete")}</span>
+                <span className="edit" onClick={() => handleModal(user.id)}>
+                  {t("auth.edit")}
+                </span>
+                &nbsp;
+                <span className="delete" onClick={() => handleDeleteUser(user)}>
+                  {t("auth.delete")}
+                </span>
               </td>
               <div className={isOpenModal === user.id ? "" : "none"}>
-                <EditUser passIsOpen={passIsOpen} isOpenModal={isOpenModal} user={user}/>
+                <EditUser
+                  passIsOpen={passIsOpen}
+                  isOpenModal={isOpenModal}
+                  user={user}
+                />
               </div>
             </tr>
           );
@@ -98,18 +135,18 @@ const ManagementUsers = (props) => {
   const handleDeleteUser = (user) => {
     dispatch(adminActions.deleteUser(user));
     const index = searchIndex(user.id);
-    if(index !== -1) {
+    if (index !== -1) {
       setDeleteUser(index);
     }
-  }
+  };
 
   const searchIndex = (id) => {
     let index = -1;
     listUsers.forEach((user, i) => {
-      if(user.id === id) index = i;
+      if (user.id === id) index = i;
     });
     return index;
-  }
+  };
 
   return (
     <div className="wrapperAdminUsers">

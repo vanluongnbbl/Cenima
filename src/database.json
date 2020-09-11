@@ -81,7 +81,7 @@
       "image": "https://i.vietgiaitri.com/2019/11/5/thien-than-anh-the-lao-cai-tinh-khoi-ben-hoa-cuc-hoa-mi-dau-mua-0b0d2f.jpeg",
       "pointIMDB": 8,
       "age": 13,
-      "type": "3D",
+      "type": "2D/3D",
       "directors": "Jon Watts",
       "cast": "Cobie Smulders, Marisa Tomei, Jon Favreau, Samuel L. Jackson, Zendaya, Jake Gyllenhaal, Tom Holland",
       "nation": "Mỹ",
@@ -724,6 +724,67 @@
       "name": "da nang",
       "image": "https://s3img.vcdn.vn/123phim/2018/10/lotte-cinema-cong-hoa-15383860949090.jpg",
       "address": "Pico Plaza, 20 Cộng Hòa, Tân Bình"
+    }
+  ],
+  "tickets": [
+    {
+      "userId": 2,
+      "code": "X72UE",
+      "nameMovie": "Aladdin",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/aladdin-15585337476213_220x310.jpg",
+      "count": 1,
+      "combo": [],
+      "total": 75000,
+      "pay": "Thẻ tín dụng",
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte - Nam Sài Gòn",
+        "screenings": "18:00",
+        "showDate": "2019-08-05T17:00:00.000Z",
+        "cinemaRoom": 3,
+        "seats": [
+          "A11"
+        ]
+      },
+      "timeSet": 1563639982938,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "code": "0OA1Y",
+      "nameMovie": "Aladdin",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/aladdin-15585337476213_220x310.jpg",
+      "count": 2,
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "soLuong": 1,
+          "gia": 97000
+        },
+        {
+          "id": 2,
+          "hinhAnh": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "tenCombo": "2 ly nước vừa, 1 bắp lớn",
+          "soLuong": 1,
+          "gia": 87000
+        }
+      ],
+      "total": 233100,
+      "pay": "Thẻ tín dụng",
+      "discount": 10,
+      "showtimes": {
+        "nameTheater": "Lotte - Nam Sài Gòn",
+        "screenings": "15:00",
+        "showDate": "2019-08-05T17:00:00.000Z",
+        "cinemaRoom": 3,
+        "seats": [
+          "A11"
+        ]
+      },
+      "timeSet": 1563640129601,
+      "id": 4
     }
   ],
   "sessions": [],

@@ -77,37 +77,6 @@ const EditMovie = (props) => {
     props.passIsOpen(0);
   };
 
-  const handleChange = (event) => {
-    switch (event.target.name) {
-      case "name":
-        return setName(event.target.value);
-      case "minutes":
-        return setMinutes(event.target.value);
-      case "category":
-        return setCategory(event.target.value);
-      case "status":
-        return setStatus(event.target.value);
-      case "type":
-        return setType(event.target.value);
-      case "directors":
-        return setDirectors(event.target.value);
-      case "nation":
-        return setNation(event.target.value);
-      case "description":
-        return setDescription(event.target.value);
-      case "cast":
-        return setCast(event.target.value);
-      case "age":
-        return setAge(event.target.value);
-      case "releaseDate":
-        return setReleaseDate(event.target.value);
-      case "image":
-        return setImage(event.target.value);
-      default:
-        return 0;
-    }
-  };
-
   return (
     <div
       className={
@@ -125,7 +94,7 @@ const EditMovie = (props) => {
               type="text"
               id="name"
               value={name}
-              onChange={handleChange}
+              onChange={(event) => setName(event.target.value)}
             />
             <br />
             <label htmlFor="image">{t("auth.image")}</label>
@@ -135,7 +104,7 @@ const EditMovie = (props) => {
               type="text"
               id="image"
               value={image}
-              onChange={handleChange}
+              onChange={(event) => setImage(event.target.value)}
             />
             <br />
 
@@ -146,7 +115,7 @@ const EditMovie = (props) => {
               value={minutes}
               type="number"
               id="minutes"
-              onChange={handleChange}
+              onChange={(event) => setMinutes(event.target.value)}
             />
             <br />
 
@@ -157,7 +126,7 @@ const EditMovie = (props) => {
               value={releaseDate}
               type="date"
               id="releaseDate"
-              onChange={handleChange}
+              onChange={(event) => setReleaseDate(event.target.value)}
             />
             <br />
 
@@ -168,7 +137,7 @@ const EditMovie = (props) => {
               value={category}
               type="text"
               id="category"
-              onChange={handleChange}
+              onChange={(event) => setCategory(event.target.value)}
             />
             <br />
 
@@ -179,7 +148,7 @@ const EditMovie = (props) => {
               value={age}
               type="number"
               id="age"
-              onChange={handleChange}
+              onChange={(event) => setAge(event.target.value)}
             />
             <br />
 
@@ -190,7 +159,7 @@ const EditMovie = (props) => {
               value={directors}
               type="text"
               id="director"
-              onChange={handleChange}
+              onChange={(event) => setDirectors(event.target.value)}
             />
             <br />
             <label htmlFor="cast">{t("auth.cast")}</label>
@@ -201,7 +170,7 @@ const EditMovie = (props) => {
               type="text"
               rows="2"
               id="cast"
-              onChange={handleChange}
+              onChange={(event) => setCast(event.target.value)}
             />
             <br />
             <label htmlFor="nation">{t("auth.nation")}</label>
@@ -211,7 +180,7 @@ const EditMovie = (props) => {
               value={nation}
               type="text"
               id="nation"
-              onChange={handleChange}
+              onChange={(event) => setNation(event.target.value)}
             />
             <br />
             <label htmlFor="description">{t("auth.description")}</label>
@@ -222,7 +191,7 @@ const EditMovie = (props) => {
               type="text"
               rows="5"
               id="description"
-              onChange={handleChange}
+              onChange={(event) => setDescription(event.target.value)}
             />
             <br />
 
@@ -234,7 +203,7 @@ const EditMovie = (props) => {
                 value="1"
                 id="2D"
                 checked={type === "1"}
-                onChange={handleChange}
+                onChange={(event) => setType(event.target.value)}
               />{" "}
               {t("auth.2D")}
             </label>
@@ -246,7 +215,7 @@ const EditMovie = (props) => {
                 value="2"
                 id="3D"
                 checked={type === "2"}
-                onChange={handleChange}
+                onChange={(event) => setType(event.target.value)}
               />{" "}
               {t("auth.3D")}
             </label>
@@ -258,7 +227,7 @@ const EditMovie = (props) => {
                 value="3"
                 id="2D3D"
                 checked={type === "3"}
-                onChange={handleChange}
+                onChange={(event) => setType(event.target.value)}
               />{" "}
               {t("auth.2D3D")}
             </label>
@@ -271,7 +240,7 @@ const EditMovie = (props) => {
                 value="1"
                 id="nowShowing"
                 checked={status === "1"}
-                onChange={handleChange}
+                onChange={(event) => setStatus(event.target.value)}
               />{" "}
               {t("home.nowShowing")}
             </label>
@@ -283,7 +252,7 @@ const EditMovie = (props) => {
                 value="0"
                 id="comingSoon"
                 checked={status === "0"}
-                onChange={handleChange}
+                onChange={(event) => setStatus(event.target.value)}
               />{" "}
               {t("home.comingSoon")}
             </label>

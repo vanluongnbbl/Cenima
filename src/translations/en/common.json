@@ -62,7 +62,11 @@
     "screenings": "Screenings",
     "showDate": "Show Date",
     "cinemaRoom": "Cinema Room",
-    "seats": "Seats"
+    "seats": "Seats",
+    "revenue": "Revenue",
+    "day": "Day",
+    "moneyMovie": "Money Movie",
+    "moneyFood": "Money Food"
   },
   "auth": {
     "password": "Password",

@@ -62,7 +62,11 @@
     "screenings": "Suất Chiếu",
     "showDate": "Ngày Chiếu",
     "cinemaRoom": "Phòng chiếu",
-    "seats": "Số Ghế"
+    "seats": "Số Ghế",
+    "revenue": "Doanh Thu",
+    "day": "Ngày",
+    "moneyMovie": "Tiền Vé",
+    "moneyFood": "Tiền Đồ Ăn Uống"
   },
   "auth": {
     "password": "Mật Khẩu",

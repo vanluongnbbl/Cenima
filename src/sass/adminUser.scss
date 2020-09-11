@@ -84,6 +84,19 @@
       }
     }
   }
+  .adminRevenue {
+    .table {
+      tr {
+        line-height: 2rem;
+      }
+    }
+    .total {
+      @include customFont(18px, "roboto");
+      text-align: right;
+      margin: 20px 40px;
+      color: $colorGreen;
+    }
+  }
   .adminTickets {
     .table {
       tr {

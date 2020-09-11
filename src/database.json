@@ -293,7 +293,7 @@
       "directors": "Aleksandr Domogarov",
       "cast": " ",
       "nation": "Nga",
-      "description": "Truyền thuyết kể rằng, bất kỳ chiếc gương nào cũng có thể mở ra một cánh cổng dẫn đến thế giới của người chết, thông qua nghi lễ triệu hồi ác phụ Đầm Bích. Một nhóm học sinh đã phát hiện ra tấm gương ma quái ngay bên trong ngôi trường nội trú lâu đời của mình. Họ vô tình đọc một câu thần chú cổ xưa mà không biết rằng cái giá phải trả là linh hồn chính mình.",
+      "description": "Truyền thuyết kể rằng, bất kỳ chiếc gương nào cũng có thể mở ra một cánh cổng dẫn đến thế giới của người chết, thông qua nghi lễ triệu hồi ác phụ Đầm Bích. Một nhóm học sinh đã phát hiện ra tấm gương ma quái date bên trong ngôi trường nội trú lâu đời của mình. Họ vô tình đọc một câu thần chú cổ xưa mà không biết rằng cái giá phải trả là linh hồn chính mình.",
       "id": 17
     },
     {
@@ -788,7 +788,296 @@
       "id": 4
     }
   ],
-  "sessions": [],
+  "sessions": [
+    {
+      "movieId": 1,
+      "theaterId": 1,
+      "branchsId": 1,
+      "date": 1,
+      "movieType": "3D",
+      "room": 4,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "18:00",
+        "20:00"
+      ],
+      "trangThai": true,
+      "id": 1
+    },
+    {
+      "movieId": 1,
+      "theaterId": 2,
+      "trangThai": true,
+      "branchsId": 1,
+      "date": 1,
+      "movieType": "2D",
+      "room": 4,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 2
+    },
+    {
+      "movieId": 1,
+      "theaterId": 3,
+      "trangThai": true,
+      "branchsId": 1,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00"
+      ],
+      "id": 3
+    },
+    {
+      "movieId": 1,
+      "theaterId": 4,
+      "trangThai": true,
+      "branchsId": 2,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 4
+    },
+    {
+      "movieId": 1,
+      "theaterId": 5,
+      "trangThai": true,
+      "branchsId": 2,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 5
+    },
+    {
+      "movieId": 1,
+      "theaterId": 6,
+      "trangThai": true,
+      "branchsId": 2,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 6
+    },
+    {
+      "movieId": 1,
+      "theaterId": 7,
+      "trangThai": true,
+      "branchsId": 3,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 7
+    },
+    {
+      "movieId": 1,
+      "theaterId": 8,
+      "trangThai": true,
+      "branchsId": 3,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 8
+    },
+    {
+      "movieId": 1,
+      "theaterId": 1,
+      "trangThai": true,
+      "branchsId": 1,
+      "date": 1,
+      "movieType": "2D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00"
+      ],
+      "id": 9
+    },
+    {
+      "movieId": 1,
+      "theaterId": 2,
+      "trangThai": true,
+      "branchsId": 1,
+      "date": 1,
+      "movieType": "3D",
+      "room": 4,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 10
+    },
+    {
+      "movieId": 1,
+      "theaterId": 3,
+      "trangThai": true,
+      "branchsId": 1,
+      "date": 1,
+      "movieType": "3D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "15:00",
+        "18:00"
+      ],
+      "id": 11
+    },
+    {
+      "movieId": 1,
+      "theaterId": 4,
+      "trangThai": true,
+      "branchsId": 2,
+      "date": 1,
+      "movieType": "3D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 12
+    },
+    {
+      "movieId": 1,
+      "theaterId": 5,
+      "trangThai": true,
+      "branchsId": 2,
+      "date": 1,
+      "movieType": "3D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "18:00",
+        "21:40"
+      ],
+      "id": 13
+    },
+    {
+      "movieId": 1,
+      "theaterId": 6,
+      "trangThai": true,
+      "branchsId": 2,
+      "date": 1,
+      "movieType": "3D",
+      "room": 3,
+      "movieTime": [
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 14
+    },
+    {
+      "movieId": 1,
+      "theaterId": 7,
+      "trangThai": true,
+      "branchsId": 3,
+      "date": 1,
+      "movieType": "3D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "13:20",
+        "15:00",
+        "18:00",
+        "21:40"
+      ],
+      "id": 15
+    },
+    {
+      "movieId": 1,
+      "theaterId": 8,
+      "trangThai": true,
+      "branchsId": 3,
+      "date": 1,
+      "movieType": "3D",
+      "room": 3,
+      "movieTime": [
+        "08:30",
+        "10:20",
+        "13:20",
+        "15:00",
+        "18:00"
+      ],
+      "id": 16
+    }
+  ],
+  "movieTypes": [
+    {
+      "id": 1,
+      "type": "2D"
+    },
+    {
+      "id": 2,
+      "type": "3D"
+    }
+  ],
   "comments": [],
   "comboFood": [
     {

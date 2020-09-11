@@ -10,6 +10,7 @@ import branchReducer from './branchs'
 import admin from "./admin";
 import tickets from "./tickets";
 
+import movieTypeReducer from './movieType'
 const rootReducer = combineReducers({
   ui,
   currentUser,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   branchReducer,
   admin,
   tickets,
+  movieTypeReducer
 });
 
 export default rootReducer;

@@ -48,19 +48,23 @@ import {
   postAddMovie,
   getTicket,
   deleteTicket,
-} from "../apis/auth";
+  getMovieType
+}
+  from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
 import * as movieActions from "../constants/movies";
-import * as promotionAction from "../constants/promotion";
-import * as theaterAction from "../constants/theaters";
-import * as bookingTimeAction from "../constants/bookingTime";
-import * as branchAction from "../constants/branchs";
+import * as promotionAction from '../constants/promotion';
+import * as movieTypeAction from '../constants/movieType'
+import * as theaterAction from '../constants/theaters'
+import * as bookingTimeAction from '../constants/bookingTime'
+import * as branchAction from '../constants/branchs'
 import * as editAccountActions from "../constants/account";
 import * as adminActions from "../constants/admin";
 import Cookie from "js-cookie";
 import md5 from "md5";
+import { movieTypeFailed, movieTypeSuccess } from "../actions/movieType";
 
 /**
  * B1: Thuc thi action
@@ -150,6 +154,18 @@ function* promotionSaga() {
     }
   } catch (error) {
     yield put(promotionFailed(error));
+  }
+}
+
+function* movieTypeSaga() {
+  try {
+    const resp = yield call(getMovieType)
+    const { data, status } = resp
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(movieTypeSuccess(data))
+    }
+  } catch (error) {
+    yield put(movieTypeFailed(error))
   }
 }
 
@@ -350,10 +366,11 @@ function* rootSaga() {
   yield takeLatest(authTypes.REGISTER_USER, registerUserSaga);
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
   yield takeLatest(movieActions.MOVIE, movieSaga);
-  yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga);
-  yield takeLatest(bookingTimeAction.BOOKING_TIME_REQUEST, bookingTimeSaga);
-  yield takeLatest(branchAction.BRANCHS_REQUEST, branchSaga);
-  yield takeLatest(theaterAction.THEATER_REQUEST, theaterSaga);
+  yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
+  yield takeLatest(movieTypeAction.MOVIE_TYPE_REQUEST, movieTypeSaga)
+  yield takeLatest(bookingTimeAction.BOOKING_TIME_REQUEST, bookingTimeSaga)
+  yield takeLatest(branchAction.BRANCHS_REQUEST, branchSaga)
+  yield takeLatest(theaterAction.THEATER_REQUEST, theaterSaga)
   yield takeLatest(authTypes.ACCOUNT, accountSaga);
   yield takeLatest(editAccountActions.EDIT_ACCOUNT, editAccountSaga);
   yield takeLatest(adminActions.DELETE_USER, deleteUserSaga);

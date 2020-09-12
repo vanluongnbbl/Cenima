@@ -11,6 +11,19 @@ header {
         #toggle-menu {
             display: none;
         }
+
+        svg.btn {
+            height: 2.5rem;
+            width: 2.5rem;
+            color: $colorWhite;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                transition: 0.3s;
+                color: $colorGreen;
+            }
+        }
     
         .menu {
             position: relative;

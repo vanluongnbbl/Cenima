@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import * as uiActions from "../../actions/ui";
 
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
 
 function Header() {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
+  const toggleSidebar = useSelector((state) => state.ui.showSidebar);
   const [t, i18n] = useTranslation("common");
+  const dispatch = useDispatch();
 
   return (
     <header>
@@ -17,7 +20,11 @@ function Header() {
           <label htmlFor="toggle-menu" className="menu-icon">
             <AiOutlineMenuUnfold />
           </label>
-
+          {currentUser && currentUser.email === "admin@admin" ? (
+            <AiOutlineMenuUnfold className="btn" onClick={() => dispatch(uiActions.toggleSidebar(!toggleSidebar))} />
+          ) : (
+            ""
+          )}
           <Link className="header__link logo-cenima" to="/">
             Cinema
           </Link>

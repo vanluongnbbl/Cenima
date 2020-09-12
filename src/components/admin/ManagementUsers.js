@@ -12,6 +12,7 @@ const ManagementUsers = (props) => {
   const [listUsers, setListUsers] = useState(accounts);
   const [deleteUser, setDeleteUser] = useState(-1);
   const [isOpenModal, setIsOpenModal] = useState(0);
+  const toggleSidebar = useSelector((state) => state.ui.showSidebar);
   const dispatch = useDispatch();
   const [productPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
@@ -149,7 +150,7 @@ const ManagementUsers = (props) => {
   };
 
   return (
-    <div className="wrapperAdminUsers">
+    <div className={toggleSidebar ? "wrapperAdminUsers" : "wrapperAdminUsers admin"}>
       {currentUser && currentUser.email === "admin@admin"
         ? showAdminUser()
         : checkAdmin()}

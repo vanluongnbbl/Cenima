@@ -15,6 +15,7 @@ const ManagementMovies = (props) => {
   const [isOpenModal, setIsOpenModal] = useState(0);
   const [isOpenModalAddMovie, setIsOpenModalAddMovie] = useState(false);
   const [movie, setMovie] = useState(null);
+  const toggleSidebar = useSelector((state) => state.ui.showSidebar);
   const dispatch = useDispatch();
   const [productPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
@@ -184,7 +185,7 @@ const ManagementMovies = (props) => {
   };
 
   return (
-    <div className="wrapperAdminUsers">
+    <div className={toggleSidebar ? "wrapperAdminUsers" : "wrapperAdminUsers admin"}>
       {currentUser && currentUser.email === "admin@admin"
         ? showAdminMovies()
         : checkAdmin()}

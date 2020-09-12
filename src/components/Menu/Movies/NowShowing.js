@@ -118,10 +118,9 @@ function NowShowing(props) {
                 passTicketMovieName={passTicketMovieName}
                 />
               </div>
-            ) : (
+            {/* ) : (
               ""
-            )
-            {/* } */}
+            )} */}
           </div>
         );
       });

@@ -2,13 +2,13 @@
   "users": [
     {
       "email": "admin@admin",
-      "password": "$2a$10$CaMuzBW.q1xeYjvmBY17eu62vbTyi2cntDSOA7ieYVbJdnA6q1oV6",
+      "password": "$2a$10$FVqhkMBBBA0pOhq0VXjm2.Pk0Vhk347HuZ1NwFNfuwOBZP90oG3Eq",
       "name": " Phạm Việt Hưng",
       "phone": "0972093127",
       "region": "Hà Nội",
       "birth": "1998-11-27",
       "gender": "Male",
-      "avatar": "http://gravatar.com/avatar/a3175a452c7a8fea80c62a198a40f6c9?d=identicon",
+      "avatar": "https://i.redd.it/cyvfhsb69xmy.png",
       "registerDate": 1599624387081,
       "id": 0
     },
@@ -78,7 +78,7 @@
       "releaseDate": "2020-09-10",
       "category": "Hành động, Khoa học viễn tưởng",
       "status": 1,
-      "image": "https://i.vietgiaitri.com/2019/11/5/thien-than-anh-the-lao-cai-tinh-khoi-ben-hoa-cuc-hoa-mi-dau-mua-0b0d2f.jpeg",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
       "pointIMDB": 8,
       "age": 13,
       "type": "2D/3D",

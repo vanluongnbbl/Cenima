@@ -58,7 +58,6 @@ const ManagementUsers = (props) => {
         <table className="table">
           <tr>
             <th>#</th>
-            <th>ID</th>
             <th>{t("auth.avatar")}</th>
             <th>{t("auth.name")}</th>
             <th>{t("auth.email")}</th>
@@ -97,7 +96,6 @@ const ManagementUsers = (props) => {
           return result.push(
             <tr key={i}>
               <td>{i}</td>
-              <td>{user.id}</td>
               <td>
                 <img src={user.avatar} alt="avatar" className="avatar" />
               </td>

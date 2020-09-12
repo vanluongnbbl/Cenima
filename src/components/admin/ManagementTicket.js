@@ -59,7 +59,6 @@ const ManagementTicket = (props) => {
         <table className="table">
           <tr>
             <th>#</th>
-            <th>ID</th>
             <th>{t("auth.account")}</th>
             <th>{t("auth.nameMovie")}</th>
             <th>{t("auth.nameTheater")}</th>
@@ -105,7 +104,6 @@ const ManagementTicket = (props) => {
         return result.push(
           <tr key={i}>
             <td>{i + 1}</td>
-            <td>{ticket.id}</td>
             <td>{ticket.nameUser}</td>
             <td>{ticket.nameMovie}</td>
             <td>{ticket.showtimes.nameTheater}</td>

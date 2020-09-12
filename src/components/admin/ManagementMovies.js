@@ -84,7 +84,6 @@ const ManagementMovies = (props) => {
         <table className="table">
           <tr>
             <th>#</th>
-            <th>ID</th>
             <th>{t("auth.image")}</th>
             <th>{t("auth.name")}</th>
             <th>{t("auth.minutes")}</th>
@@ -128,7 +127,6 @@ const ManagementMovies = (props) => {
         return result.push(
           <tr key={i}>
             <td>{i + 1}</td>
-            <td>{movie.id}</td>
             <td>
               <img src={movie.image} alt="avatar" className="avatar" />
             </td>

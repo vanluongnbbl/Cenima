@@ -740,6 +740,7 @@
       "showtimes": {
         "nameTheater": "Lotte - Nam Sài Gòn",
         "screenings": "18:00",
+        "nameBranch": "Ha Noi",
         "showDate": "2019-08-05",
         "cinemaRoom": 3,
         "seats": [
@@ -777,6 +778,7 @@
       "showtimes": {
         "nameTheater": "Lotte - Nam Sài Gòn",
         "screenings": "15:00",
+        "nameBranch": "Ha Noi",
         "showDate": "2019-08-05",
         "cinemaRoom": 3,
         "seats": [
@@ -786,6 +788,9 @@
       },
       "timeSet": "2020-09-11",
       "id": 4
+    },
+    {
+      "id": 5
     }
   ],
   "sessions": [
@@ -815,7 +820,7 @@
       "movieType": "2D",
       "room": 4,
       "movieTime": [
-        "08:30",
+        "09:30",
         "10:20",
         "13:20",
         "15:00",
@@ -833,7 +838,7 @@
       "movieType": "2D",
       "room": 3,
       "movieTime": [
-        "08:30",
+        "06:30",
         "10:20",
         "13:20",
         "15:00",

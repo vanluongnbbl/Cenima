@@ -10,19 +10,29 @@ function NowShowing(props) {
   const [isOpenModal, setIsOpenModal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(8);
-  const [nowShowing, setNowShowing] = useState([]);
+  const [nowShowing, setNowShowing] = useState([])
+  const [ticketMovieName, setTicketMovieName] = useState("")
   const movies = useSelector((state) => state.movies.movies);
   const account = useSelector((state) => state.currentUser.account);
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
 
-  const handleModal = (id) => {
-    !account ? props.history.push("/login") : setIsOpenModal(id);
+  const handleModal = (id, value) => {
+    if(!account) {
+      props.history.push("/login")
+    } else {
+      setIsOpenModal(id)
+      setTicketMovieName(value)
+    }
   };
 
   const passIsOpen = (value) => {
     setIsOpenModal(value);
   };
+
+  const passTicketMovieName = (value) => {
+    setTicketMovieName(value)
+  }
 
   useEffect(() => {
     dispatch(movieActions.movies());
@@ -69,7 +79,7 @@ function NowShowing(props) {
                 <div className="wrap-movie__btn">
                   <button
                     className="movie__btn"
-                    onClick={() => handleModal(movie.id)}
+                    onClick={() => handleModal(movie.id, movie.name)}
                   >
                     {t("home.booking")}
                   </button>
@@ -104,6 +114,8 @@ function NowShowing(props) {
                   isOpenModal2={isOpenModal}
                   passIsOpen={passIsOpen}
                   movieNow={movie}
+                  ticketMovieName2={ticketMovieName}
+                passTicketMovieName={passTicketMovieName}
                 />
               </div>
             ) : (

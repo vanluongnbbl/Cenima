@@ -14,6 +14,7 @@ import { promotionSuccess, promotionFailed } from "../actions/promotion";
 import { theaterSuccess, theaterFailed } from "../actions/theaterAction";
 import { bookingTimeSuccess, bookingTimeFailed } from "../actions/bookingTime";
 import { branchSuccess, branchFailed } from "../actions/branchs";
+import { addTicketFailed, addTicketSuccess } from '../actions/users'
 import {
   deleteUserSuccess,
   deleteUserFailed,
@@ -48,7 +49,8 @@ import {
   postAddMovie,
   getTicket,
   deleteTicket,
-  getMovieType
+  getMovieType,
+  postAddTicket
 }
   from "../apis/auth";
 import { STATUS_CODE } from "../constants";
@@ -62,6 +64,7 @@ import * as bookingTimeAction from '../constants/bookingTime'
 import * as branchAction from '../constants/branchs'
 import * as editAccountActions from "../constants/account";
 import * as adminActions from "../constants/admin";
+import * as userActions from '../constants/users'
 import Cookie from "js-cookie";
 import md5 from "md5";
 import { movieTypeFailed, movieTypeSuccess } from "../actions/movieType";
@@ -346,6 +349,21 @@ function* addMovieSaga({ payload }) {
   yield put(hideLoading());
 }
 
+function* addTicketSaga({ payload }) {
+  const { ticket } = payload
+  try {
+    const resp = yield call(postAddTicket, ticket)
+    const { status } = resp
+    if (status === STATUS_CODE.CREATED) {
+      yield put(addTicketSuccess(ticket))
+    }
+  } catch (error) {
+    if (error === "something wrong about add ticket") {
+      yield put(addTicketFailed(error))
+    }
+  }
+}
+
 function* ticketSaga() {
   yield put(showLoading());
   try {
@@ -378,6 +396,7 @@ function* rootSaga() {
   yield takeLatest(adminActions.DELETE_MOVIE, deleteMovieSaga);
   yield takeLatest(adminActions.EDIT_MOVIE, editMovieSaga);
   yield takeLatest(adminActions.ADD_MOVIE, addMovieSaga);
+  yield takeLatest(userActions.ADD_TICKET_REQUEST, addTicketSaga);
   yield takeLatest(adminActions.TICKET, ticketSaga);
   yield takeLatest(adminActions.DELETE_TICKET, deleteTicketSaga);
 }

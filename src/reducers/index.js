@@ -9,8 +9,9 @@ import theaterReducer from './theaters'
 import branchReducer from './branchs'
 import admin from "./admin";
 import tickets from "./tickets";
-
+import userReducer from './users'
 import movieTypeReducer from './movieType'
+import saveBookingReducer from './saveBooking'
 const rootReducer = combineReducers({
   ui,
   currentUser,
@@ -22,7 +23,9 @@ const rootReducer = combineReducers({
   branchReducer,
   admin,
   tickets,
-  movieTypeReducer
+  movieTypeReducer,
+  userReducer,
+  saveBookingReducer
 });
 
 export default rootReducer;

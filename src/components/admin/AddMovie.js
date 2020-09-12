@@ -38,8 +38,8 @@ const AddMovie = (props) => {
     type === "1"
       ? (templ.type = "2D")
       : type === "2"
-      ? (templ.type = "3D")
-      : (templ.type = "2D/3D");
+        ? (templ.type = "3D")
+        : (templ.type = "2D/3D");
     templ.nation = nation;
     templ.description = description;
     templ.cast = cast;

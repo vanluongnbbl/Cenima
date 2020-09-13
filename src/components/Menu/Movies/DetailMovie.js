@@ -9,13 +9,23 @@ const DetailMovie = (props) => {
   const [isOpenModal, setIsOpenModal] = useState(0);
   const account = useSelector((state) => state.currentUser.account);
   const { t } = useTranslation("common");
+  const [ticketMovieName, setTicketMovieName] = useState("");
 
   const passIsOpen = (value) => {
     setIsOpenModal(value);
   };
 
-  const handleModal = (id) => {
-    !account ? props.history.push("/login") : setIsOpenModal(id);
+  const handleModal = (id, value) => {
+    if (!account) {
+      props.history.push("/login");
+    } else {
+      setIsOpenModal(id);
+      setTicketMovieName(value);
+    }
+  };
+
+  const passTicketMovieName = (value) => {
+    setTicketMovieName(value);
   };
 
   return movie ? (
@@ -75,6 +85,8 @@ const DetailMovie = (props) => {
                   isOpenModal2={isOpenModal}
                   passIsOpen={passIsOpen}
                   movieNow={movie}
+                  ticketMovieName2={ticketMovieName}
+                  passTicketMovieName={passTicketMovieName}
                 />
               </div>
             ) : (

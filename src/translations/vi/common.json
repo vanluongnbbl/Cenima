@@ -66,7 +66,9 @@
     "revenue": "Doanh Thu",
     "day": "Ngày",
     "moneyMovie": "Tiền Vé",
-    "moneyFood": "Tiền Đồ Ăn Uống"
+    "moneyFood": "Tiền Đồ Ăn Uống",
+    "enterCode": " Nhập mã",
+    "timePromotion": "Thời Gian Ưu Đã"
   },
   "auth": {
     "password": "Mật Khẩu",

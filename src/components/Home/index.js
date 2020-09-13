@@ -8,8 +8,9 @@ import "../../sass/home.scss";
 import * as authActions from "../../actions/auth";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import BookingForm from "../Menu/Movies/BookingForm";
 
-const Home = () => {
+const Home = (props) => {
   const [slideIndex, setSlideIndex] = useState(1);
   const [tag, setTag] = useState(true);
   const sliderBar = useSelector((state) => state.sliderBar.sliderBar);
@@ -20,6 +21,9 @@ const Home = () => {
   const [movie, setMovie] = useState(movies);
   const user = useSelector((state) => state.currentUser.currentUser);
   const accounts = useSelector((state) => state.currentUser.accounts);
+  const account = useSelector((state) => state.currentUser.account);
+  const [ticketMovieName, setTicketMovieName] = useState("");
+  const [isOpenModal, setIsOpenModal] = useState(0);
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
 
@@ -64,6 +68,23 @@ const Home = () => {
       setMovie([...result]);
     }
   }, [tag, movies]);
+
+  const handleModal = (id, value) => {
+    if (!account) {
+      props.history.push("/login");
+    } else {
+      setIsOpenModal(id);
+      setTicketMovieName(value);
+    }
+  };
+
+  const passTicketMovieName = (value) => {
+    setTicketMovieName(value);
+  };
+
+  const passIsOpen = (value) => {
+    setIsOpenModal(value);
+  };
 
   const plusSlides = (n, length) => {
     let count = n;
@@ -126,8 +147,26 @@ const Home = () => {
             />
             <div className="movie__name">{movie[i].name}</div>
             <div className="wrap-movie__btn">
-              <span className="movie__btn">{t("home.booking")}</span>
+              <span
+                className="movie__btn"
+                onClick={() => handleModal(movie[i].id, movie[i].name)}
+              >
+                {t("home.booking")}
+              </span>
             </div>
+            {account && tag ? (
+              <div className={isOpenModal === movie[i].id ? "" : "none"}>
+                <BookingForm
+                  isOpenModal2={isOpenModal}
+                  passIsOpen={passIsOpen}
+                  movieNow={movie[i]}
+                  ticketMovieName2={ticketMovieName}
+                  passTicketMovieName={passTicketMovieName}
+                />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         );
       }
@@ -217,7 +256,15 @@ const Home = () => {
                       alt="promotion information"
                     />
                     <div className="wrap-promotion__btn">
-                      <div className="promotion__btn">{t("home.detail")}</div>
+                      <Link
+                        to="/detailPromotion"
+                        onClick={() =>
+                          dispatch(promotionAction.detailPromotion(item))
+                        }
+                        className="promotion__btn"
+                      >
+                        {t("home.detail")}
+                      </Link>
                     </div>
                   </div>
                 </div>

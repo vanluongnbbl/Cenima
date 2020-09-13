@@ -115,7 +115,7 @@ function NowShowing(props) {
                   passIsOpen={passIsOpen}
                   movieNow={movie}
                   ticketMovieName2={ticketMovieName}
-                passTicketMovieName={passTicketMovieName}
+                  passTicketMovieName={passTicketMovieName}
                 />
               </div>
             {/* ) : (

@@ -20,12 +20,15 @@ import ManagementMovies from "./components/admin/ManagementMovies";
 import ManagementRevenue from "./components/admin/ManagementRevenue";
 import ManagementTicket from "./components/admin/ManagementTicket";
 import DetailMovie from "./components/Menu/Movies/DetailMovie";
+import DetailPromotion from "./components/Promotion/DetailPromotion";
 
 const routers = [
   {
     path: "/",
     exact: true,
-    main: () => <Home />,
+    main: ({ location, history }) => (
+      <Home location={location} history={history} />
+    ),
   },
   {
     path: "/login",
@@ -150,6 +153,13 @@ const routers = [
     exact: false,
     main: ({ location, history }) => (
       <DetailMovie location={location} history={history} />
+    ),
+  },
+  {
+    path: "/detailPromotion",
+    exact: false,
+    main: ({ location, history }) => (
+      <DetailPromotion location={location} history={history} />
     ),
   },
   {

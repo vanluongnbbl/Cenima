@@ -6,9 +6,8 @@ import * as branchAction from '../../../actions/branchs'
 import * as adminActions from '../../../actions/admin'
 import * as saveBookingActions from '../../../actions/saveBooking'
 import { movieTypeRequest } from '../../../actions/movieType';
-import { addTicketRequest } from '../../../actions/users'
-
 import { Link } from 'react-router-dom';
+
 function BookingForm({
     movieNow,
     passIsOpen,
@@ -191,6 +190,7 @@ function BookingForm({
                         "booking-form__date__item"
                 }
                     onClick={() => handleActiveDate(i, i)}
+                    key={i}
                 >{dateToday}</span>
             )
         }

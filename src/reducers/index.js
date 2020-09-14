@@ -13,6 +13,7 @@ import userReducer from './users'
 import movieTypeReducer from './movieType'
 import saveBookingReducer from './saveBooking'
 import search from './search';
+import seatReducer from './seats'
 
 const rootReducer = combineReducers({
   ui,
@@ -28,7 +29,9 @@ const rootReducer = combineReducers({
   movieTypeReducer,
   userReducer,
   saveBookingReducer,
-  search
+  search,
+  seatReducer
+
 });
 
 export default rootReducer;

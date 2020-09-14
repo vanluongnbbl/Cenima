@@ -11,6 +11,7 @@ import { sliderBarSuccess, sliderBarFailed } from "../actions/sliderBars";
 import { moviesSuccess, moviesFailed } from "../actions/movies";
 import { editAccountSuccess, editAccountFailed } from "../actions/account";
 import { promotionSuccess, promotionFailed } from "../actions/promotion";
+import { seatSuccess, seatFailed } from '../actions/seats'
 import { theaterSuccess, theaterFailed } from "../actions/theaterAction";
 import { bookingTimeSuccess, bookingTimeFailed } from "../actions/bookingTime";
 import { branchSuccess, branchFailed } from "../actions/branchs";
@@ -50,7 +51,8 @@ import {
   getTicket,
   deleteTicket,
   getMovieType,
-  postAddTicket
+  postAddTicket,
+  getSeats
 }
   from "../apis/auth";
 import { STATUS_CODE } from "../constants";
@@ -58,6 +60,7 @@ import * as authTypes from "../constants/auth";
 import * as sliderBarActions from "../constants/sliderbars";
 import * as movieActions from "../constants/movies";
 import * as promotionAction from '../constants/promotion';
+import * as seatAction from '../constants/seats'
 import * as movieTypeAction from '../constants/movieType'
 import * as theaterAction from '../constants/theaters'
 import * as bookingTimeAction from '../constants/bookingTime'
@@ -157,6 +160,18 @@ function* promotionSaga() {
     }
   } catch (error) {
     yield put(promotionFailed(error));
+  }
+}
+
+function* seatSaga() {
+  try {
+    const resp = yield call(getSeats)
+    const { data, status } = resp
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(seatSuccess(data))
+    }
+  } catch (error) {
+    yield put(seatFailed(error))
   }
 }
 
@@ -385,6 +400,7 @@ function* rootSaga() {
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
   yield takeLatest(movieActions.MOVIE, movieSaga);
   yield takeLatest(promotionAction.PROMOTION_REQUEST, promotionSaga)
+  yield takeLatest(seatAction.SEAT_REQUEST, seatSaga)
   yield takeLatest(movieTypeAction.MOVIE_TYPE_REQUEST, movieTypeSaga)
   yield takeLatest(bookingTimeAction.BOOKING_TIME_REQUEST, bookingTimeSaga)
   yield takeLatest(branchAction.BRANCHS_REQUEST, branchSaga)

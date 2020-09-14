@@ -68,7 +68,9 @@
     "moneyMovie": "Money Movie",
     "moneyFood": "Money Food",
     "enterCode": "Enter code",
-    "timePromotion": "Time Promotion"
+    "timePromotion": "Time Promotion",
+    "evaluate": "Evaluate",
+    "point": "point"
   },
   "auth": {
     "password": "Password",

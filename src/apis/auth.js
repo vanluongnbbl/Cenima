@@ -99,6 +99,17 @@ export const deleteTicket = (data) => {
 export const postAddTicket = (data) => {
   return axiosService.post(`${API_ENDPOINT}/tickets/`, data)
 }
+// http://localhost:3100/points METHOD: GET
+export const getPoint = () => {
+  return axiosService.get(`${API_ENDPOINT}/points`)
+}
 
+// http://localhost:3100/points METHOD: POST
+export const postPoint = (data) => {
+  return axiosService.post(`${API_ENDPOINT}/points`, data)
+}
 
-
+// http://localhost:3100/points METHOD: PUT
+export const putEditPoint = (data) => {
+  return axiosService.put(`${API_ENDPOINT}/points/${data.id}`, data)
+}

@@ -9,6 +9,7 @@ import * as authActions from "../../actions/auth";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import BookingForm from "../Menu/Movies/BookingForm";
+import * as pointActions from "../../actions/point";
 
 const Home = (props) => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -45,6 +46,10 @@ const Home = (props) => {
 
   useEffect(() => {
     dispatch(authActions.account());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(pointActions.point());
   }, [dispatch]);
 
   useEffect(() => {

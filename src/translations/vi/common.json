@@ -68,7 +68,9 @@
     "moneyMovie": "Tiền Vé",
     "moneyFood": "Tiền Đồ Ăn Uống",
     "enterCode": " Nhập mã",
-    "timePromotion": "Thời Gian Ưu Đã"
+    "timePromotion": "Thời Gian Ưu Đã",
+    "evaluate": "Đánh Giá",
+    "point": "điểm"
   },
   "auth": {
     "password": "Mật Khẩu",

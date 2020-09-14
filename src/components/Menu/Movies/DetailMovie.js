@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import BookingForm from "./BookingForm";
+import * as searchActions from "../../../actions/search";
 import "../../../sass/detailMovie.scss";
 
 const DetailMovie = (props) => {
@@ -10,6 +11,11 @@ const DetailMovie = (props) => {
   const account = useSelector((state) => state.currentUser.account);
   const { t } = useTranslation("common");
   const [ticketMovieName, setTicketMovieName] = useState("");
+  const dispatch = useDispatch(); 
+
+  useEffect(() => {
+    dispatch(searchActions.searchMovie(""));
+  }, [dispatch]);
 
   const passIsOpen = (value) => {
     setIsOpenModal(value);

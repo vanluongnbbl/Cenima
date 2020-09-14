@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as uiActions from "../../actions/ui";
+import * as searchActions from "../../actions/search";
+import * as movieActions from "../../actions/movies";
 
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
@@ -9,8 +11,82 @@ import { useTranslation } from "react-i18next";
 function Header() {
   const currentUser = useSelector((state) => state.currentUser.currentUser);
   const toggleSidebar = useSelector((state) => state.ui.showSidebar);
+  const movies = useSelector((state) => state.movies.movies);
+  const [movieSearch, setMovieSearch] = useState([]);
+  const movieKey = useSelector((state) => state.search.search);
   const [t, i18n] = useTranslation("common");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (movieKey !== "") {
+      const result = [...movies].filter((movie) => {
+        return movie.name.toLowerCase().indexOf(movieKey.toLowerCase()) !== -1;
+      });
+      setMovieSearch([...result]);
+    } else setMovieSearch([]);
+  }, [movieKey, movies]);
+
+  const handleDetailMovie = (movie) => {
+    dispatch(uiActions.showLoading(true));
+    setMovieSearch([]);
+    setTimeout(() => {
+      dispatch(movieActions.detailMovie(movie));
+      dispatch(uiActions.hideLoading(false));
+      document.getElementById("searchMovie").reset();
+    }, 1000);
+  };
+
+  const showMovieSearch = () => {
+    let result = [];
+    if (movieSearch[0]) {
+      if (movieSearch.length > 4) {
+        for (let i = 0; i < 4; i++) {
+          result.push(
+            <Link
+              className="movieSearch__wrapper"
+              key={i}
+              to="/detailMovie"
+              onClick={() => handleDetailMovie(movieSearch[i])}
+            >
+              <div className="movieSearch__wrapper__image">
+                <img
+                  src={movieSearch[i].image}
+                  alt="image_movie"
+                  className="image__movie"
+                />
+              </div>
+              <div className="movieSearch__wrapper__name">
+                {movieSearch[i].name}
+              </div>
+            </Link>
+          );
+        }
+      } else {
+        for (let i = 0; i < movieSearch.length; i++) {
+          result.push(
+            <Link
+              className="movieSearch__wrapper"
+              key={i}
+              onClick={() => handleDetailMovie(movieSearch[i])}
+              to="/detailMovie"
+            >
+              <div className="movieSearch__wrapper__image">
+                <img
+                  src={movieSearch[i].image}
+                  alt="image_movie"
+                  className="image__movie"
+                />
+              </div>
+              <div className="movieSearch__wrapper__name">
+                {movieSearch[i].name}
+              </div>
+            </Link>
+          );
+        }
+      }
+    }
+    return result;
+  };
 
   return (
     <header>
@@ -21,7 +97,10 @@ function Header() {
             <AiOutlineMenuUnfold />
           </label>
           {currentUser && currentUser.email === "admin@admin" ? (
-            <AiOutlineMenuUnfold className="btn" onClick={() => dispatch(uiActions.toggleSidebar(!toggleSidebar))} />
+            <AiOutlineMenuUnfold
+              className="btn"
+              onClick={() => dispatch(uiActions.toggleSidebar(!toggleSidebar))}
+            />
           ) : (
             ""
           )}
@@ -50,14 +129,18 @@ function Header() {
           </div>
         </nav>
 
-        <form>
+        <form id="searchMovie">
           <input
-            tpye="search"
+            type="search"
             id="search"
-            name="search"
+            autoComplete="off"
             placeholder={t("header.placeholderSearch")}
+            onChange={(e) =>
+              dispatch(searchActions.searchMovie(e.target.value))
+            }
           />
           <label htmlFor="search">{t("header.search")}</label>
+          <div className="movieSearch">{showMovieSearch()}</div>
         </form>
 
         <div className="header__login-register">

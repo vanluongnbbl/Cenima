@@ -79,7 +79,7 @@
       "category": "Hành động, Khoa học viễn tưởng",
       "status": 1,
       "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "pointIMDB": 8.4,
+      "pointIMDB": 6.67,
       "age": 13,
       "type": "2D/3D",
       "directors": "Jon Watts",
@@ -1164,23 +1164,15 @@
       "users": [
         {
           "usersId": 1,
-          "point": 6
-        },
-        {
-          "usersId": 3,
-          "point": 10
-        },
-        {
-          "usersId": 3,
-          "point": 9
+          "point": 5
         },
         {
           "usersId": 3,
           "point": 7
         },
         {
-          "usersId": 3,
-          "point": 10
+          "usersId": 2,
+          "point": 8
         }
       ]
     },
@@ -1193,34 +1185,6 @@
         },
         {
           "usersId": 2,
-          "point": 9
-        },
-        {
-          "usersId": 3,
-          "point": 8
-        },
-        {
-          "usersId": 3,
-          "point": 10
-        },
-        {
-          "usersId": 3,
-          "point": 9
-        },
-        {
-          "usersId": 3,
-          "point": 8
-        },
-        {
-          "usersId": 3,
-          "point": 7
-        },
-        {
-          "usersId": 3,
-          "point": 8
-        },
-        {
-          "usersId": 3,
           "point": 9
         },
         {

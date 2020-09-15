@@ -31,7 +31,7 @@ const DetailMovie = (props) => {
     if (point !== 0 && points) {
       let index1 = searchIndexMovie(points);
       if (index1 !== -1) {
-        let index = searchIndex(points[index1].users, account[0].id);
+        let index = searchIndex(points[index1].users;
         if (index !== -1) {
           result[index1].users[index].point = Number(point);
         } else {
@@ -56,7 +56,7 @@ const DetailMovie = (props) => {
   const searchIndex = (lists) => {
     let index = -1;
     lists.forEach((list, i) => {
-      if (list.userId === account[0].id) index = i;
+      if (list.usersId === account[0].id) index = i;
     });
     return index;
   };

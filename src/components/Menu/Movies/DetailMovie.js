@@ -18,13 +18,9 @@ const DetailMovie = (props) => {
   const [listen, setListen] = useState(0);
 
   useEffect(() => {
-    
-  }, [dispatch]);
-
-  useEffect(() => {
     if(movie && listen !== 0) {
       setMovie1(movie)
-    }
+    } else setMovie1(movie);
   }, [movie, listen]);
 
   const handlePoint = (point) => {

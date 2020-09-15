@@ -32,6 +32,7 @@ function Header() {
     setTimeout(() => {
       dispatch(movieActions.detailMovie(movie));
       dispatch(uiActions.hideLoading(false));
+      dispatch(searchActions.searchMovie(""));
       document.getElementById("searchMovie").reset();
     }, 1000);
   };

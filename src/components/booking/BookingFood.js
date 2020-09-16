@@ -4,9 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import * as saveBookingActions from '../../actions/saveBooking'
 import * as comboFoodAction from '../../actions/comboFood'
-import { increamentCount, decreamentCount } from '../../actions/count'
 import { Link } from "react-router-dom";
-import showCounter from "./showCounter";
 const BookingFood = () => {
   const { t } = useTranslation("common");
   const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
@@ -18,6 +16,7 @@ const BookingFood = () => {
 
   const [bookedSeat, setBookedSeat] = useState([])
   const [counter, setCounter] = useState(0)
+  const [foodId, setFoodId] = useState(0);
 
 
   useEffect(() => {
@@ -115,29 +114,49 @@ const BookingFood = () => {
     return result
   }
 
+  const handleCounterIncrease = (comboFood) => {
+    if(comboFood.id !== foodId) {
+      setFoodId(comboFood.id);
+      setCounter(1);
+      comboFood.count = counter;
+    } else {
+      setCounter(counter + 1);
+      comboFood.count = counter;
+    }
+  }
 
+  const handleCounterDecrease = (comboFood) => {
+    if(comboFood.id !== foodId) {
+      setFoodId(comboFood.id);
+      setCounter(0);
+      comboFood.count = counter;
+    } else {
+      setCounter(counter - 1);
+      comboFood.count = counter;
+    }
+  }
 
-  // const showCounter = (comboFood) => {
+  const showCounter = (comboFood) => {
 
-  //   return (
-  //     <div className="detail__counts">
-  //       <span
-  //         className="detail__counts__crease"
+    return (
+      <div className="detail__counts">
+        <span
+          className="detail__counts__crease"
 
-  //         onClick={() => dispatch(decreamentCount(counts))}
-  //       >-</span>
+          onClick={() => handleCounterDecrease(comboFood)}
+        >-</span>
 
-  //       < span className="detail__counts__count">
-  //         {comboFood.count}
-  //       </span>
-  //       <span
-  //         className="detail__counts__crease"
-  //         onClick={() => dispatch(increamentCount(counts))}
-  //       >+</span>
-  //     </div >
-  //   )
+        <span className="detail__counts__count">
+          {comboFood.count}
+        </span>
+        <span
+          className="detail__counts__crease"
+          onClick={() => handleCounterIncrease(comboFood)}
+        >+</span>
+      </div>
+    )
 
-  // }
+  }
 
 
   const showComboFood = () => {
@@ -155,8 +174,8 @@ const BookingFood = () => {
             {t("home.price")}: <b>{comboFood.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".",)} VND</b>
           </div>
 
-          {/* {showCounter(comboFood)} */}
-          <showCounter comboFood={comboFood} />
+          {showCounter(comboFood)}
+          {/* <showCounter comboFood={comboFood} /> */}
 
         </div>
       </div>

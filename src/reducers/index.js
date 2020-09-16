@@ -15,7 +15,9 @@ import saveBookingReducer from './saveBooking'
 import search from './search';
 import seatReducer from './seats'
 import points from "./point"
-
+import saveSeatReducer from './saveSeat'
+import comboFoodReducer from './comboFood'
+import countReducer from './count'
 const rootReducer = combineReducers({
   ui,
   currentUser,
@@ -33,6 +35,9 @@ const rootReducer = combineReducers({
   search,
   seatReducer,
   points,
+  saveSeatReducer,
+  comboFoodReducer,
+  countReducer
 });
 
 export default rootReducer;

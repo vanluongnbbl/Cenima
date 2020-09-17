@@ -16,8 +16,9 @@ const Payment = (props) => {
   const saveFoods = useSelector(state => state.saveFoodReducer.saveFoodData)
   const currentUser = useSelector(state => state.currentUser.account)
   const [bookedSeat, setBookedSeat] = useState([])
+  const [count, setCount] = useState(saveSeats.length);
   const [discount, setDiscount] = useState(0)
-  const [pay, setPay] = useState("")
+  const [pay, setPay] = useState("CASH")
   const [listDay, setListDay] = useState("")
 
   const newCombo = saveFoods.combo
@@ -71,7 +72,9 @@ const Payment = (props) => {
     setListDay(stringDate);
   }, []);
 
-
+ useEffect(() => {
+   setCount(saveSeats.seats.length);
+ }, [saveSeats]);
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -83,6 +86,8 @@ const Payment = (props) => {
     temp.combo = newCombo
     temp.pay = pay
     temp.total = totalPrice()
+    temp.count = count
+    temp.discount = discount
     temp.showtimes = {
       nameTheater: saveBooking.nameTheater,
       screenings: saveBooking.screenings,
@@ -214,7 +219,7 @@ const Payment = (props) => {
                 <input type="radio" name="pay" value="ATM" id="online" onChange={(e) => setPay(e.target.value)} /> ATM
               </label>
               <label htmlFor="offline">
-                <input type="radio" name="pay" value="CASH" id="offline" onChange={(e) => setPay(e.target.value)} /> {t("home.cash")}
+                <input type="radio" name="pay" value="CASH" id="offline" onChange={(e) => setPay(e.target.value)} checked={pay === "CASH"} /> {t("home.cash")}
               </label>
             </form>
           </div>

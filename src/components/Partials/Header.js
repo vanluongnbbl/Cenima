@@ -46,7 +46,7 @@ function Header() {
               className="movieSearch__wrapper"
               key={i}
               onClick={() => handleDetailMovie(movieSearch[i])}
-              to="/detailMovie"
+              to={`/detailMovie/${movieSearch[i].id}`}
             >
               <div className="movieSearch__wrapper__image">
                 <img

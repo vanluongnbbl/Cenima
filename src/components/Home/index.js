@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as movieActions from "../../actions/movies";
 import * as promotionAction from "../../actions/promotion";
@@ -27,6 +27,21 @@ const Home = (props) => {
   const [isOpenModal, setIsOpenModal] = useState(0);
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
+  const autoPlayRef = useRef();
+
+  console.log(slideIndex);
+
+  useEffect(() => {
+    autoPlayRef.current = nextSlide;
+  });
+
+  useEffect(() => {
+    const play = () => {
+      autoPlayRef.current();
+    }
+    const interval = setInterval(play, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     dispatch(sliderBarActions.sliderBar());
@@ -91,11 +106,19 @@ const Home = (props) => {
     setIsOpenModal(value);
   };
 
-  const plusSlides = (n, length) => {
-    let count = n;
-    n > length ? (count = 1) : n <= 0 ? (count = length) : (count = n);
-    setSlideIndex(count);
-  };
+  const nextSlide = () => {
+    if (sliderBar && slideIndex === sliderBar.length) {
+      return setSlideIndex(1);
+    }
+    setSlideIndex(slideIndex + 1);
+  }
+
+  const prevSlide = () => {
+    if (sliderBar && slideIndex === 1) {
+      return setSlideIndex(sliderBar.length);
+    }
+    setSlideIndex(slideIndex - 1);
+  }
 
   const currentSlide = (count) => {
     setSlideIndex(count);
@@ -179,18 +202,6 @@ const Home = (props) => {
     return result;
   };
 
-  // const autoSlidebar = () => {
-  //   if (sliderBar) {
-  //     let time = setInterval(() => {
-  //       setSlideIndex(slideIndex + 1);
-  //     }, 4000);
-  //     setTimeout(() => {
-  //       clearInterval(time);
-  //       setSlideIndex(1);
-  //     }, 24000);
-  //   }
-  // };
-
   return (
     <div className="home">
       <div className="slideshow-container">
@@ -198,13 +209,13 @@ const Home = (props) => {
 
         <span
           className="prev"
-          onClick={() => plusSlides(slideIndex - 1, sliderBar.length)}
+          onClick={() => prevSlide()}
         >
           &#10094;
         </span>
         <span
           className="next"
-          onClick={() => plusSlides(slideIndex + 1, sliderBar.length)}
+          onClick={() => nextSlide()}
         >
           &#10095;
         </span>

@@ -118,3 +118,8 @@ export const postPoint = (data) => {
 export const putEditPoint = (data) => {
   return axiosService.put(`${API_ENDPOINT}/points/${data.id}`, data)
 }
+
+// http://localhost:3100/movies METHOD: GET
+export const getShowMovie = (id) => {
+  return axiosService.get(`${API_ENDPOINT}/movies/${id}`)
+}

@@ -84,6 +84,7 @@ const ManagementMovies = (props) => {
         <table className="table">
           <tr>
             <th>#</th>
+            <th className="editMovie">{t("auth.edit")}</th>
             <th>{t("auth.image")}</th>
             <th>{t("auth.name")}</th>
             <th>{t("auth.minutes")}</th>
@@ -97,7 +98,6 @@ const ManagementMovies = (props) => {
             <th>{t("auth.cast")}</th>
             <th>{t("auth.nation")}</th>
             <th className="description">{t("auth.description")}</th>
-            <th>{t("auth.edit")}</th>
           </tr>
           {showMovie()}
         </table>
@@ -127,6 +127,15 @@ const ManagementMovies = (props) => {
         return result.push(
           <tr key={i}>
             <td>{i + 1}</td>
+            <td className="editMovie">
+              <span className="edit" onClick={() => handleModal(movie.id)}>
+                {t("auth.edit")}
+              </span>
+              &nbsp;
+              <span className="delete" onClick={() => handleDeleteMovie(movie)}>
+                {t("auth.delete")}
+              </span>
+            </td>
             <td>
               <img src={movie.image} alt="avatar" className="avatar" />
             </td>
@@ -144,15 +153,6 @@ const ManagementMovies = (props) => {
             <td>{movie.cast}</td>
             <td>{movie.nation}</td>
             <td className="descriptions">{movie.description}</td>
-            <td>
-              <span className="edit" onClick={() => handleModal(movie.id)}>
-                {t("auth.edit")}
-              </span>
-              &nbsp;
-              <span className="delete" onClick={() => handleDeleteMovie(movie)}>
-                {t("auth.delete")}
-              </span>
-            </td>
             <div className={isOpenModal === movie.id ? "" : "none"}>
               <EditMovie
                 passIsOpen={passIsOpen}
@@ -167,10 +167,13 @@ const ManagementMovies = (props) => {
   };
 
   const handleDeleteMovie = (movie) => {
-    dispatch(adminActions.deleteMovie(movie));
-    const index = searchIndex(movie.id);
-    if (index !== -1) {
-      setDeleteMovie(index);
+    const string = t("auth.deleteConfirm");
+    if (window.confirm(string)) {
+      dispatch(adminActions.deleteMovie(movie));
+      const index = searchIndex(movie.id);
+      if (index !== -1) {
+        setDeleteMovie(index);
+      }
     }
   };
 
@@ -183,7 +186,11 @@ const ManagementMovies = (props) => {
   };
 
   return (
-    <div className={toggleSidebar ? "wrapperAdminUsers" : "wrapperAdminUsers admin"}>
+    <div
+      className={
+        toggleSidebar ? "wrapperAdminUsers" : "wrapperAdminUsers admin"
+      }
+    >
       {currentUser && currentUser.email === "admin@admin"
         ? showAdminMovies()
         : checkAdmin()}

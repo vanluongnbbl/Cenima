@@ -135,7 +135,7 @@ header {
             right: 420px;
             #search {
                 padding: 8px 15px;
-                width: 300px;
+                width: 390px;
                 border: none;
                 border-radius: 5px;
                 outline: none;
@@ -156,8 +156,9 @@ header {
                 opacity: 0.8;
             }
             .movieSearch {
-                @include customPosition(absolute, 46px, 0, 9999, 391px, auto, true);
+                @include customPosition(absolute, 46px, 0, 9999, auto, 400px, true);
                 background: $colorGray;
+                overflow: scroll;
                 &__wrapper {
                     display: flex;
                     width: 100%;

@@ -141,10 +141,10 @@ const routers = [
     ),
   },
   {
-    path: "/detailMovie",
-    exact: false,
-    main: ({ location, history }) => (
-      <DetailMovie location={location} history={history} />
+    path: "/detailMovie/:id",
+    exact: true,
+    main: ({ location, history, match }) => (
+      <DetailMovie location={location} history={history} match={match} />
     ),
   },
   {

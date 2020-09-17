@@ -60,7 +60,7 @@ function ComingSoon() {
                 </div>
               </div>
               <Link
-                to="/detailMovie"
+                to={`/detailMovie/${movie.id}`}
                 onClick={() => dispatch(movieActions.detailMovie(movie))}
                 className="movie__name"
                 title={movie.name}

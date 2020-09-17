@@ -8,6 +8,7 @@ const EditAccount = (props) => {
   const account = useSelector((state) => state.currentUser.account);
   const currentUser = useSelector((state) => state.currentUser.currentUser);
   const [editAccount, setEditAccount] = useState(account);
+  const error1 = useSelector((state) => state.currentUser.error);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -55,6 +56,7 @@ const EditAccount = (props) => {
       props.history.push("/");
     } else {
       toastError({message: "Invalid Password"});
+      dispatch(editAccountActions.editAccountFailed({error: "Invalid Password"}));
     }
   };
 
@@ -86,6 +88,7 @@ const EditAccount = (props) => {
           id="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+          style={error1 ? { borderColor: "red" } : { color: "black" }}
         />
         <br />
         <label htmlFor="avatar">{t("auth.avatar")}</label>

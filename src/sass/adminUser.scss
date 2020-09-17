@@ -68,8 +68,12 @@
     }
   }
   .adminMovies {
-    overflow-x: auto;
-    min-width: 3100px;
+    overflow-x: scroll;
+    width: 100%;
+    .table {
+      width: 3100px;
+      overflow-x: scroll;
+    }
     .addMovie {
       display: inline-block;
       padding: 10px;
@@ -83,6 +87,8 @@
         transition: 0.3s;
         color: $colorWhite;
       }
+    }
+    .pagination {
     }
   }
   .adminRevenue {

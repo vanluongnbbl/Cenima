@@ -23,6 +23,18 @@ const AddMovie = (props) => {
 
   useEffect(() => {
     setIsOpenModal(props.isOpenModalAddMovie);
+    setName("");
+    setMinutes();
+    setCategory("");
+    setStatus("1");
+    setType("1");
+    setDirectors("");
+    setNation("");
+    setDescription("");
+    setReleaseDate("");
+    setCast("");
+    setAge();
+    setImage("");
   }, [props.isOpenModalAddMovie]);
 
   const handleModal = () => {
@@ -63,7 +75,7 @@ const AddMovie = (props) => {
       <div className="background-modal" onClick={handleModal}></div>
       <div className="booking-form">
         <div className="booking-form__inner">
-          <form className="register adminEditUser" onSubmit={handleSubmit}>
+          <form className="register adminEditUser" onSubmit={handleSubmit} id="adminEditMovie">
             <label htmlFor="name">{t("auth.name")}</label>
             <input
               name="name"
@@ -96,10 +108,10 @@ const AddMovie = (props) => {
             />
             <br />
 
-            <label htmlFor="releaseDate">{t("auth.releaseDate")}</label>
+            <label htmlFor="releaseDate">{t("home.releaseDate")}</label>
             <input
               name="releaseDate"
-              placeholder={t("auth.releaseDate")}
+              placeholder={t("home.releaseDate")}
               value={releaseDate}
               type="date"
               id="releaseDate"
@@ -235,7 +247,7 @@ const AddMovie = (props) => {
             </label>
             <br />
 
-            <input type="submit" value={t("auth.editMovie")} />
+            <input type="submit" value={t("auth.addMovie")} />
           </form>
         </div>
       </div>

@@ -4,10 +4,11 @@ import { useTranslation } from "react-i18next";
 import BookingForm from "./BookingForm";
 import * as pointActions from "../../../actions/point";
 import * as adminActions from "../../../actions/admin";
+import * as uiActions from "../../../actions/ui";
 import "../../../sass/detailMovie.scss";
 
 const DetailMovie = (props) => {
-  const movie = useSelector((state) => state.movies.movie);
+  const movie = useSelector((state) => state.admin.movie);
   const [movie1, setMovie1] = useState(movie);
   const [isOpenModal, setIsOpenModal] = useState(0);
   const account = useSelector((state) => state.currentUser.account);
@@ -18,9 +19,24 @@ const DetailMovie = (props) => {
   const [listen, setListen] = useState(0);
 
   useEffect(() => {
+      dispatch(uiActions.showLoading());
+      setTimeout(() => {
+        dispatch(adminActions.showMovie(props.match.params.id));
+        dispatch(uiActions.hideLoading());
+      }, 1000);
+  }, [dispatch, props]);
+
+  useEffect(() => {
+    if(listen !== 0) {
+      dispatch(adminActions.showMovie(props.match.params.id));
+    }
+  }, [dispatch, listen, props]);
+
+  useEffect(() => {
     if(movie && listen !== 0) {
-      setMovie1(movie)
+      setMovie1(movie);
     } else setMovie1(movie);
+    setListen(0);
   }, [movie, listen]);
 
   const handlePoint = (point) => {
@@ -99,7 +115,7 @@ const DetailMovie = (props) => {
     return result;
   };
 
-  return movie ? (
+  return movie1 ? (
     <div className="detailMovie container">
       <div className="detailMovie__image">
         <img src={movie1.image} alt="image" className="image" />
@@ -150,7 +166,7 @@ const DetailMovie = (props) => {
         ) : (
           ""
         )}
-        {movie.status === 1 ? (
+        {account && movie.status === 1 ? (
           <span
             className="detailMovie__booking"
             onClick={() => handleModal(movie.id)}

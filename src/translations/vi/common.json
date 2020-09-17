@@ -119,6 +119,8 @@
     "action": "Chức Năng",
     "nameMovie": "Tên Phim",
     "show": "Xem",
-    "confirmPassword": "Xác Thực Mật Khẩu"
+    "confirmPassword": "Xác Thực Mật Khẩu",
+    "addMovie":"Thêm Phim",
+    "deleteConfirm": "Bạn chắc chắc muốn xoá?"
   }
 }

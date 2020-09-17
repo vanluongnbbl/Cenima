@@ -40,29 +40,6 @@ function Header() {
   const showMovieSearch = () => {
     let result = [];
     if (movieSearch[0]) {
-      if (movieSearch.length > 4) {
-        for (let i = 0; i < 4; i++) {
-          result.push(
-            <Link
-              className="movieSearch__wrapper"
-              key={i}
-              to="/detailMovie"
-              onClick={() => handleDetailMovie(movieSearch[i])}
-            >
-              <div className="movieSearch__wrapper__image">
-                <img
-                  src={movieSearch[i].image}
-                  alt="image_movie"
-                  className="image__movie"
-                />
-              </div>
-              <div className="movieSearch__wrapper__name">
-                {movieSearch[i].name}
-              </div>
-            </Link>
-          );
-        }
-      } else {
         for (let i = 0; i < movieSearch.length; i++) {
           result.push(
             <Link
@@ -84,7 +61,6 @@ function Header() {
             </Link>
           );
         }
-      }
     }
     return result;
   };
@@ -138,8 +114,7 @@ function Header() {
               dispatch(searchActions.searchMovie(e.target.value))
             }
           />
-          <label htmlFor="search">{t("header.search")}</label>
-          <div className="movieSearch">{showMovieSearch()}</div>
+          {movieSearch[0] ? <div className="movieSearch" style={movieSearch.length < 4 ? {height: "auto"} : {height: "400px"}}>{showMovieSearch()}</div> : ""}
         </form>
 
         <div className="header__login-register">

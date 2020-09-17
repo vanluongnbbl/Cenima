@@ -87,7 +87,7 @@ function NowShowing(props) {
               </div>
               <Link
                 onClick={() => dispatch(movieActions.detailMovie(movie))}
-                to="/detailMovie"
+                to={`/detailMovie/${movie.id}`}
                 className="movie__name"
                 title={movie.name}
               >

@@ -8,7 +8,7 @@ import * as comboFoodAction from '../../actions/comboFood'
 import { Link } from "react-router-dom";
 import { addTicketRequest } from '../../actions/users'
 
-const Payment = () => {
+const Payment = (props) => {
 
   const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
   const getSeats = useSelector(state => state.seatReducer.seatData)
@@ -77,8 +77,7 @@ const Payment = () => {
     event.preventDefault()
     let temp = {}
 
-    temp.userID = currentUser[0].id
-    temp.showDate = saveBooking.showDate
+    temp.userId = currentUser[0].id
     temp.nameMovie = saveBooking.nameMovie
     temp.image = saveBooking.image
     temp.combo = newCombo
@@ -97,7 +96,7 @@ const Payment = () => {
     }
     temp.timeSet = listDay
     dispatch(addTicketRequest(temp))
-
+    props.history.push("/");
   }
   //  end add ticket
 

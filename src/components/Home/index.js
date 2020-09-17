@@ -29,8 +29,6 @@ const Home = (props) => {
   const { t } = useTranslation("common");
   const autoPlayRef = useRef();
 
-  console.log(slideIndex);
-
   useEffect(() => {
     autoPlayRef.current = nextSlide;
   });

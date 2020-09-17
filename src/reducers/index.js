@@ -18,6 +18,7 @@ import points from "./point"
 import saveSeatReducer from './saveSeat'
 import comboFoodReducer from './comboFood'
 import countReducer from './count'
+import saveFoodReducer from './saveFood'
 const rootReducer = combineReducers({
   ui,
   currentUser,
@@ -37,7 +38,8 @@ const rootReducer = combineReducers({
   points,
   saveSeatReducer,
   comboFoodReducer,
-  countReducer
+  countReducer,
+  saveFoodReducer
 });
 
 export default rootReducer;

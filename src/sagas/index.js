@@ -392,10 +392,12 @@ function* addMovieSaga({ payload }) {
 }
 
 function* addTicketSaga({ payload }) {
-  const { ticket } = payload;
+  const ticket = payload
   try {
     const resp = yield call(postAddTicket, ticket);
     const { status } = resp;
+    console.log("resp", resp)
+    console.log("ticket", ticket)
     if (status === STATUS_CODE.CREATED) {
       yield put(addTicketSuccess(ticket));
     }

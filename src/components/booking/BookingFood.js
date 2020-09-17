@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import * as saveBookingActions from '../../actions/saveBooking'
 import * as comboFoodAction from '../../actions/comboFood'
 import { Link } from "react-router-dom";
+import { saveFoodRequest, saveFoodSuccess } from "../../actions/saveFood";
 const BookingFood = () => {
   const { t } = useTranslation("common");
   const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
   const comboFoods = useSelector(state => state.comboFoodReducer.comboFoodData)
   const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
   const getSeats = useSelector(state => state.seatReducer.seatData)
-  const counts = useSelector(state => state.countReducer.count)
   const dispatch = useDispatch()
 
   const [bookedSeat, setBookedSeat] = useState([])
@@ -77,7 +77,7 @@ const BookingFood = () => {
   }
 
   const totalPrice = () => {
-    return totalMoviePrice() + 100
+    return totalMoviePrice() + totalFoodPrice()
   }
 
   const showRemaining = () => {
@@ -115,33 +115,49 @@ const BookingFood = () => {
   }
 
   const handleCounterIncrease = (comboFood) => {
-    if(comboFood.id !== foodId) {
+    if (comboFood.id !== foodId) {
       setFoodId(comboFood.id);
       setCounter(1);
-      comboFood.count = counter;
     } else {
       setCounter(counter + 1);
-      comboFood.count = counter;
     }
+
   }
 
   const handleCounterDecrease = (comboFood) => {
-    if(comboFood.id !== foodId) {
+    if (comboFood.id !== foodId) {
       setFoodId(comboFood.id);
       setCounter(0);
-      comboFood.count = counter;
     } else {
       setCounter(counter - 1);
-      comboFood.count = counter;
     }
   }
 
-  const showCounter = (comboFood) => {
+  const handleSaveBooking = () => {
+    dispatch(saveFoodSuccess({
+      combo: comboFoods,
+      totalFood: totalFoodPrice()
+    }))
+  }
 
+  const totalFoodPrice = () => {
+    let total = 0;
+    comboFoods && comboFoods.forEach((comboFood, i) => {
+      if (comboFood.count > 0) {
+        total = total + comboFood.count * comboFood.price;
+      }
+    });
+    return total;
+  }
+
+  const showCounter = (comboFood) => {
+    if (comboFood.id === foodId) {
+      comboFood.count = counter;
+    }
     return (
       <div className="detail__counts">
         <span
-          className="detail__counts__crease"
+          className={counter === 0 ? "detail__counts__crease disabled-event" : "detail__counts__crease"}
 
           onClick={() => handleCounterDecrease(comboFood)}
         >-</span>
@@ -157,6 +173,7 @@ const BookingFood = () => {
     )
 
   }
+
 
 
   const showComboFood = () => {
@@ -175,7 +192,6 @@ const BookingFood = () => {
           </div>
 
           {showCounter(comboFood)}
-          {/* <showCounter comboFood={comboFood} /> */}
 
         </div>
       </div>
@@ -200,11 +216,14 @@ const BookingFood = () => {
           </span>
           <span className="total">
             <div className="total__item">{t("home.paymentMovie")}: <b>{totalMoviePrice().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".",)} VND</b></div>
-            <div className="total__item">{t("home.paymentFood")}: <b>30$</b></div>
+            <div className="total__item">{t("home.paymentFood")}: <b>{totalFoodPrice().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".",)}</b></div>
             <div className="total__item">{t("home.total")}: <b>{totalPrice().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".",)} VND</b></div>
           </span>
           <span className="next">
-            <Link to="/payment">{t("home.next")} &#10095;</Link>
+            <Link
+              to="/payment"
+              onClick={handleSaveBooking}
+            >{t("home.next")} &#10095;</Link>
           </span>
         </div>
       </div>

@@ -6,17 +6,101 @@ import { useDispatch, useSelector } from "react-redux";
 import * as saveBookingActions from '../../actions/saveBooking'
 import * as comboFoodAction from '../../actions/comboFood'
 import { Link } from "react-router-dom";
-
+import { addTicketRequest } from '../../actions/users'
 
 const Payment = () => {
 
   const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
   const getSeats = useSelector(state => state.seatReducer.seatData)
   const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
-
+  const saveFoods = useSelector(state => state.saveFoodReducer.saveFoodData)
+  const currentUser = useSelector(state => state.currentUser.account)
   const [bookedSeat, setBookedSeat] = useState([])
+  const [discount, setDiscount] = useState(0)
+  const [pay, setPay] = useState("")
+  const [listDay, setListDay] = useState("")
 
+  const newCombo = saveFoods.combo
   const dispatch = useDispatch()
+
+
+
+
+  let today = new Date()
+  let weekday = new Array(10);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+  weekday[7] = "Sunday";
+  weekday[8] = "Monday";
+  weekday[9] = "Tuesday";
+
+  let dateToday = (weekday[today.getDay()] +
+    " - " + (today.getDate())
+    + '/' + (today.getMonth() + 1))
+  let dateToday1 = (weekday[today.getDay() + 1] +
+    " - " + (today.getDate() + 1)
+    + '/' + (today.getMonth() + 1))
+  let dateToday2 = (weekday[today.getDay() + 2] +
+    " - " + (today.getDate() + 2)
+    + '/' + (today.getMonth() + 1))
+  let dateToday3 = (weekday[today.getDay() + 3] +
+    " - " + (today.getDate() + 3)
+    + '/' + (today.getMonth() + 1))
+
+
+  useEffect(() => {
+    const today = Date.now();
+
+
+    const date = new Date(today);
+    let month = "";
+    let day = "";
+    if (date.getMonth() + 1 < 10) {
+      month = `0${date.getMonth() + 1}`;
+    } else month = date.getMonth();
+    if (date.getDate() < 10) {
+      day = `0${date.getDate()}`;
+    } else day = date.getDate();
+    const stringDate = `${date.getFullYear()}-${month}-${day}`;
+
+    setListDay(stringDate);
+  }, []);
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let temp = {}
+
+    temp.userID = currentUser[0].id
+    temp.showDate = saveBooking.showDate
+    temp.nameMovie = saveBooking.nameMovie
+    temp.image = saveBooking.image
+    temp.combo = newCombo
+    temp.pay = pay
+    temp.total = totalPrice()
+    temp.showtimes = {
+      nameTheater: saveBooking.nameTheater,
+      screenings: saveBooking.screenings,
+      nameBranch: saveBooking.nameBranch,
+      showDate: saveBooking.showDate === 0 ?
+        dateToday : saveBooking.showDate === 1 ?
+          dateToday1 : saveBooking.showDate === 2 ?
+            dateToday2 : dateToday3,
+      cinemaRoom: saveBooking.cinemaRoom,
+      seats: saveSeats.seats
+    }
+    temp.timeSet = listDay
+    dispatch(addTicketRequest(temp))
+
+  }
+  //  end add ticket
+
   let newArrPrice = (saveSeats && saveSeats.arrMoviePrice)
 
   useEffect(() => {
@@ -36,14 +120,13 @@ const Payment = () => {
     if (newArrPrice !== null) {
       totalMovie = newArrPrice.reduce((a, b) => a + b, 0)
     }
-    // let regexPrice = total
 
     return totalMovie
   }
 
 
   const totalPrice = () => {
-    return totalMoviePrice() + 100
+    return totalMoviePrice() + saveFoods.totalFood
   }
   useEffect(() => {
     dispatch(saveBookingActions.saveBookingRequest())
@@ -70,32 +153,9 @@ const Payment = () => {
     }
   }
 
-
-  let today = new Date()
-  let weekday = new Array(10);
-  weekday[0] = "Sunday";
-  weekday[1] = "Monday";
-  weekday[2] = "Tuesday";
-  weekday[3] = "Wednesday";
-  weekday[4] = "Thursday";
-  weekday[5] = "Friday";
-  weekday[6] = "Saturday";
-  weekday[7] = "Sunday";
-  weekday[8] = "Monday";
-  weekday[9] = "Tuesday";
-  let dateToday = (weekday[today.getDay()] +
-    " - " + (today.getDate())
-    + '/' + (today.getMonth() + 1))
-  let dateToday1 = (weekday[today.getDay() + 1] +
-    " - " + (today.getDate() + 1)
-    + '/' + (today.getMonth() + 1))
-  let dateToday2 = (weekday[today.getDay() + 2] +
-    " - " + (today.getDate() + 2)
-    + '/' + (today.getMonth() + 1))
-  let dateToday3 = (weekday[today.getDay() + 3] +
-    " - " + (today.getDate() + 3)
-    + '/' + (today.getMonth() + 1))
-
+  const handlePay = (value) => {
+    setPay(value)
+  }
   const showInfoBoard = () => {
     const result = []
 
@@ -124,24 +184,11 @@ const Payment = () => {
 
   const { t } = useTranslation("common");
   return (
-    <div className="payment">
+    <form className="payment" onSubmit={handleSubmit}>
       <div className="container">
         <div className="payment__title">
           <span className="title">{t("home.bookingOnline")}</span>
         </div>
-        {/*         
-        <div className="payment__infoBoard">
-          <div className="payment__infoBoard__header">
-            <span className="content">Cinema</span>
-            <span className="content">Cinema 2</span>
-            <span className="content">{t("home.remaining")} (249/260)</span>
-          </div>
-          <div className="payment__infoBoard__footer">
-            <span className="date">01/09/2020</span>
-            <span className="times">20:30 ~ 23:25</span>
-          </div>
-        </div>
-        */}
 
         {showInfoBoard()}
         <div className="payment__main">
@@ -154,7 +201,7 @@ const Payment = () => {
               </div>
               <div className="pay">
                 <div className="pay__content key">{t("home.paymentFood")}</div>
-                <div className="pay__content value">20$</div>
+                <div className="pay__content value">{saveFoods.totalFood.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".",)} VND</div>
               </div>
               <div className="pay">
                 <div className="pay__content key">{t("home.discount")}</div>
@@ -165,10 +212,10 @@ const Payment = () => {
             <form>
               <label>{t("home.choosePay")}:</label>
               <label htmlFor="online">
-                <input type="radio" name="pay" id="online" /> ATM
+                <input type="radio" name="pay" value="ATM" id="online" onChange={(e) => setPay(e.target.value)} /> ATM
               </label>
               <label htmlFor="offline">
-                <input type="radio" name="pay" id="offline" /> {t("home.cash")}
+                <input type="radio" name="pay" value="CASH" id="offline" onChange={(e) => setPay(e.target.value)} /> {t("home.cash")}
               </label>
             </form>
           </div>
@@ -178,11 +225,11 @@ const Payment = () => {
             <Link to="/bookingfood">&#10094; {t("home.prev")}</Link>
           </span>
           <span className="total">
-            <div className="total__item">{t("home.payment")}</div>
+            <button type="submit" className="total__item">{t("home.payment")}</button>
           </span>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

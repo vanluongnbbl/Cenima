@@ -235,13 +235,15 @@
                 cursor: pointer;
             }
         }
-        .active {
-            font-weight: bold;
-            border-color: #000;
-            background-color: #000;
-            color: #fff;
-        }
         &__item:hover {
+            a {
+                font-weight: bold;
+                border-color: #000;
+                background-color: #000;
+                color: #fff;
+            }
+        }
+        .active {
             a {
                 font-weight: bold;
                 border-color: #000;

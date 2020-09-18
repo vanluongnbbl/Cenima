@@ -43,6 +43,7 @@ function BookingForm({
     const [ticketType, setTicketType] = useState("")
     const [ticketSession, setTicketSession] = useState("")
     const [ticketRoom, setTicketRoom] = useState(0)
+    const [active, setActive] = useState("");
 
     // const handleSubmit = (event) => {
     //     event.preventDefault()
@@ -139,6 +140,7 @@ function BookingForm({
         setTicketMovieName(name)
         setTicketRoom(room)
         setTicketMovieImage(image)
+        setActive(session);
     }
 
 
@@ -230,7 +232,7 @@ function BookingForm({
     const mapSuatChieu = (session, theater, movieNow) => {
         return session.movieTime.map((time, i) =>
             < span
-                className="booking-form__time__item"
+                className={active === time && ticketTheater === theater.name ? "booking-form__time__item active" : "booking-form__time__item"}
                 key={i}
             >
                 <Link onClick={() => handleTime(time, theater.name, movieNow.name, session.room, movieNow.image)} >

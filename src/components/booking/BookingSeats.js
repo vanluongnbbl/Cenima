@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 const BookingSeats = () => {
   const [clickSeat, setClickSeat] = useState(0)
   const [clickPrice, setClickPrice] = useState(0)
-  const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
+  // const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
+  const saveBooking = JSON.parse(window.localStorage.getItem("bookingForm"))
   const getSeats = useSelector(state => state.seatReducer.seatData)
   const [arraySeat, setArraySeat] = useState([])
   const [arrayPrice, setArrayPrice] = useState([])
@@ -17,6 +18,7 @@ const BookingSeats = () => {
   const dispatch = useDispatch()
   const { t } = useTranslation("common")
   // save Seat
+
 
   // end save Seat
   useEffect(() => {
@@ -103,6 +105,12 @@ const BookingSeats = () => {
 
   const handleSaveSeat = (e) => {
     e.preventDefault()
+
+    window.localStorage.setItem("bookingSeat", JSON.stringify({
+      seats: arraySeat,
+      arrMoviePrice: arrayPrice,
+    }))
+
     dispatch(saveSeatAction.saveSeatSuccess({
       seats: arraySeat,
       arrMoviePrice: arrayPrice

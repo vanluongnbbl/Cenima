@@ -144,6 +144,17 @@ function BookingForm({
 
     const handleSaveBooking = (e) => {
         e.preventDefault()
+
+        window.localStorage.setItem("bookingForm", JSON.stringify({
+            showDate: ticketShowDate,
+            nameMovie: ticketMovieName,
+            nameBranch: ticketBranch,
+            nameTheater: ticketTheater,
+            type: ticketType,
+            screenings: ticketSession,
+            cinemaRoom: ticketRoom,
+            image: ticketMovieImage
+        }))
         dispatch(saveBookingActions.saveBookingSuccess({
             showDate: ticketShowDate,
             nameMovie: ticketMovieName,
@@ -154,6 +165,8 @@ function BookingForm({
             cinemaRoom: ticketRoom,
             image: ticketMovieImage
         }))
+
+
     }
     const handleActiveBranch = (id, value) => {
         setIsActiveBranch(id)

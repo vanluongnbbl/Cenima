@@ -13,18 +13,6 @@
       "id": 0
     },
     {
-      "email": "hiep@gmail.com",
-      "password": "$2a$10$6PuAhCWPd0p/BJAPT/2I0O9h0rUXIs/xwYxLWWr1Ar4eABSL9fODO",
-      "name": "Trần Văn Hiệp",
-      "phone": "0972093127",
-      "region": "Hà Nội",
-      "birth": "1998-11-27",
-      "gender": "Male",
-      "avatar": "https://streaming1.danviet.vn/upload/3-2018/images/2018-07-06/1-1530866003-width680height453.jpg",
-      "registerDate": 1599639805541,
-      "id": 1
-    },
-    {
       "email": "anh@gmail.com",
       "password": "$2a$10$Md2tBykq9tPN.y/vUSkiZOlCXiWPAxG16vqKOVEN7LJlnm6RxK5d.",
       "name": " Phạm Việt Hưng",
@@ -38,15 +26,27 @@
     },
     {
       "email": "anhhungx9propro@gmail.com",
-      "password": "$2a$10$XcYdYyQzh/r7Qe4j83z2qOZwexUxSCu7vSivpad69CbqHQV.HkJKK",
+      "password": "$2a$10$fujFyoQurwKraf1SF5zM3OC46buH3u9hN1xN7S3pw9N7Qc7h9JF5.",
       "name": " Phạm Việt Hưng",
       "phone": "0972093127",
       "region": "",
       "birth": "2020-01-01",
-      "gender": "Male",
+      "gender": "Female",
       "avatar": "https://streaming1.danviet.vn/upload/3-2018/images/2018-07-06/1-1530866003-width680height453.jpg",
       "registerDate": 1599712146828,
       "id": 3
+    },
+    {
+      "email": "vanluongnbbl@gmail.com",
+      "password": "$2a$10$6LVfGTnC95X4Aqz01.IMiObVT3o7oIyIWWWETtxnOh2eYYI1qZx6.",
+      "name": "Nguyễn Văn Lượng",
+      "phone": "0987659728",
+      "region": "ha noi`",
+      "birth": "1990-01-01",
+      "gender": "Male",
+      "avatar": "http://gravatar.com/avatar/140f6588c49079895749e5042d54e196?d=identicon",
+      "ngayTao": 1600313067563,
+      "id": 4
     }
   ],
   "sliderbars": [
@@ -79,7 +79,7 @@
       "category": "Hành động, Khoa học viễn tưởng",
       "status": 1,
       "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "pointIMDB": 6.67,
+      "pointIMDB": 7.25,
       "age": 13,
       "type": "2D/3D",
       "directors": "Jon Watts",
@@ -103,22 +103,6 @@
       "nation": "Hàn Quốc",
       "description": "Ký Sinh Trùng chứa đựng tiếng cười, nỗi buồn và cả bi kịch của xã hội loài người.” Về cái tên đặc biệt mang màu sắc kinh dị, Bong Joon Ho cho biết Ký Sinh Trùng chỉ là phép ẩn dụ mang nhiều tầng ý nghĩa rộng lớn, và ông hy vọng phim có thể khơi gợi lên những suy nghĩ khác nhau của khán giả.",
       "id": 2
-    },
-    {
-      "name": "Tay Đua Huyền Thoại - Trading Paint",
-      "minutes": 92,
-      "releaseDate": "2019-07-05",
-      "category": "hành động, gia đình",
-      "status": 1,
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/06/tay-dua-huyen-thoai-trading-paint-15617148423517_220x310.png",
-      "pointIMDB": "N/A",
-      "age": 16,
-      "type": "2D",
-      "directors": "Karzan Kader",
-      "cast": "John Travolta",
-      "nation": "Mỹ",
-      "description": "Một huyền thoại đua xe cổ bị lôi kéo trở lại đường đua bẩn thỉu khi con trai ông, một tay đua đầy tham vọng, gia nhập một đội đua đối thủ, gây ra cuộc cạnh tranh khốc liệt và nguy hiểm giữa cha và con trai.",
-      "id": 3
     },
     {
       "name": "Annabelle: Ác Quỷ Trở Về - Annabelle Comes Home",
@@ -359,6 +343,22 @@
       "nation": "Trung Quốc",
       "description": "Phần tiếp theo về Diệp Vấn.",
       "id": 21
+    },
+    {
+      "name": "Nguyễn Văn Lượng",
+      "minutes": "130",
+      "category": "kinh di",
+      "status": 0,
+      "type": "2D/3D",
+      "nation": "my",
+      "description": "dddd",
+      "cast": "đ,d,đ",
+      "age": "18",
+      "directors": "dd",
+      "releaseDate": "2020-12-11",
+      "image": "https://upload.wikimedia.org/wikipedia/vi/1/1d/N%C6%A1i_n%C3%A0y_c%C3%B3_anh_-_Single_Cover.jpg",
+      "diemIMDB": "N/A",
+      "id": 22
     }
   ],
   "promotion": [
@@ -834,44 +834,6 @@
     },
     {
       "userId": 2,
-      "nameMovie": "Aladdin",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/aladdin-15585337476213_220x310.jpg",
-      "count": 2,
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 1,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 1,
-          "price": 87000
-        }
-      ],
-      "total": 259000,
-      "pay": "Thẻ tín dụng",
-      "discount": 10,
-      "showtimes": {
-        "nameTheater": "Lotte - Nam Sài Gòn",
-        "screenings": "15:00",
-        "nameBranch": "Ha Noi",
-        "showDate": "2019-08-05",
-        "cinemaRoom": 3,
-        "seats": [
-          "A11",
-          "A12"
-        ]
-      },
-      "timeSet": "2020-09-11",
-      "id": 4
-    },
-    {
-      "userId": 2,
       "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
       "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
       "combo": [
@@ -906,6 +868,199 @@
       },
       "timeSet": "2020-09-17",
       "id": 5
+    },
+    {
+      "userId": 2,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 1,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 2,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 496000,
+      "count": 3,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte Cinema",
+        "screenings": "08:30 ~ 10:40",
+        "nameBranch": "ho chi minh",
+        "showDate": "Thursday - 17/9",
+        "cinemaRoom": 3,
+        "seats": [
+          "E07",
+          "E08",
+          "E09"
+        ]
+      },
+      "timeSet": "2020-09-17",
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 2,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 2,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 593000,
+      "count": 3,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte Cinema",
+        "screenings": "10:50 ~ 13:00",
+        "nameBranch": "ho chi minh",
+        "showDate": "Friday - 18/9",
+        "cinemaRoom": 3,
+        "seats": [
+          "E07",
+          "E08",
+          "E09"
+        ]
+      },
+      "timeSet": "2020-09-17",
+      "id": 8
+    },
+    {
+      "userId": 4,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 3,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 2,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 690000,
+      "count": 3,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte - Đống Đa",
+        "screenings": "13:20 ~ 15:30",
+        "nameBranch": "ha noi",
+        "showDate": "Sunday - 20/9",
+        "cinemaRoom": 3,
+        "seats": [
+          "E07",
+          "E08",
+          "E09"
+        ]
+      },
+      "timeSet": "2020-09-17",
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 3,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 0,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 441000,
+      "count": 2,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte CineStar",
+        "screenings": "10:50 ~ 13:00",
+        "nameBranch": "ha noi",
+        "showDate": "Saturday - 19/9",
+        "cinemaRoom": 3,
+        "seats": [
+          "E05",
+          "E06"
+        ]
+      },
+      "timeSet": "2020-09-18",
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 0,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 3,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 411000,
+      "count": 2,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte CineStar",
+        "screenings": "10:50 ~ 13:00",
+        "nameBranch": "ha noi",
+        "showDate": "Saturday - 19/9",
+        "cinemaRoom": 3,
+        "seats": [
+          "E07",
+          "E08"
+        ]
+      },
+      "timeSet": "2020-09-18",
+      "id": 11
     }
   ],
   "sessions": [
@@ -1224,6 +1379,10 @@
         {
           "usersId": 2,
           "point": 8
+        },
+        {
+          "usersId": 0,
+          "point": 9
         }
       ]
     },
@@ -1307,6 +1466,10 @@
     {
       "id": 21,
       "users": []
+    },
+    {
+      "users": [],
+      "id": 22
     }
   ]
 }

@@ -10,10 +10,13 @@ import { addTicketRequest } from '../../actions/users'
 
 const Payment = (props) => {
 
-  const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
+  // const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
+  const saveBooking = JSON.parse(window.localStorage.getItem("bookingForm"))
   const getSeats = useSelector(state => state.seatReducer.seatData)
-  const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
-  const saveFoods = useSelector(state => state.saveFoodReducer.saveFoodData)
+  // const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
+  const saveSeats = JSON.parse(window.localStorage.getItem("bookingSeat"))
+  // const saveFoods = useSelector(state => state.saveFoodReducer.saveFoodData)
+  const saveFoods = JSON.parse(window.localStorage.getItem("bookingFood"))
   const currentUser = useSelector(state => state.currentUser.account)
   const [bookedSeat, setBookedSeat] = useState([])
   const [count, setCount] = useState(saveSeats.length);
@@ -72,9 +75,9 @@ const Payment = (props) => {
     setListDay(stringDate);
   }, []);
 
- useEffect(() => {
-   setCount(saveSeats.seats.length);
- }, [saveSeats]);
+  useEffect(() => {
+    setCount(saveSeats.seats.length);
+  }, [saveSeats]);
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -101,6 +104,9 @@ const Payment = (props) => {
     }
     temp.timeSet = listDay
     dispatch(addTicketRequest(temp))
+    window.localStorage.removeItem("bookingForm")
+    window.localStorage.removeItem("bookingSeat")
+    window.localStorage.removeItem("bookingFood")
     props.history.push("/");
   }
   //  end add ticket

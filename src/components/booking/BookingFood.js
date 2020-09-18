@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 import { saveFoodRequest, saveFoodSuccess } from "../../actions/saveFood";
 const BookingFood = () => {
   const { t } = useTranslation("common");
-  const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
+  // const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
+  const saveBooking = JSON.parse(window.localStorage.getItem("bookingForm"))
   const comboFoods = useSelector(state => state.comboFoodReducer.comboFoodData)
-  const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
+  // const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
+  const saveSeats = JSON.parse(window.localStorage.getItem("bookingSeat"))
   const getSeats = useSelector(state => state.seatReducer.seatData)
   const dispatch = useDispatch()
 
@@ -134,6 +136,11 @@ const BookingFood = () => {
   }
 
   const handleSaveBooking = () => {
+    window.localStorage.setItem("bookingFood", JSON.stringify({
+      combo: comboFoods,
+      totalFood: totalFoodPrice()
+    }))
+
     dispatch(saveFoodSuccess({
       combo: comboFoods,
       totalFood: totalFoodPrice()

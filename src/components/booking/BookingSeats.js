@@ -94,25 +94,18 @@ const BookingSeats = () => {
     if (seatSession !== null) {
       const result = [...seatSession].filter((seat) => {
         return seat.status === false;
-
-        // let result2 = getSeat.numberSeat;
-        // const result3 = [...result2].filter((status) => {
-
-        // });
-
       });
       setBookedSeat(() => [...result]);
-
     }
   }, [seatSession]);
 
   useEffect(() => {
-    if (getSeats !== null) {
+    if (getSeats !== null && saveBooking !== null) {
       const result = [...getSeats].filter((getSeat) => {
-        if (getSeat.sessionId === saveBooking.sessionId) {
+        if (getSeat.sessionId === saveBooking.sessionId && saveBooking.screenings === getSeat.movieTime) {
           let result2 = getSeat.numberSeat;
           const result3 = [...result2].filter((status) => {
-            return getSeat.sessionId === saveBooking.sessionId
+            return getSeat.sessionId === saveBooking.sessionId && saveBooking.screenings === getSeat.movieTime
           });
           setSeatSession(() => [...result3]);
         }
@@ -149,7 +142,8 @@ const BookingSeats = () => {
     window.localStorage.setItem(
       "bookedSeat",
       JSON.stringify({
-        getSeats: getSeats
+        bookedSeat: bookedSeat,
+        seatSession: seatSession
       })
     );
 

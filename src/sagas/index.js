@@ -321,7 +321,7 @@ function* deleteMovieSaga({ payload }) {
 
 function* editMovieSaga({ payload }) {
   const { movie } = payload;
-  if(movie.pointIMDB === "N/A") yield put(showLoading());
+  if (movie.pointIMDB === "N/A") yield put(showLoading());
   try {
     const resp = yield call(putEditMovie, movie);
     const { status } = resp;
@@ -333,8 +333,8 @@ function* editMovieSaga({ payload }) {
       yield put(editMovieFailed(error));
     }
   }
-  if(movie.pointIMDB === "N/A") yield delay(1000);
-  if(movie.pointIMDB === "N/A") yield put(hideLoading());
+  if (movie.pointIMDB === "N/A") yield delay(1000);
+  if (movie.pointIMDB === "N/A") yield put(hideLoading());
 }
 
 function* editUserSaga({ payload }) {
@@ -398,8 +398,6 @@ function* addTicketSaga({ payload }) {
   try {
     const resp = yield call(postAddTicket, ticket);
     const { status } = resp;
-    console.log("resp", resp);
-    console.log("ticket", ticket);
     if (status === STATUS_CODE.CREATED) {
       yield put(addTicketSuccess(ticket));
     }

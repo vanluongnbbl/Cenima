@@ -718,7 +718,8 @@
       ],
       "id": 1,
       "branchId": 1,
-      "sessionId": 1
+      "sessionId": 1,
+      "movieTime": "08:30 ~ 10:40"
     },
     {
       "numberSeat": [
@@ -1025,7 +1026,8 @@
       ],
       "id": 1,
       "branchId": 1,
-      "sessionId": 2
+      "sessionId": 1,
+      "movieTime": "10:50 ~ 13:00"
     }
   ],
   "theaters": [
@@ -1217,160 +1219,6 @@
       "id": 7
     },
     {
-      "userId": 4,
-      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 2,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 2,
-          "price": 87000
-        }
-      ],
-      "pay": "CASH",
-      "total": 593000,
-      "count": 3,
-      "discount": 0,
-      "showtimes": {
-        "nameTheater": "Lotte Cinema",
-        "screenings": "10:50 ~ 13:00",
-        "nameBranch": "ho chi minh",
-        "showDate": "Friday - 18/9",
-        "cinemaRoom": 3,
-        "seats": [
-          "E07",
-          "E08",
-          "E09"
-        ]
-      },
-      "timeSet": "2020-09-17",
-      "id": 8
-    },
-    {
-      "userId": 4,
-      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 3,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 2,
-          "price": 87000
-        }
-      ],
-      "pay": "CASH",
-      "total": 690000,
-      "count": 3,
-      "discount": 0,
-      "showtimes": {
-        "nameTheater": "Lotte - Đống Đa",
-        "screenings": "13:20 ~ 15:30",
-        "nameBranch": "ha noi",
-        "showDate": "Sunday - 20/9",
-        "cinemaRoom": 3,
-        "seats": [
-          "E07",
-          "E08",
-          "E09"
-        ]
-      },
-      "timeSet": "2020-09-17",
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 3,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 0,
-          "price": 87000
-        }
-      ],
-      "pay": "CASH",
-      "total": 441000,
-      "count": 2,
-      "discount": 0,
-      "showtimes": {
-        "nameTheater": "Lotte CineStar",
-        "screenings": "10:50 ~ 13:00",
-        "nameBranch": "ha noi",
-        "showDate": "Saturday - 19/9",
-        "cinemaRoom": 3,
-        "seats": [
-          "E05",
-          "E06"
-        ]
-      },
-      "timeSet": "2020-09-18",
-      "id": 10
-    },
-    {
-      "userId": 2,
-      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 0,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 3,
-          "price": 87000
-        }
-      ],
-      "pay": "CASH",
-      "total": 411000,
-      "count": 2,
-      "discount": 0,
-      "showtimes": {
-        "nameTheater": "Lotte CineStar",
-        "screenings": "10:50 ~ 13:00",
-        "nameBranch": "ha noi",
-        "showDate": "Saturday - 19/9",
-        "cinemaRoom": 3,
-        "seats": [
-          "E07",
-          "E08"
-        ]
-      },
-      "timeSet": "2020-09-18",
-      "id": 11
-    },
-    {
       "userId": 2,
       "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
       "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
@@ -1390,99 +1238,23 @@
           "price": 87000
         }
       ],
-      "pay": "ATM",
+      "pay": "CASH",
       "total": 344000,
       "count": 2,
       "discount": 0,
       "showtimes": {
         "nameTheater": "Lotte Cinema",
-        "screenings": "13:20 ~ 15:30",
+        "screenings": "08:30 ~ 10:40",
         "nameBranch": "",
         "showDate": "Monday - 21/9",
         "cinemaRoom": 4,
-        "seats": [
-          "C07",
-          "D08"
-        ]
-      },
-      "timeSet": "2020-09-18",
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 0,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 3,
-          "price": 87000
-        }
-      ],
-      "pay": "CASH",
-      "total": 411000,
-      "count": 2,
-      "discount": 0,
-      "showtimes": {
-        "nameTheater": "Lotte - Đống Đa",
-        "screenings": "10:50 ~ 13:00",
-        "nameBranch": "ha noi",
-        "showDate": "Saturday - 19/9",
-        "cinemaRoom": 3,
         "seats": [
           "E07",
           "E08"
         ]
       },
       "timeSet": "2020-09-18",
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
-      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
-      "combo": [
-        {
-          "id": 1,
-          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
-          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
-          "count": 0,
-          "price": 97000
-        },
-        {
-          "id": 2,
-          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
-          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
-          "count": 2,
-          "price": 87000
-        }
-      ],
-      "pay": "CASH",
-      "total": 324000,
-      "count": 2,
-      "discount": 0,
-      "showtimes": {
-        "nameTheater": "Lotte CineStar",
-        "screenings": "10:50 ~ 13:00",
-        "nameBranch": "ha noi",
-        "showDate": "Saturday - 19/9",
-        "cinemaRoom": 3,
-        "seats": [
-          "E06",
-          "E07"
-        ]
-      },
-      "timeSet": "2020-09-18",
-      "id": 14
+      "id": 8
     }
   ],
   "sessions": [

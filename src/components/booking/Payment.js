@@ -29,7 +29,6 @@ const Payment = (props) => {
   const newCombo = saveFoods.combo
   const dispatch = useDispatch()
 
-  const bookSeats = getSeats.getSeats
 
   let today = new Date()
   let weekday = new Array(10);
@@ -120,17 +119,17 @@ const Payment = (props) => {
 
   let newArrPrice = (saveSeats && saveSeats.arrMoviePrice)
 
-  useEffect(() => {
-    if (bookSeats !== null) {
-      const result = [...bookSeats].filter((getSeat) => {
-        let result2 = getSeat.numberSeat
-        const result3 = [...result2].filter((status) => {
-          return status.status === false
-        })
-        setBookedSeat(() => [...result3])
-      })
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (bookSeats !== null) {
+  //     const result = [...bookSeats].filter((getSeat) => {
+  //       let result2 = getSeat.numberSeat
+  //       const result3 = [...result2].filter((status) => {
+  //         return status.status === false
+  //       })
+  //       setBookedSeat(() => [...result3])
+  //     })
+  //   }
+  // }, [])
 
   const totalMoviePrice = () => {
     let totalMovie
@@ -153,8 +152,8 @@ const Payment = (props) => {
 
   const showRemaining = () => {
     if (getSeats !== null) {
-      return bookSeats && bookSeats.map(seat =>
-        <span className="content">{t("home.remaining")} ({bookedSeat.length}/{seat.numberSeat.length})</span>
+      return (
+        <span className="content">{t("home.remaining")} ({getSeats.bookedSeat.length}/{getSeats.seatSession.length})</span>
       )
     }
   }

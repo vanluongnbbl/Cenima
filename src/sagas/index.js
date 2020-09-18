@@ -16,7 +16,12 @@ import { seatSuccess, seatFailed } from "../actions/seats";
 import { theaterSuccess, theaterFailed } from "../actions/theaterAction";
 import { bookingTimeSuccess, bookingTimeFailed } from "../actions/bookingTime";
 import { branchSuccess, branchFailed } from "../actions/branchs";
-import { addTicketFailed, addTicketSuccess } from "../actions/users";
+import {
+  addTicketFailed,
+  addTicketSuccess,
+  editSeatFailed,
+  editSeatSuccess
+} from "../actions/users";
 import {
   deleteUserSuccess,
   deleteUserFailed,
@@ -50,6 +55,7 @@ import {
   deleteUser,
   deleteMovie,
   putEditMovie,
+  putEditSeat,
   postAddMovie,
   getTicket,
   deleteTicket,
@@ -283,6 +289,22 @@ function* editAccountSaga({ payload }) {
   yield put(hideLoading());
 }
 
+function* editSeatSage({ payload }) {
+  const seat = payload
+  console.log(seat)
+  try {
+    const resp = yield call(putEditSeat, seat)
+    const { status } = resp
+    if (status === STATUS_CODE.SUCCESS) {
+      yield put(editSeatSuccess(seat));
+    }
+  } catch (error) {
+    if (error === "data is not iterable") {
+      yield put(editSeatFailed(error));
+    }
+  }
+}
+
 function* deleteUserSaga({ payload }) {
   const { account } = payload;
   yield put(showLoading());
@@ -494,6 +516,7 @@ function* rootSaga() {
   yield takeLatest(theaterAction.THEATER_REQUEST, theaterSaga);
   yield takeLatest(authTypes.ACCOUNT, accountSaga);
   yield takeLatest(editAccountActions.EDIT_ACCOUNT, editAccountSaga);
+  yield takeLatest(userActions.EDIT_SEAT_REQUEST, editSeatSage)
   yield takeLatest(adminActions.DELETE_USER, deleteUserSaga);
   yield takeLatest(adminActions.EDIT_USER, editUserSaga);
   yield takeLatest(adminActions.DELETE_MOVIE, deleteMovieSaga);

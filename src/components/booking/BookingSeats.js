@@ -99,13 +99,16 @@ const BookingSeats = () => {
     }
   }, [seatSession]);
 
+
   useEffect(() => {
     if (getSeats !== null && saveBooking !== null) {
       const result = [...getSeats].filter((getSeat) => {
-        if (getSeat.sessionId === saveBooking.sessionId && saveBooking.screenings === getSeat.movieTime) {
+        if (getSeat.sessionId === saveBooking.sessionId &&
+          saveBooking.screenings === getSeat.movieTime) {
           let result2 = getSeat.numberSeat;
           const result3 = [...result2].filter((status) => {
-            return getSeat.sessionId === saveBooking.sessionId && saveBooking.screenings === getSeat.movieTime
+            return getSeat.sessionId === saveBooking.sessionId
+              && saveBooking.screenings === getSeat.movieTime
           });
           setSeatSession(() => [...result3]);
         }

@@ -89,6 +89,11 @@ export const postAddMovie = (data) => {
   return axiosService.post(`${API_ENDPOINT}/movies/`, data)
 }
 
+// http://localhost:3100/seats METHOD: PUT
+export const putEditSeat = (data) => {
+  return axiosService.put(`${API_ENDPOINT}/seats/${data.id}`, data)
+}
+
 // http://localhost:3100/tickets METHOD: GET
 export const getTicket = () => {
   return axiosService.get(`${API_ENDPOINT}/tickets/`)

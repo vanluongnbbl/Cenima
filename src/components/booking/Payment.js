@@ -18,16 +18,28 @@ const Payment = (props) => {
   // const saveFoods = useSelector(state => state.saveFoodReducer.saveFoodData)
   const saveFoods = JSON.parse(window.localStorage.getItem("bookingFood"))
   const getSeats = JSON.parse(window.localStorage.getItem("bookedSeat"))
+  const getSeatStatus = useSelector(state => state.seatReducer.seatData)
 
   const currentUser = useSelector(state => state.currentUser.account)
-  const [bookedSeat, setBookedSeat] = useState([])
   const [count, setCount] = useState(saveSeats.length);
   const [discount, setDiscount] = useState(0)
   const [pay, setPay] = useState("CASH")
   const [listDay, setListDay] = useState("")
-
   const newCombo = saveFoods.combo
   const dispatch = useDispatch()
+
+
+  // let getStatus = getSeatStatus[0].status
+  // const [editSeat, setEditSeat] = useState(getStatus)
+  // console.log("saveBooking", saveBooking.sessionId)
+  // console.log("getSeatStatus", getSeatStatus[0].id)
+  // console.log("editSeat", editSeat)
+
+  // const handleEditSeat = () => {
+  //   if (saveBooking.sessionId === getSeatStatus[0].id) {
+  //     setEditSeat(true)
+  //   }
+  // }
 
 
   let today = new Date()
@@ -119,18 +131,6 @@ const Payment = (props) => {
 
   let newArrPrice = (saveSeats && saveSeats.arrMoviePrice)
 
-  // useEffect(() => {
-  //   if (bookSeats !== null) {
-  //     const result = [...bookSeats].filter((getSeat) => {
-  //       let result2 = getSeat.numberSeat
-  //       const result3 = [...result2].filter((status) => {
-  //         return status.status === false
-  //       })
-  //       setBookedSeat(() => [...result3])
-  //     })
-  //   }
-  // }, [])
-
   const totalMoviePrice = () => {
     let totalMovie
     if (newArrPrice !== null) {
@@ -140,14 +140,12 @@ const Payment = (props) => {
     return totalMovie
   }
 
-
   const totalPrice = () => {
     return totalMoviePrice() + saveFoods.totalFood
   }
   useEffect(() => {
     dispatch(saveBookingActions.saveBookingRequest())
   }, [dispatch])
-
 
 
   const showRemaining = () => {

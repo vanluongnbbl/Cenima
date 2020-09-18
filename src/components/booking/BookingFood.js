@@ -13,14 +13,14 @@ const BookingFood = () => {
   const comboFoods = useSelector(state => state.comboFoodReducer.comboFoodData)
   // const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
   const saveSeats = JSON.parse(window.localStorage.getItem("bookingSeat"))
-  const getSeats = useSelector(state => state.seatReducer.seatData)
+  // const getSeats = useSelector(state => state.seatReducer.seatData)
+  const getSeats = JSON.parse(window.localStorage.getItem("bookedSeat"))
   const dispatch = useDispatch()
-
   const [bookedSeat, setBookedSeat] = useState([])
   const [counter, setCounter] = useState(0)
   const [foodId, setFoodId] = useState(0);
 
-
+  const bookSeats = getSeats.getSeats
   useEffect(() => {
     dispatch(comboFoodAction.comboFoodRequest())
   }, [dispatch])
@@ -57,8 +57,8 @@ const BookingFood = () => {
     + '/' + (today.getMonth() + 1))
 
   useEffect(() => {
-    if (getSeats !== null) {
-      const result = [...getSeats].filter((getSeat) => {
+    if (bookSeats !== null) {
+      const result = [...bookSeats].filter((getSeat) => {
         let result2 = getSeat.numberSeat
         const result3 = [...result2].filter((status) => {
           return status.status === false
@@ -66,7 +66,7 @@ const BookingFood = () => {
         setBookedSeat(() => [...result3])
       })
     }
-  }, [getSeats])
+  }, [])
 
   const totalMoviePrice = () => {
     let totalMovie
@@ -84,7 +84,7 @@ const BookingFood = () => {
 
   const showRemaining = () => {
     if (getSeats !== null) {
-      return getSeats && getSeats.map(seat =>
+      return bookSeats && bookSeats.map(seat =>
         <span className="content">{t("home.remaining")} ({bookedSeat.length}/{seat.numberSeat.length})</span>
       )
     }

@@ -12,11 +12,13 @@ const Payment = (props) => {
 
   // const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
   const saveBooking = JSON.parse(window.localStorage.getItem("bookingForm"))
-  const getSeats = useSelector(state => state.seatReducer.seatData)
+  // const getSeats = useSelector(state => state.seatReducer.seatData)
   // const saveSeats = useSelector(state => state.saveSeatReducer.saveSeatData)
   const saveSeats = JSON.parse(window.localStorage.getItem("bookingSeat"))
   // const saveFoods = useSelector(state => state.saveFoodReducer.saveFoodData)
   const saveFoods = JSON.parse(window.localStorage.getItem("bookingFood"))
+  const getSeats = JSON.parse(window.localStorage.getItem("bookedSeat"))
+
   const currentUser = useSelector(state => state.currentUser.account)
   const [bookedSeat, setBookedSeat] = useState([])
   const [count, setCount] = useState(saveSeats.length);
@@ -26,6 +28,8 @@ const Payment = (props) => {
 
   const newCombo = saveFoods.combo
   const dispatch = useDispatch()
+
+  const bookSeats = getSeats.getSeats
 
   let today = new Date()
   let weekday = new Array(10);
@@ -54,7 +58,7 @@ const Payment = (props) => {
     + '/' + (today.getMonth() + 1))
 
   useEffect(() => {
-    if(!currentUser) {
+    if (!currentUser) {
       props.history.push("/");
     }
   }, [currentUser, props.history]);
@@ -109,6 +113,7 @@ const Payment = (props) => {
     window.localStorage.removeItem("bookingForm")
     window.localStorage.removeItem("bookingSeat")
     window.localStorage.removeItem("bookingFood")
+    window.localStorage.removeItem("bookedSeat")
     props.history.push("/");
   }
   //  end add ticket
@@ -116,8 +121,8 @@ const Payment = (props) => {
   let newArrPrice = (saveSeats && saveSeats.arrMoviePrice)
 
   useEffect(() => {
-    if (getSeats !== null) {
-      const result = [...getSeats].filter((getSeat) => {
+    if (bookSeats !== null) {
+      const result = [...bookSeats].filter((getSeat) => {
         let result2 = getSeat.numberSeat
         const result3 = [...result2].filter((status) => {
           return status.status === false
@@ -125,7 +130,7 @@ const Payment = (props) => {
         setBookedSeat(() => [...result3])
       })
     }
-  }, [getSeats])
+  }, [])
 
   const totalMoviePrice = () => {
     let totalMovie
@@ -144,22 +149,11 @@ const Payment = (props) => {
     dispatch(saveBookingActions.saveBookingRequest())
   }, [dispatch])
 
-  useEffect(() => {
-    if (getSeats !== null) {
-      const result = [...getSeats].filter((getSeat) => {
-        let result2 = getSeat.numberSeat
-        const result3 = [...result2].filter((status) => {
-          return status.status === false
-        })
-        setBookedSeat(() => [...result3])
-      })
-    }
-  }, [getSeats])
 
 
   const showRemaining = () => {
     if (getSeats !== null) {
-      return getSeats && getSeats.map(seat =>
+      return bookSeats && bookSeats.map(seat =>
         <span className="content">{t("home.remaining")} ({bookedSeat.length}/{seat.numberSeat.length})</span>
       )
     }

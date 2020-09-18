@@ -18,12 +18,12 @@ function NowShowing(props) {
   const { t } = useTranslation("common");
 
   const handleModal = (id, value) => {
-    if (!account) {
-      props.history.push("/login")
-    } else {
-      setIsOpenModal(id)
-      setTicketMovieName(value)
-    }
+    // if (!account) {
+    //   props.history.push("/login")
+    // } else {
+    setIsOpenModal(id)
+    setTicketMovieName(value)
+    // }
   };
 
   const passIsOpen = (value) => {
@@ -108,19 +108,19 @@ function NowShowing(props) {
                 <span className="value">{movie.releaseDate}</span>
               </div>
             </div>
-            {account ? (
-              <div className={isOpenModal === movie.id ? "" : "none"}>
-                <BookingForm
-                  isOpenModal2={isOpenModal}
-                  passIsOpen={passIsOpen}
-                  movieNow={movie}
-                  ticketMovieName2={ticketMovieName}
-                  passTicketMovieName={passTicketMovieName}
-                />
-              </div>
-            ) : (
-                ""
-              )}
+            {/* {account ? ( */}
+            <div className={isOpenModal === movie.id ? "" : "none"}>
+              <BookingForm
+                isOpenModal2={isOpenModal}
+                passIsOpen={passIsOpen}
+                movieNow={movie}
+                ticketMovieName2={ticketMovieName}
+                passTicketMovieName={passTicketMovieName}
+              />
+            </div>
+            {/* ) : ( */}
+            {/* "" */}
+            {/* )} */}
           </div>
         );
       });

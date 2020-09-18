@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const BookingSeats = () => {
   const [clickSeat, setClickSeat] = useState(0);
   const [clickPrice, setClickPrice] = useState(0);
+  const [seatSession, setSeatSession] = useState([])
   // const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
   const saveBooking = JSON.parse(window.localStorage.getItem("bookingForm"));
   const getSeats = useSelector((state) => state.seatReducer.seatData);
@@ -90,16 +91,37 @@ const BookingSeats = () => {
   }, [arraySeat, clickSeat, arrayPrice]);
 
   useEffect(() => {
+    if (seatSession !== null) {
+      const result = [...seatSession].filter((seat) => {
+        return seat.status === false;
+
+        // let result2 = getSeat.numberSeat;
+        // const result3 = [...result2].filter((status) => {
+
+        // });
+
+      });
+      setBookedSeat(() => [...result]);
+
+    }
+  }, [seatSession]);
+
+  useEffect(() => {
     if (getSeats !== null) {
       const result = [...getSeats].filter((getSeat) => {
-        let result2 = getSeat.numberSeat;
-        const result3 = [...result2].filter((status) => {
-          return status.status === false;
-        });
-        setBookedSeat(() => [...result3]);
+        if (getSeat.sessionId === saveBooking.sessionId) {
+          let result2 = getSeat.numberSeat;
+          const result3 = [...result2].filter((status) => {
+            return getSeat.sessionId === saveBooking.sessionId
+          });
+          setSeatSession(() => [...result3]);
+        }
+
       });
     }
   }, [getSeats]);
+
+
 
   const searchIndex = (value) => {
     let index = -1;
@@ -121,6 +143,13 @@ const BookingSeats = () => {
       JSON.stringify({
         seats: arraySeat,
         arrMoviePrice: arrayPrice,
+      })
+    );
+
+    window.localStorage.setItem(
+      "bookedSeat",
+      JSON.stringify({
+        getSeats: getSeats
       })
     );
 
@@ -153,14 +182,13 @@ const BookingSeats = () => {
   };
 
   const showRemaining = () => {
-    if (getSeats !== null) {
+    if (seatSession !== null) {
       return (
-        getSeats &&
-        getSeats.map((seat) => (
-          <span className="content">
-            {t("home.remaining")} ({bookedSeat.length}/{seat.numberSeat.length})
-          </span>
-        ))
+
+        <span className="content">
+          {t("home.remaining")} ({bookedSeat.length}/{seatSession.length})
+        </span>
+
       );
     }
   };
@@ -181,10 +209,10 @@ const BookingSeats = () => {
               {saveBooking.showDate === 0
                 ? dateToday
                 : saveBooking.showDate === 1
-                ? dateToday1
-                : saveBooking.showDate === 2
-                ? dateToday2
-                : dateToday3}
+                  ? dateToday1
+                  : saveBooking.showDate === 2
+                    ? dateToday2
+                    : dateToday3}
             </span>
             <span className="times">{saveBooking.screenings}</span>
           </div>
@@ -194,55 +222,23 @@ const BookingSeats = () => {
     return result;
   };
 
-  const showSeats = () => {
-    const result = [];
-    getSeats &&
-      getSeats.forEach((seat) => {
-        if (getSeats !== null) {
-          return result.push(numberSeat(seat));
-        }
-      });
-    return result;
-  };
-
-  // const numberSeatSub = (number) => {
-  //   let result = []
-  //   if (arraySeat.length > 0) {
-  //     for (let i = 0; i < arraySeat.length; i++) {
-  //       if (number.id === arraySeat[i]) {
-  //         result.push(<div
-  //           className="bookingSeats__seats__item active"
-  //           key={i}
-  //           onClick={() => handleClickSeat(number.id)}
-  //         >
-  //           {number.codeSeat}
-  //         </div>)
-  //       } else {
-  //         result.push(<div
-  //           className="bookingSeats__seats__item"
-  //           onClick={() => handleClickSeat(number.id)}
-  //         >
-  //           {number.codeSeat}
-  //         </div>)
+  // const showSeats = () => {
+  //   const result = [];
+  //   seatSession &&
+  //     seatSession.map((seat) => {
+  //       if (seat) {
+  //         return result.push(numberSeat());
   //       }
-  //     }
+  //     });
+  //   return result;
+  // };
 
-  //   } else {
-  //     result.push(<div
-  //       className="bookingSeats__seats__item"
-  //       onClick={() => handleClickSeat(number.id)}
-  //     >
-  //       {number.codeSeat}
-  //     </div>)
-  //   }
-  //   return result
-  // }
-
-  const numberSeat = (seat) => {
+  const numberSeat = () => {
     const result = [];
-    seat &&
-      seat.numberSeat.forEach((number, i) => {
-        if (seat) {
+
+    seatSession &&
+      seatSession.forEach((number, i) => {
+        if (number) {
           let temp = searchIndex(number.codeSeat);;
           return result.push(
             <div
@@ -250,8 +246,8 @@ const BookingSeats = () => {
                 number.status
                   ? "bookingSeats__seats__item booked"
                   : temp !== -1
-                  ? "bookingSeats__seats__item active"
-                  : "bookingSeats__seats__item"
+                    ? "bookingSeats__seats__item active"
+                    : "bookingSeats__seats__item"
               }
               key={i}
               onClick={() => handleClickSeat(number)}
@@ -275,7 +271,7 @@ const BookingSeats = () => {
         {showInfoBoard()}
 
         <div className="bookingSeats__screen">{t("home.screen")}</div>
-        <div className="bookingSeats__seats row">{showSeats()}</div>
+        <div className="bookingSeats__seats row">{numberSeat()}</div>
         <div className="bookingSeats__total">
           <span className="total">
             {t("home.paymentMovie")}: <b>{totalMoviePrice()} VND</b>

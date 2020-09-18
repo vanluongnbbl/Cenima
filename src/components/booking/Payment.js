@@ -27,9 +27,6 @@ const Payment = (props) => {
   const newCombo = saveFoods.combo
   const dispatch = useDispatch()
 
-
-
-
   let today = new Date()
   let weekday = new Array(10);
   weekday[0] = "Sunday";
@@ -56,6 +53,11 @@ const Payment = (props) => {
     " - " + (today.getDate() + 3)
     + '/' + (today.getMonth() + 1))
 
+  useEffect(() => {
+    if(!currentUser) {
+      props.history.push("/");
+    }
+  }, [currentUser, props.history]);
 
   useEffect(() => {
     const today = Date.now();

@@ -122,7 +122,7 @@ function* registerUserSaga({ payload }) {
   userObj.avatar = `http://gravatar.com/avatar/${md5(
     userObj.email
   )}?d=identicon`;
-  userObj.ngayTao = Date.now();
+  userObj.registerDate = Date.now();
   yield put(showLoading());
   try {
     const resp = yield call(postRegister, userObj);

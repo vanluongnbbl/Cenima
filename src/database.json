@@ -45,7 +45,7 @@
       "birth": "1990-01-01",
       "gender": "Male",
       "avatar": "http://gravatar.com/avatar/140f6588c49079895749e5042d54e196?d=identicon",
-      "ngayTao": 1600313067563,
+      "registerDate": 1600313067563,
       "id": 4
     }
   ],
@@ -1061,6 +1061,44 @@
       },
       "timeSet": "2020-09-18",
       "id": 11
+    },
+    {
+      "userId": 2,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 2,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 0,
+          "price": 87000
+        }
+      ],
+      "pay": "ATM",
+      "total": 344000,
+      "count": 2,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte Cinema",
+        "screenings": "13:20 ~ 15:30",
+        "nameBranch": "",
+        "showDate": "Monday - 21/9",
+        "cinemaRoom": 4,
+        "seats": [
+          "C07",
+          "D08"
+        ]
+      },
+      "timeSet": "2020-09-18",
+      "id": 12
     }
   ],
   "sessions": [

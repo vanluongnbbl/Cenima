@@ -6,7 +6,8 @@ const initialState = {
   currentUser: null,
   accounts: null,
   account: null,
-  error: null
+  error: null,
+  error1: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -66,7 +67,7 @@ export default function reducer(state = initialState, action) {
     case editAccountActions.EDIT_ACCOUNT_FAILED: {
       const { error } = action.payload;
       toastError(error);
-      return { ...state, error: error };
+      return { ...state, error1: error };
     }
     default:
       return state;

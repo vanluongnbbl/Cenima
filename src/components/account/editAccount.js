@@ -8,7 +8,7 @@ const EditAccount = (props) => {
   const account = useSelector((state) => state.currentUser.account);
   const currentUser = useSelector((state) => state.currentUser.currentUser);
   const [editAccount, setEditAccount] = useState(account);
-  const error1 = useSelector((state) => state.currentUser.error);
+  const error1 = useSelector((state) => state.currentUser.error1);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");

@@ -19,6 +19,13 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setName("");
+    setPhone("");
+    setEmail("");
+    setPassword("");
+    setRegion("");
+    setBirth("");
+    setGender("Male");
     dispatch(
       authActions.userRegister({
         name,

@@ -30,16 +30,20 @@ const Payment = (props) => {
 
 
   // let getStatus = getSeatStatus[0].status
-  // const [editSeat, setEditSeat] = useState(getStatus)
-  // console.log("saveBooking", saveBooking.sessionId)
-  // console.log("getSeatStatus", getSeatStatus[0].id)
-  // console.log("editSeat", editSeat)
+  const [editSeat, setEditSeat] = useState(getSeatStatus)
+  console.log("saveSeats", saveSeats)
+  console.log("getSeatStatus", getSeatStatus)
+  console.log("editSeat", editSeat)
 
-  // const handleEditSeat = () => {
-  //   if (saveBooking.sessionId === getSeatStatus[0].id) {
-  //     setEditSeat(true)
-  //   }
-  // }
+  const handleEditSeat = () => {
+    if (saveBooking !== null && getSeatStatus !== null && saveSeats !== null) {
+      console.log("getSeatStatus.number", getSeatStatus.numberSeat)
+
+      if (saveBooking.sessionId === getSeatStatus[0].id && saveSeats.seats === getSeatStatus.numberSeat.codeSeat) {
+        setEditSeat(true)
+      }
+    }
+  }
 
 
   let today = new Date()

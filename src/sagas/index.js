@@ -397,8 +397,7 @@ function* deleteTicketSaga({ payload }) {
 
 function* addMovieSaga({ payload }) {
   const { movie } = payload;
-  movie.diemIMDB = "N/A";
-  console.log(movie);
+  movie.pointIMDB = "N/A";
   yield put(showLoading());
   try {
     const resp = yield call(postAddMovie, movie);

@@ -127,13 +127,12 @@ const Payment = (props) => {
     dispatch(addTicketRequest(temp))
     saveSeats.seats.forEach((seat) => {
       let index = searchIndex(seat);
-      if(index !== -1) getSeats.seatSession[index].status = true;
+      if (index !== -1) getSeats.seatSession[index].status = true;
     });
     let temp2 = {};
     temp2.id = saveBooking.sessionId;
     temp2.numberSeat = getSeats.seatSession;
-    temp2.sessionId = 2;
-    temp2.branchId = 1;
+    temp2.sessionId = saveBooking.sessionId;
     temp2.movieTime = saveBooking.screenings;
     dispatch(editSeatRequest(temp2));
     window.localStorage.removeItem("bookingForm")
@@ -147,10 +146,10 @@ const Payment = (props) => {
   const searchIndex = (value) => {
     let index = -1;
     getSeats.seatSession.forEach((seat, i) => {
-      if(seat.codeSeat === value) index = i;
+      if (seat.codeSeat === value) index = i;
     });
     return index;
-  } 
+  }
 
   let newArrPrice = (saveSeats && saveSeats.arrMoviePrice)
 

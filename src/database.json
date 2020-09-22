@@ -722,6 +722,7 @@
       "movieTime": "08:30 ~ 10:40"
     },
     {
+      "id": 2,
       "numberSeat": [
         {
           "codeSeat": "A01",
@@ -732,7 +733,7 @@
         {
           "codeSeat": "A02",
           "price": 75000,
-          "status": false,
+          "status": true,
           "id": 2
         },
         {
@@ -1024,9 +1025,8 @@
           "id": 50
         }
       ],
-      "id": 1,
-      "branchId": 1,
       "sessionId": 2,
+      "branchId": 1,
       "movieTime": "12:00 ~ 14:10"
     }
   ],
@@ -1216,6 +1216,80 @@
       },
       "timeSet": "2020-09-20",
       "id": 6
+    },
+    {
+      "userId": 2,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 0,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 0,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 75000,
+      "count": 1,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte Star Cineplex",
+        "screenings": "12:00 ~ 14:10",
+        "nameBranch": "",
+        "showDate": "Friday - 25/9",
+        "cinemaRoom": 4,
+        "seats": [
+          "A02"
+        ]
+      },
+      "timeSet": "2020-09-22",
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 0,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 0,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 75000,
+      "count": 1,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte Star Cineplex",
+        "screenings": "12:00 ~ 14:10",
+        "nameBranch": "",
+        "showDate": "Friday - 25/9",
+        "cinemaRoom": 4,
+        "seats": [
+          "A02"
+        ]
+      },
+      "timeSet": "2020-09-22",
+      "id": 8
     }
   ],
   "sessions": [

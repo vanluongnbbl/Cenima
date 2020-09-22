@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as saveBookingActions from '../../actions/saveBooking'
 import * as comboFoodAction from '../../actions/comboFood'
 import { Link } from "react-router-dom";
-import { addTicketRequest } from '../../actions/users'
+import { addTicketRequest, editSeatRequest } from '../../actions/users'
 
 const Payment = (props) => {
 
@@ -125,6 +125,18 @@ const Payment = (props) => {
     }
     temp.timeSet = listDay
     dispatch(addTicketRequest(temp))
+    saveSeats.seats.forEach((seat) => {
+      let index = searchIndex(seat);
+      if(index !== -1) getSeats.seatSession[index].status = true;
+    });
+    let temp2 = {};
+    temp2.id = saveBooking.sessionId;
+    temp2.numberSeat = getSeats.seatSession;
+    temp2.sessionId = 2;
+    temp2.branchId = 1;
+    temp2.movieTime = saveBooking.screenings;
+    console.log(temp2);
+    dispatch(editSeatRequest(temp2));
     window.localStorage.removeItem("bookingForm")
     window.localStorage.removeItem("bookingSeat")
     window.localStorage.removeItem("bookingFood")
@@ -132,6 +144,14 @@ const Payment = (props) => {
     props.history.push("/");
   }
   //  end add ticket
+
+  const searchIndex = (value) => {
+    let index = -1;
+    getSeats.seatSession.forEach((seat, i) => {
+      if(seat.codeSeat === value) index = i;
+    });
+    return index;
+  } 
 
   let newArrPrice = (saveSeats && saveSeats.arrMoviePrice)
 

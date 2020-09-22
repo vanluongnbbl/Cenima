@@ -107,7 +107,7 @@ const BookingSeats = () => {
           saveBooking.screenings === getSeat.movieTime) {
           let result2 = getSeat.numberSeat;
           const result3 = [...result2].filter((status) => {
-            return getSeat.sessionId === saveBooking.sessionId
+            return getSeat.id === saveBooking.sessionId
               && saveBooking.screenings === getSeat.movieTime
           });
           setSeatSession(() => [...result3]);

@@ -1026,8 +1026,8 @@
       ],
       "id": 1,
       "branchId": 1,
-      "sessionId": 1,
-      "movieTime": "10:50 ~ 13:00"
+      "sessionId": 2,
+      "movieTime": "12:00 ~ 14:10"
     }
   ],
   "theaters": [

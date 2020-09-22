@@ -135,7 +135,6 @@ const Payment = (props) => {
     temp2.sessionId = 2;
     temp2.branchId = 1;
     temp2.movieTime = saveBooking.screenings;
-    console.log(temp2);
     dispatch(editSeatRequest(temp2));
     window.localStorage.removeItem("bookingForm")
     window.localStorage.removeItem("bookingSeat")

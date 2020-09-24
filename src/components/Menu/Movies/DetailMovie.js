@@ -6,6 +6,7 @@ import * as pointActions from "../../../actions/point";
 import * as adminActions from "../../../actions/admin";
 import * as uiActions from "../../../actions/ui";
 import "../../../sass/detailMovie.scss";
+import { BsStar, BsStarFill } from "react-icons/bs";
 
 const DetailMovie = (props) => {
   const movie = useSelector((state) => state.admin.movie);
@@ -16,58 +17,58 @@ const DetailMovie = (props) => {
   const [ticketMovieName, setTicketMovieName] = useState("");
   const dispatch = useDispatch();
   const points = useSelector((state) => state.points.points);
-  const [listen, setListen] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-      dispatch(uiActions.showLoading());
-      setTimeout(() => {
-        dispatch(adminActions.showMovie(props.match.params.id));
-        dispatch(uiActions.hideLoading());
-      }, 1000);
+    dispatch(uiActions.showLoading());
+    setTimeout(() => {
+      dispatch(adminActions.showMovie(props.match.params.id));
+      dispatch(uiActions.hideLoading());
+    }, 1000);
   }, [dispatch, props]);
 
   useEffect(() => {
-    if(listen !== 0) {
-      dispatch(adminActions.showMovie(props.match.params.id));
-    }
-  }, [dispatch, listen, props]);
-
-  useEffect(() => {
-    if(movie && listen !== 0) {
+    if (movie && count !== 0) {
       setMovie1(movie);
     } else setMovie1(movie);
-    setListen(0);
-  }, [movie, listen]);
+  }, [movie, count]);
 
-  const handlePoint = (point) => {
+  const handlePoint = () => {
     let result = points;
     let mediumScore = 0;
-    let count = 0;
     let templ = movie;
-    if (point !== 0 && points) {
+    let count1 = 0;
+    if (count !== 0 && points) {
       let index1 = searchIndexMovie(points);
       if (index1 !== -1) {
         let index = searchIndex(points[index1].users);
         if (index !== -1) {
-          result[index1].users[index].point = Number(point);
+          result[index1].users[index].point = count;
         } else {
           result[index1].users.push({
             usersId: account[0].id,
-            point: Number(point),
+            point: count,
           });
         }
       }
       points[index1].users.forEach((list, i) => {
         mediumScore = mediumScore + list.point;
-        count = count + 1;
+        count1 = count1 + 1;
       });
-      templ.pointIMDB = Math.round( mediumScore/count * 100 + Number.EPSILON ) / 100;
+      templ.pointIMDB =
+        Math.round((mediumScore / count1) * 100 + Number.EPSILON) / 100;
       dispatch(adminActions.editMovie(templ));
       dispatch(pointActions.editPost(result[index1]));
-      setListen(count);
-    } 
+    }
     return result;
   };
+
+  useEffect(() => {
+    if (count !== 0) {
+      handlePoint();
+      dispatch(adminActions.showMovie(props.match.params.id));
+    }
+  }, [dispatch, count, props, points]);
 
   const searchIndex = (lists) => {
     let index = -1;
@@ -79,9 +80,10 @@ const DetailMovie = (props) => {
 
   const searchIndexMovie = (lists) => {
     let index = -1;
-    lists.forEach((list, i) => {
-      if (list.id === movie.id) index = i;
-    });
+    lists &&
+      lists.forEach((list, i) => {
+        if (list.id === movie.id) index = i;
+      });
     return index;
   };
 
@@ -104,12 +106,22 @@ const DetailMovie = (props) => {
 
   const showSelector = () => {
     let result = [];
-    result.push(<option key={0}>{t("home.point")}</option>);
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= count; i++) {
       result.push(
-        <option key={i} value={i}>
-          {i} {t("home.point")}
-        </option>
+        <BsStarFill
+          style={{ marginRight: "2px", color: "orange" }}
+          key={i}
+          onClick={() => setCount(i)}
+        />
+      );
+    }
+    for (let i = count + 1; i <= 10; i++) {
+      result.push(
+        <BsStar
+          style={{ marginRight: "2px", color: "orange" }}
+          key={i}
+          onClick={() => setCount(i)}
+        />
       );
     }
     return result;
@@ -158,10 +170,8 @@ const DetailMovie = (props) => {
         </div>
         {account && movie.status === 1 ? (
           <div className="detailMovie__detail__item">
-            <b>{t("home.evaluate")}:</b>
-            <select onChange={(e) => handlePoint(e.target.value)}>
-              {showSelector()}
-            </select>
+            <b style={{ marginRight: "5px" }}>{t("home.evaluate")}:</b>
+            {showSelector()}
           </div>
         ) : (
           ""

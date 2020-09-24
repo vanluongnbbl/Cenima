@@ -73,7 +73,7 @@ const Register = (props) => {
         htmlFor="email"
         style={error1 ? { color: "red" } : { color: "black" }}
       >
-        Email
+        Email <strong style={{color: "red"}}>*</strong>
       </label>
       <input
         name="email"
@@ -90,7 +90,7 @@ const Register = (props) => {
         htmlFor="password"
         style={error1 ? { color: "red" } : { color: "black" }}
       >
-        {t("auth.password")}
+        {t("auth.password")} <strong style={{color: "red"}}>*</strong>
       </label>
       <input
         type="password"

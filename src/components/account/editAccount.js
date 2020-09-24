@@ -51,12 +51,14 @@ const EditAccount = (props) => {
     templ.gender = gender;
     templ.password = password;
     templ.avatar = avatar;
-    if(templ.password === currentUser.password) {
+    if (templ.password === currentUser.password) {
       dispatch(editAccountActions.editAccount(templ));
       props.history.push("/");
     } else {
-      toastError({message: "Invalid Password"});
-      dispatch(editAccountActions.editAccountFailed({error: "Invalid Password"}));
+      toastError({ message: "Invalid Password" });
+      dispatch(
+        editAccountActions.editAccountFailed({ error: "Invalid Password" })
+      );
     }
   };
 
@@ -79,8 +81,10 @@ const EditAccount = (props) => {
           onChange={(event) => setName(event.target.value)}
         />
         <br />
-
-        <label htmlFor="password" style={{ color: "red" }}>{t("auth.confirmPassword")}</label>
+        <label htmlFor="password">
+          {t("auth.confirmPassword")}{" "}
+          <strong style={{ color: "red" }}>*</strong>
+        </label>
         <input
           name="password"
           placeholder={t("auth.confirmPassword")}
@@ -101,7 +105,6 @@ const EditAccount = (props) => {
           onChange={(event) => setAvatar(event.target.value)}
         />
         <br />
-
         <label htmlFor="phone">{t("auth.newPhone")}</label>
         <input
           name="phone"
@@ -112,7 +115,6 @@ const EditAccount = (props) => {
           onChange={(event) => setPhone(event.target.value)}
         />
         <br />
-
         <label htmlFor="region">{t("auth.newRegion")}</label>
         <input
           name="region"
@@ -123,7 +125,6 @@ const EditAccount = (props) => {
           onChange={(event) => setRegion(event.target.value)}
         />
         <br />
-
         <label htmlFor="birth">{t("auth.newDateOfBirth")}</label>
         <input
           name="birth"
@@ -134,7 +135,6 @@ const EditAccount = (props) => {
           onChange={(event) => setBirth(event.target.value)}
         />
         <br />
-
         <label htmlFor="Male">{t("auth.newGender")}</label>
         <label htmlFor="Male" className="gender">
           <input
@@ -160,7 +160,6 @@ const EditAccount = (props) => {
           {t("auth.female")}
         </label>
         <br />
-
         <input type="submit" value={t("auth.editAccount")} />
       </form>
     );

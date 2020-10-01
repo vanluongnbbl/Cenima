@@ -1,4 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
+import bcrypt from "bcryptjs";
 import {
   userLoginSuccess,
   userLoginFailed,
@@ -66,7 +67,8 @@ import {
   putEditPoint,
   getSeats,
   getComboFood,
-  getShowMovie,
+  getShowMovie, 
+  getJsonToken
 } from "../apis/auth";
 import { STATUS_CODE } from "../constants";
 import * as authTypes from "../constants/auth";
@@ -119,6 +121,40 @@ function* loginUserSaga({ payload }) {
   } catch (error) {
     yield put(userLoginFailed(error));
   }
+  yield delay(1000);
+  yield put(hideLoading());
+}
+
+const parseJWT = (token) => {
+	const base64Url = token.split(".")[1];
+	const base64 = decodeURIComponent(
+		atob(base64Url)
+			.split("")
+			.map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+			.join("")
+	);
+	return JSON.parse(base64);
+};
+
+function* loginJsonTokenSaga() {
+  yield put(showLoading());
+  try {
+    const token = Cookie.get("accessToken");
+    if(token) {
+      const id = parseJWT(token).sub;
+      const resp = yield call(getJsonToken, id);
+      const { data, status } = resp;
+      console.log(data.password);
+      var salt = bcrypt.genSaltSync(10);
+      data.password = bcrypt.hashSync(data.password, salt);
+      console.log(data.password);
+      if (status === STATUS_CODE.SUCCESS) {
+        yield put(userLoginSuccess(data));
+      }
+    }
+    } catch (error) {
+      yield put(userLoginFailed(error));
+    }
   yield delay(1000);
   yield put(hideLoading());
 }
@@ -503,6 +539,7 @@ function* showMovieSaga({ payload }) {
 
 function* rootSaga() {
   yield takeLatest(authTypes.LOGIN_USER, loginUserSaga);
+  yield takeLatest(authTypes.LOGIN_JSON_TOKEN, loginJsonTokenSaga);
   yield takeLatest(authTypes.REGISTER_USER, registerUserSaga);
   yield takeLatest(sliderBarActions.BANNER, sliderBarSaga);
   yield takeLatest(movieActions.MOVIE, movieSaga);

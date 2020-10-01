@@ -103,3 +103,37 @@ export const accountInformation = (data) => {
     },
   };
 };
+
+export const jsonToken = () => {
+  return {
+    type: authActions.LOGIN_JSON_TOKEN
+  }
+}
+
+export const authorize = () => {
+	return (dispatch) => {
+		const token = Cookie.get("accessToken");
+		if (token) {
+			const id = parseJWT(token).sub;
+			fetch(`http://localhost:3100/users/${id}`)
+				.then((res) => res.json())
+				.then((result) => {
+					dispatch(userLoginSuccess(result));
+				})
+				.catch((error) => {
+					console.log(error.toString());
+				});
+		}
+	};
+};
+
+export const parseJWT = (token) => {
+	const base64Url = token.split(".")[1];
+	const base64 = decodeURIComponent(
+		atob(base64Url)
+			.split("")
+			.map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+			.join("")
+	);
+	return JSON.parse(base64);
+};

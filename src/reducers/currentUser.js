@@ -17,7 +17,9 @@ export default function reducer(state = initialState, action) {
     }
     case authActions.LOGIN_USER_SUCCESS: {
       const { data } = action.payload;
-      toastSuccess("Login success.");
+      if(!data.id) {
+        toastSuccess("Login success.");
+      }
       return { ...state, currentUser: data };
     }
     case authActions.LOGIN_USER_FAILED: {

@@ -42,6 +42,10 @@ const Home = (props) => {
   }, []);
 
   useEffect(() => {
+    dispatch(authActions.jsonToken());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(sliderBarActions.sliderBar());
   }, [dispatch]);
 

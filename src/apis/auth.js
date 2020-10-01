@@ -14,6 +14,11 @@ export const postRegister = userObj => {
   return axiosService.post(`${API_ENDPOINT}/${url}/register`, userObj);
 };
 
+// http://localhost:3100/users/id METHOD: GET
+export const getJsonToken = id => {
+  return axiosService.get(`${API_ENDPOINT}/${url}/${id}`);
+};
+
 // http://localhost:3100/sliderbars METHOD: GET
 export const getSliderBar = () => {
   return axiosService.get(`${API_ENDPOINT}/sliderbars`);

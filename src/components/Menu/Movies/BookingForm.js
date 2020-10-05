@@ -7,6 +7,10 @@ import * as adminActions from "../../../actions/admin";
 import * as saveBookingActions from "../../../actions/saveBooking";
 import { movieTypeRequest } from "../../../actions/movieType";
 import { Link } from "react-router-dom";
+import moment from 'moment-timezone'
+
+// const moment = require('moment-timezone')
+
 
 function BookingForm({ movieNow, passIsOpen, isOpenModal2 }) {
     const [isActiveType, setIsActiveType] = useState(0);
@@ -55,6 +59,15 @@ function BookingForm({ movieNow, passIsOpen, isOpenModal2 }) {
     // }
     //  end add ticket
 
+
+    function getMinute(timing = '') {
+        const timingArray = timing.split(':')
+        return parseInt(timingArray[0], 10) * 60 + parseInt(timingArray.pop(), 10)
+    }
+
+    // console.log("time zone",
+    //     getMinute(moment(Date.now()).format('HH:mm')) > getMinute(sessionSS.split(' ')[0])
+    // )
     useEffect(() => {
         dispatch(bookingTimeAction.bookingTimeRequest());
     }, [dispatch]);
@@ -253,6 +266,7 @@ function BookingForm({ movieNow, passIsOpen, isOpenModal2 }) {
                 key={i}
             >
                 <Link
+                    className={getMinute(moment(Date.now()).format('HH:mm')) > getMinute(time.split(' ')[0]) ? "none" : ""}
                     onClick={() =>
                         handleTime(
                             time,
@@ -264,7 +278,10 @@ function BookingForm({ movieNow, passIsOpen, isOpenModal2 }) {
                         )
                     }
                 >
-                    {time}
+                    {
+                        getMinute(moment(Date.now()).format('HH:mm')) > getMinute(time.split(' ')[0]) ?
+                            "" : time
+                    }
                 </Link>
             </span>
         ));

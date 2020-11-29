@@ -133,7 +133,7 @@ const ManagementUsers = (props) => {
 
   const handleDeleteUser = (user) => {
     const string = t("auth.deleteConfirm");
-    if(window.confirm(string)) {
+    if (window.confirm(string)) {
       dispatch(adminActions.deleteUser(user));
       const index = searchIndex(user.id);
       if (index !== -1) {

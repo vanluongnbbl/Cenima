@@ -270,6 +270,22 @@ const BookingSeats = () => {
         <div className="bookingSeats__screen">{t("home.screen")}</div>
         <div className="bookingSeats__seats row">{numberSeat()}</div>
         <div className="bookingSeats__total">
+          <div className="note-seat">
+            <div className="note-seat__inner">
+              <div className="normal-seat">
+                <div><b>Available seat: </b></div>
+                <div className="normal-seat__color"></div>
+              </div>
+              <div className="normal-seat">
+                <div><b>Unavailable seat: </b></div>
+                <div className="unavailable-seat__color"></div>
+              </div>
+              <div className="normal-seat">
+                <div><b>Checked seat: </b></div>
+                <div className="checked-seat__color"></div>
+              </div>
+            </div>
+          </div>
           <span className="total">
             {t("home.paymentMovie")}: <b>{totalMoviePrice()} VND</b>
           </span>

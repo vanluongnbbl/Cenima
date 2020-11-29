@@ -85,7 +85,50 @@
       cursor: default;
     }
   }
+  .note-seat {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__inner {
+    }
+  }
+
+  .normal-seat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    &__color {
+      width: 15px;
+      height: 15px;
+      margin-left: 15px;
+      background-color: #fff;
+      border: 1px solid #e1e1e1;
+    }
+  }
+
+  .unavailable-seat__color {
+    width: 15px;
+    height: 15px;
+    margin-left: 15px;
+    background-color: #b10303;
+    border: 1px solid #e1e1e1;
+  }
+
+  .checked-seat__color {
+    width: 15px;
+    height: 15px;
+    margin-left: 15px;
+    background-color: #89c441;
+    border: 1px solid #e1e1e1;
+  }
   &__total {
+    position: relative;
     display: flex;
     justify-content: space-between;
     border: 1px solid $colorBorder;
@@ -102,6 +145,7 @@
       }
     }
     .next {
+      z-index: 9;
       a {
         color: $colorWhite;
       }
@@ -110,6 +154,7 @@
       transition: 0.3s;
     }
     .next:hover {
+      z-index: 9;
       a {
         color: $colorGreen;
       }

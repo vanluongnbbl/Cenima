@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import * as ticketActions from "../../actions/admin";
+import * as authActions from "../../actions/auth";
 import * as movieActions from "../../actions/movies";
+import * as pointActions from "../../actions/point";
 import * as promotionAction from "../../actions/promotion";
 import * as sliderBarActions from "../../actions/sliderBars";
-import * as ticketActions from "../../actions/admin";
 import "../../sass/home.scss";
-import * as authActions from "../../actions/auth";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import BookingForm from "../Menu/Movies/BookingForm";
-import * as pointActions from "../../actions/point";
+
 
 const Home = (props) => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -195,8 +196,8 @@ const Home = (props) => {
                 />
               </div>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </div>
         );
       }
@@ -251,10 +252,10 @@ const Home = (props) => {
             {t("home.viewMore")}
           </Link>
         ) : (
-          <Link to="comingSoon" className="movies__btn">
-            {t("home.viewMore")}
-          </Link>
-        )}
+            <Link to="comingSoon" className="movies__btn">
+              {t("home.viewMore")}
+            </Link>
+          )}
       </div>
 
       <div className="promotion ">

@@ -6,10 +6,10 @@ import * as saveBookingActions from "../../actions/saveBooking";
 import * as seatAction from "../../actions/seats";
 import * as saveSeatAction from "../../actions/saveSeat";
 import { Link } from "react-router-dom";
-const BookingSeats = () => {
+const BookingSeats = (props) => {
   const [clickSeat, setClickSeat] = useState(0);
   const [clickPrice, setClickPrice] = useState(0);
-  const [seatSession, setSeatSession] = useState([])
+  const [seatSession, setSeatSession] = useState([]);
   // const saveBooking = useSelector(state => state.saveBookingReducer.saveBooking)
   const saveBooking = JSON.parse(window.localStorage.getItem("bookingForm"));
   const getSeats = useSelector((state) => state.seatReducer.seatData);
@@ -17,6 +17,7 @@ const BookingSeats = () => {
   const [arrayPrice, setArrayPrice] = useState([]);
   const [bookedSeat, setBookedSeat] = useState([]);
   const [seatId, setSeatId] = useState(-1);
+  const account = useSelector((state) => state.currentUser.account);
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
   // save Seat
@@ -29,6 +30,12 @@ const BookingSeats = () => {
   useEffect(() => {
     dispatch(seatAction.seatRequest());
   }, [dispatch]);
+
+  const checkLogin = () => {
+    if (!account) {
+      props.history.push("/login");
+    }
+  };
 
   let today = new Date();
   let weekday = new Array(10);
@@ -99,25 +106,25 @@ const BookingSeats = () => {
     }
   }, [seatSession]);
 
-
   useEffect(() => {
     if (getSeats !== null && saveBooking !== null) {
       const result = [...getSeats].filter((getSeat) => {
-        if (getSeat.sessionId === saveBooking.sessionId &&
-          saveBooking.screenings === getSeat.movieTime) {
+        if (
+          getSeat.sessionId === saveBooking.sessionId &&
+          saveBooking.screenings === getSeat.movieTime
+        ) {
           let result2 = getSeat.numberSeat;
           const result3 = [...result2].filter((status) => {
-            return getSeat.id === saveBooking.sessionId
-              && saveBooking.screenings === getSeat.movieTime
+            return (
+              getSeat.id === saveBooking.sessionId &&
+              saveBooking.screenings === getSeat.movieTime
+            );
           });
           setSeatSession(() => [...result3]);
         }
-
       });
     }
   }, [getSeats]);
-
-
 
   const searchIndex = (value) => {
     let index = -1;
@@ -146,7 +153,7 @@ const BookingSeats = () => {
       "bookedSeat",
       JSON.stringify({
         bookedSeat: bookedSeat,
-        seatSession: seatSession
+        seatSession: seatSession,
       })
     );
 
@@ -181,11 +188,9 @@ const BookingSeats = () => {
   const showRemaining = () => {
     if (seatSession !== null) {
       return (
-
         <span className="content">
           {t("home.remaining")} ({bookedSeat.length}/{seatSession.length})
         </span>
-
       );
     }
   };
@@ -206,10 +211,10 @@ const BookingSeats = () => {
               {saveBooking.showDate === 0
                 ? dateToday
                 : saveBooking.showDate === 1
-                  ? dateToday1
-                  : saveBooking.showDate === 2
-                    ? dateToday2
-                    : dateToday3}
+                ? dateToday1
+                : saveBooking.showDate === 2
+                ? dateToday2
+                : dateToday3}
             </span>
             <span className="times">{saveBooking.screenings}</span>
           </div>
@@ -236,15 +241,15 @@ const BookingSeats = () => {
     seatSession &&
       seatSession.forEach((number, i) => {
         if (number) {
-          let temp = searchIndex(number.codeSeat);;
+          let temp = searchIndex(number.codeSeat);
           return result.push(
             <div
               className={
                 number.status
                   ? "bookingSeats__seats__item booked"
                   : temp !== -1
-                    ? "bookingSeats__seats__item active"
-                    : "bookingSeats__seats__item"
+                  ? "bookingSeats__seats__item active"
+                  : "bookingSeats__seats__item"
               }
               key={i}
               onClick={() => handleClickSeat(number)}
@@ -259,41 +264,53 @@ const BookingSeats = () => {
   };
 
   return (
-    <div className="bookingSeats">
-      <div className="container">
-        <div className="bookingSeats__title">
-          <span className="title">{t("home.bookingOnline")}</span>
-        </div>
+    <div>
+      {!account ? (
+        checkLogin()
+      ) : (
+        <div className="bookingSeats">
+          <div className="container">
+            <div className="bookingSeats__title">
+              <span className="title">{t("home.bookingOnline")}</span>
+            </div>
 
-        {showInfoBoard()}
+            {showInfoBoard()}
 
-        <div className="bookingSeats__screen">{t("home.screen")}</div>
-        <div className="bookingSeats__seats row">{numberSeat()}</div>
-        <div className="bookingSeats__total">
-          <div className="note-seat">
-            <div className="note-seat__inner">
-              <div className="normal-seat">
-                <div><b>Available seat: </b></div>
-                <div className="normal-seat__color"></div>
+            <div className="bookingSeats__screen">{t("home.screen")}</div>
+            <div className="bookingSeats__seats row">{numberSeat()}</div>
+            <div className="bookingSeats__total">
+              <div className="note-seat">
+                <div className="note-seat__inner">
+                  <div className="normal-seat">
+                    <div>
+                      <b>Available seat: </b>
+                    </div>
+                    <div className="normal-seat__color"></div>
+                  </div>
+                  <div className="normal-seat">
+                    <div>
+                      <b>Unavailable seat: </b>
+                    </div>
+                    <div className="unavailable-seat__color"></div>
+                  </div>
+                  <div className="normal-seat">
+                    <div>
+                      <b>Checked seat: </b>
+                    </div>
+                    <div className="checked-seat__color"></div>
+                  </div>
+                </div>
               </div>
-              <div className="normal-seat">
-                <div><b>Unavailable seat: </b></div>
-                <div className="unavailable-seat__color"></div>
-              </div>
-              <div className="normal-seat">
-                <div><b>Checked seat: </b></div>
-                <div className="checked-seat__color"></div>
-              </div>
+              <span className="total">
+                {t("home.paymentMovie")}: <b>{totalMoviePrice()} VND</b>
+              </span>
+              <span className="next" onClick={handleSaveSeat}>
+                <Link to="/bookingfood">{t("home.next")} &#10095;</Link>
+              </span>
             </div>
           </div>
-          <span className="total">
-            {t("home.paymentMovie")}: <b>{totalMoviePrice()} VND</b>
-          </span>
-          <span className="next" onClick={handleSaveSeat}>
-            <Link to="/bookingfood">{t("home.next")} &#10095;</Link>
-          </span>
         </div>
-      </div>
+      )}
     </div>
   );
 };

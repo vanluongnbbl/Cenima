@@ -25,7 +25,9 @@ const Information = (props) => {
             />
             <div className="information__wrapper">
               <div>
-                <div className="information__wrapper__title">{t("auth.name")} </div>
+                <div className="information__wrapper__title">
+                  {t("auth.name")}{" "}
+                </div>
                 <div className="information__wrapper__content">{acc.name}</div>
               </div>
               <div>
@@ -33,11 +35,15 @@ const Information = (props) => {
                 <div className="information__wrapper__content">{acc.email}</div>
               </div>
               <div>
-                <div className="information__wrapper__title">{t("auth.phone")}: </div>
+                <div className="information__wrapper__title">
+                  {t("auth.phone")}:{" "}
+                </div>
                 <div className="information__wrapper__content">{acc.phone}</div>
               </div>
               <div>
-                <div className="information__wrapper__title">{t("auth.gender")}: </div>
+                <div className="information__wrapper__title">
+                  {t("auth.gender")}:{" "}
+                </div>
                 <div className="information__wrapper__content">
                   {acc.gender}
                 </div>
@@ -49,7 +55,9 @@ const Information = (props) => {
                 <div className="information__wrapper__content">{acc.birth}</div>
               </div>
               <div>
-                <div className="information__wrapper__title">{t("auth.region")}: </div>
+                <div className="information__wrapper__title">
+                  {t("auth.region")}:{" "}
+                </div>
                 <div className="information__wrapper__content">
                   {acc.region}
                 </div>
@@ -60,6 +68,14 @@ const Information = (props) => {
                   onClick={() => props.history.push("/editAccount")}
                 >
                   {t("auth.editAccount")}
+                </span>
+                <span className="btn">
+                  <span
+                    className="information__wrapper__btn"
+                    onClick={() => props.history.push("/bookingHistory")}
+                  >
+                    {t("auth.bookingHistory")}
+                  </span>
                 </span>
               </div>
             </div>

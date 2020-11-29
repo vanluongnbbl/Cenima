@@ -121,6 +121,7 @@
     "show": "Xem",
     "confirmPassword": "Xác Thực Mật Khẩu",
     "addMovie":"Thêm Phim",
-    "deleteConfirm": "Bạn chắc chắc muốn xoá?"
+    "deleteConfirm": "Bạn chắc chắc muốn xoá?",
+    "bookingHistory": "Lịch Sử Đặt Vé"
   }
 }

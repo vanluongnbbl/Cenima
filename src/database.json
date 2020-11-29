@@ -707,7 +707,7 @@
         {
           "codeSeat": "E07",
           "price": 75000,
-          "status": false,
+          "status": true,
           "id": 47
         },
         {
@@ -719,7 +719,7 @@
         {
           "codeSeat": "E09",
           "price": 75000,
-          "status": false,
+          "status": true,
           "id": 49
         },
         {
@@ -729,313 +729,6 @@
           "id": 50
         }
       ],
-      "sessionId": 1,
-      "movieTime": "18:00 ~ 20:20"
-    },
-    {
-      "numberSeat": [
-        {
-          "codeSeat": "A01",
-          "price": 75000,
-          "status": true,
-          "id": 1
-        },
-        {
-          "codeSeat": "A02",
-          "price": 75000,
-          "status": false,
-          "id": 2
-        },
-        {
-          "codeSeat": "A03",
-          "price": 75000,
-          "status": false,
-          "id": 3
-        },
-        {
-          "codeSeat": "A04",
-          "price": 75000,
-          "status": false,
-          "id": 4
-        },
-        {
-          "codeSeat": "A05",
-          "price": 75000,
-          "status": false,
-          "id": 5
-        },
-        {
-          "codeSeat": "A06",
-          "price": 75000,
-          "status": false,
-          "id": 6
-        },
-        {
-          "codeSeat": "A07",
-          "price": 75000,
-          "status": false,
-          "id": 7
-        },
-        {
-          "codeSeat": "A08",
-          "price": 75000,
-          "status": false,
-          "id": 8
-        },
-        {
-          "codeSeat": "A09",
-          "price": 75000,
-          "status": false,
-          "id": 9
-        },
-        {
-          "codeSeat": "A10",
-          "price": 75000,
-          "status": false,
-          "id": 10
-        },
-        {
-          "codeSeat": "B01",
-          "price": 75000,
-          "status": false,
-          "id": 11
-        },
-        {
-          "codeSeat": "B02",
-          "price": 75000,
-          "status": false,
-          "id": 12
-        },
-        {
-          "codeSeat": "B03",
-          "price": 75000,
-          "status": false,
-          "id": 13
-        },
-        {
-          "codeSeat": "B04",
-          "price": 75000,
-          "status": false,
-          "id": 14
-        },
-        {
-          "codeSeat": "B05",
-          "price": 75000,
-          "status": false,
-          "id": 15
-        },
-        {
-          "codeSeat": "B06",
-          "price": 75000,
-          "status": false,
-          "id": 16
-        },
-        {
-          "codeSeat": "B07",
-          "price": 75000,
-          "status": false,
-          "id": 17
-        },
-        {
-          "codeSeat": "B08",
-          "price": 75000,
-          "status": false,
-          "id": 18
-        },
-        {
-          "codeSeat": "B09",
-          "price": 75000,
-          "status": false,
-          "id": 19
-        },
-        {
-          "codeSeat": "B10",
-          "price": 75000,
-          "status": false,
-          "id": 20
-        },
-        {
-          "codeSeat": "C01",
-          "price": 75000,
-          "status": false,
-          "id": 21
-        },
-        {
-          "codeSeat": "C02",
-          "price": 75000,
-          "status": false,
-          "id": 22
-        },
-        {
-          "codeSeat": "C03",
-          "price": 75000,
-          "status": false,
-          "id": 23
-        },
-        {
-          "codeSeat": "C04",
-          "price": 75000,
-          "status": false,
-          "id": 24
-        },
-        {
-          "codeSeat": "C05",
-          "price": 75000,
-          "status": false,
-          "id": 25
-        },
-        {
-          "codeSeat": "C06",
-          "price": 75000,
-          "status": false,
-          "id": 26
-        },
-        {
-          "codeSeat": "C07",
-          "price": 75000,
-          "status": false,
-          "id": 27
-        },
-        {
-          "codeSeat": "C08",
-          "price": 75000,
-          "status": false,
-          "id": 28
-        },
-        {
-          "codeSeat": "C09",
-          "price": 75000,
-          "status": false,
-          "id": 29
-        },
-        {
-          "codeSeat": "C10",
-          "price": 75000,
-          "status": false,
-          "id": 30
-        },
-        {
-          "codeSeat": "D01",
-          "price": 75000,
-          "status": false,
-          "id": 31
-        },
-        {
-          "codeSeat": "D02",
-          "price": 75000,
-          "status": false,
-          "id": 32
-        },
-        {
-          "codeSeat": "D03",
-          "price": 75000,
-          "status": false,
-          "id": 33
-        },
-        {
-          "codeSeat": "D04",
-          "price": 75000,
-          "status": false,
-          "id": 34
-        },
-        {
-          "codeSeat": "D05",
-          "price": 75000,
-          "status": true,
-          "id": 35
-        },
-        {
-          "codeSeat": "D06",
-          "price": 75000,
-          "status": true,
-          "id": 36
-        },
-        {
-          "codeSeat": "D07",
-          "price": 75000,
-          "status": false,
-          "id": 37
-        },
-        {
-          "codeSeat": "D08",
-          "price": 75000,
-          "status": false,
-          "id": 38
-        },
-        {
-          "codeSeat": "D09",
-          "price": 75000,
-          "status": false,
-          "id": 39
-        },
-        {
-          "codeSeat": "D10",
-          "price": 75000,
-          "status": false,
-          "id": 40
-        },
-        {
-          "codeSeat": "E01",
-          "price": 75000,
-          "status": false,
-          "id": 41
-        },
-        {
-          "codeSeat": "E02",
-          "price": 75000,
-          "status": false,
-          "id": 42
-        },
-        {
-          "codeSeat": "E03",
-          "price": 75000,
-          "status": false,
-          "id": 43
-        },
-        {
-          "codeSeat": "E04",
-          "price": 75000,
-          "status": false,
-          "id": 44
-        },
-        {
-          "codeSeat": "E05",
-          "price": 75000,
-          "status": false,
-          "id": 45
-        },
-        {
-          "codeSeat": "E06",
-          "price": 75000,
-          "status": false,
-          "id": 46
-        },
-        {
-          "codeSeat": "E07",
-          "price": 75000,
-          "status": false,
-          "id": 47
-        },
-        {
-          "codeSeat": "E08",
-          "price": 75000,
-          "status": false,
-          "id": 48
-        },
-        {
-          "codeSeat": "E09",
-          "price": 75000,
-          "status": false,
-          "id": 49
-        },
-        {
-          "codeSeat": "E10",
-          "price": 75000,
-          "status": false,
-          "id": 50
-        }
-      ],
-      "id": 1,
       "sessionId": 1,
       "movieTime": "18:00 ~ 20:20"
     },
@@ -1989,6 +1682,44 @@
       },
       "timeSet": "2020-9-01",
       "id": 11
+    },
+    {
+      "userId": 0,
+      "nameMovie": "Spider-Man: Người Nhện Xa Nhà - Spider-Man: Far From Home",
+      "image": "https://s3img.vcdn.vn/mobile/123phim/2019/05/ky-sinh-trung-parasite-15576856821439_220x310.jpg",
+      "combo": [
+        {
+          "id": 1,
+          "image": "https://cms.megagscinemas.vn//media/76071/big-share.png",
+          "nameCombo": "2 ly nước lớn, 1 bắp lớn",
+          "count": 0,
+          "price": 97000
+        },
+        {
+          "id": 2,
+          "image": "https://cms.megagscinemas.vn//media/76070/share.png",
+          "nameCombo": "2 ly nước vừa, 1 bắp lớn",
+          "count": 2,
+          "price": 87000
+        }
+      ],
+      "pay": "CASH",
+      "total": 324000,
+      "count": 2,
+      "discount": 0,
+      "showtimes": {
+        "nameTheater": "Lotte Cinema",
+        "screenings": "18:00 ~ 20:20",
+        "nameBranch": "",
+        "showDate": "Wednesday - 32/11",
+        "cinemaRoom": 4,
+        "seats": [
+          "E09",
+          "E10"
+        ]
+      },
+      "timeSet": "2020-11-29",
+      "id": 12
     }
   ],
   "sessions": [

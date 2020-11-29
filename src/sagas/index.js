@@ -144,10 +144,8 @@ function* loginJsonTokenSaga() {
       const id = parseJWT(token).sub;
       const resp = yield call(getJsonToken, id);
       const { data, status } = resp;
-      console.log(data.password);
       var salt = bcrypt.genSaltSync(10);
       data.password = bcrypt.hashSync(data.password, salt);
-      console.log(data.password);
       if (status === STATUS_CODE.SUCCESS) {
         yield put(userLoginSuccess(data));
       }

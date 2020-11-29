@@ -121,6 +121,7 @@
     "show": "Show",
     "confirmPassword": "Confirm Password",
     "addMovie":"Add Movie",
-    "deleteConfirm": "Delete Confirm?"
+    "deleteConfirm": "Delete Confirm?",
+    "bookingHistory": "Booking History"
   }
 }

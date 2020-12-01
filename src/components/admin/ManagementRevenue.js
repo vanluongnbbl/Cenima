@@ -25,7 +25,7 @@ const ManagementRevenue = (props) => {
       let day = "";
       if (date.getMonth() + 1 < 10) {
         month = `0${date.getMonth() + 1}`;
-      } else month = date.getMonth();
+      } else month = date.getMonth() + 1;
       if (date.getDate() < 10) {
         day = `0${date.getDate()}`;
       } else day = date.getDate();
